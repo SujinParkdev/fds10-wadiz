@@ -1,20 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RoutingModule } from './/routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { MainComponent } from './main/main.component';
-import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
-import { JoinComponent } from './join/join.component';
-import { SettingComponent } from './setting/setting.component';
-import { DetailComponent } from './detail/detail.component';
-import { SearchComponent } from './search/search.component';
-import { FundingComponent } from './funding/funding.component';
-import { PaymentComponent } from './payment/payment.component';
-import { LikelistComponent } from './likelist/likelist.component';
-import { FundinglistComponent } from './fundinglist/fundinglist.component';
+import { HeaderComponent } from './components/common/header.component';
+import { FooterComponent } from './components/common/footer.component';
+import { MainComponent } from './components/main/main.component';
+import { DetailComponent } from './components/detail/detail.component';
+import { LoginComponent } from './components/login/login.component';
+import { JoinComponent } from './components/join/join.component';
+import { SettingComponent } from './components/setting/setting.component';
+import { FundingComponent } from './components/funding/funding.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { LikelistComponent } from './components/likelist/likelist.component';
+import { FundinglistComponent } from './components/fundinglist/fundinglist.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { FundinglistComponent } from './fundinglist/fundinglist.component';
     JoinComponent,
     SettingComponent,
     DetailComponent,
-    SearchComponent,
     FundingComponent,
     PaymentComponent,
     LikelistComponent,
@@ -34,7 +32,7 @@ import { FundinglistComponent } from './fundinglist/fundinglist.component';
   ],
   imports: [
     BrowserModule,
-    RoutingModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
