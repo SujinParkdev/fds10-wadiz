@@ -34,8 +34,8 @@ import { Component, OnInit } from '@angular/core';
             </li>
           </ul>
           <ul class="user-setting">
-            <li><a [routerLink]="['/setting']">설정</a></li>
-            <li><a [routerLink]="['/logout']">로그아웃</a></li>
+            <li><a [routerLink]="['/setting']" class="setting">설정</a></li>
+            <li><a [routerLink]="['/logout']" class="logout">로그아웃</a></li>
           </ul>
         </div>
       </div>
@@ -177,6 +177,7 @@ import { Component, OnInit } from '@angular/core';
       border-top: 1px solid rgba(0,0,0,.1);
       padding-top: 12px;
       padding-bottom: 20px;
+      font-size: 15px;
     }
     .fundinglist:before {
       display: block;
@@ -185,6 +186,18 @@ import { Component, OnInit } from '@angular/core';
     .likelist:before {
       display: block;
       content: url(https://png.icons8.com/ios/50/000000/like.png);
+    }
+    .setting:before {
+      display: inline-block;
+      content: url(https://png.icons8.com/windows/50/000000/settings.png);
+      padding-left: 12px;
+      padding-right: 18px;
+    }
+    .logout:before {
+      display: inline-block;
+      content: url(https://png.icons8.com/ios/50/000000/exit.png);
+      padding-left: 18px;
+      padding-right: 18px;
     }
   `]
 })
