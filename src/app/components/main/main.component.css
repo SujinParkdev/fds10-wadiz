@@ -1,5 +1,3 @@
-@import "~nouislider/distribute/nouislider.min.css";
-
 .body {
   font-family: Roboto,Noto Sans KR,-apple-system,Dotum,sans-serif
 }
@@ -70,10 +68,17 @@
   display: flex;
   justify-content: center
 }
-.category:hover {
-  border: 2px solid #00bf99;
+.category:hover::before {
+  border: 2px solid #00bf99; 
+  position: absolute;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  content:"";
+  display: block;
+  cursor: pointer;
 }
-.category-text:hover {
+.category:hover .category-text {
   color: #00bf99;
 }
 .category-text {
