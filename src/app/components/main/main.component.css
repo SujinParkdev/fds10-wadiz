@@ -1,0 +1,157 @@
+@import "~nouislider/distribute/nouislider.min.css";
+
+.body {
+  font-family: Roboto,Noto Sans KR,-apple-system,Dotum,sans-serif
+}
+.slide-container {
+  position: relative;
+  height: 440px;
+  background: pink;
+}
+.rewards-container {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1065px;
+}
+.category-container {
+  position: relative;
+  height: 210px;
+  max-width: 1032px;
+  margin: 0 auto;
+}
+.rewardlist-container {
+  position: relative;
+  max-width: 1032px;
+  margin: 0 auto;
+  background: skyblue;
+}
+.rewardlist-container .reward-filter {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.rewardlist-container ul:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+.rewardlist-container li {
+  float: left;
+  width: 33.33%;
+}
+.reward {
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* category start */
+.category-container {
+  margin-bottom: 0;
+  /* padding: 0 60px 14px 0; */
+  height: 210px;
+  overflow: hidden;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.only-category-container {
+  width: 1032px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.category {
+  display: inline-block;
+  border-radius: 50%;
+  background-color: #dedede;
+  background-position: 50%;
+  background-size: cover;
+  width: 56px;
+  height: 56px;
+  margin-top: 55px;
+  display: flex;
+  justify-content: center
+}
+.category:hover {
+  border: 2px solid #00bf99;
+}
+.category-text:hover {
+  color: #00bf99;
+}
+.category-text {
+  color: black;
+  margin-top: 60px;
+  display: inline-block;
+  line-height: 18px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  width: 80px;
+}
+.category1 {
+  background-image: url(https://cdn.wadiz.kr/resources/assets/img/912f519d6d62214aea09ffd35630daab.jpg)
+}
+.category2 {
+  background-image: url(https://cdn.wadiz.kr/resources/assets/img/56a64dc0f600839f467920a2598e1340.jpg)
+}
+.category3 {
+  background-image: url(https://cdn.wadiz.kr/resources/assets/img/29ca1d6c801542767c5f9fe2a14746c6.jpg)
+}
+.category4 {
+  background-image: url(https://cdn.wadiz.kr/resources/assets/img/b8f23dda2954a81dcb83ee92460d14fe.jpg)
+}
+.category5 {
+  background-image: url(https://cdn.wadiz.kr/resources/assets/img/8794e59843df576beb42a54be20444a6.jpg)
+}
+.category6 {
+  background-image: url(https://cdn.wadiz.kr/resources/assets/img/c215ebf31bc7d3d28a2e427ce47c4886.jpg)
+}
+.category7 {
+  background-image: url(https://cdn.wadiz.kr/resources/assets/img/165c7094a3543601cf70fa4ba859ac96.jpg)
+}
+.category8 {
+  background-image: url(https://cdn.wadiz.kr/resources/assets/img/963a880fd2ee56a0e1869cee8b69c363.jpg)
+}
+.category9 {
+  background-image: url(https://cdn.wadiz.kr/resources/assets/img/9d7f8702ca73c5fcc73bc871983fc684.jpg)
+}
+.category10 {
+  background-image: url(https://cdn.wadiz.kr/resources/assets/img/3e377b6e291726caad316b351ff0b0e1.jpg)
+}
+/* category end */
+
+/* category arrow button start */
+.category-arrow-btn {
+  margin-top: 20px;
+  font-size: 40px;
+  background: none;
+  border: none;
+}
+/* category arrow button end */
+
+
+/* reward list header start */
+.reward-filter-header {
+  position: relative;
+  padding: 30px;
+}
+.reward-filter-list-title>h3 {
+  position: absolute;
+  line-height: 32px;
+  font-size: 24px;
+  font-weight: bold;
+  width: 94px;
+}
+.reward-search {
+  position: absolute;
+  padding-left: 200px;
+}
+.filter1-category {
+  position: absolute;
+  right: 200px;
+  width: 90px;
+}
+.filter2-order {
+  position: absolute;
+  right: 100px;
+  width: 90px;
+}
+/* reward list header end */
