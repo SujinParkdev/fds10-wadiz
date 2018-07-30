@@ -6,23 +6,48 @@ import { Component, OnInit } from '@angular/core';
     <div class="header">
       <div class="gnb">
         <a [routerLink]="['/main']" class="logo" title="wadiz"></a>
-        
-        <div class="gnb-menu">
-          <a [routerLink]="['/fundinglist']">펀딩내역</a>
-          <a [routerLink]="['/likelist']">좋아한 프로젝트</a>
-          <a [routerLink]="['/setting']">설정</a>
-          <a [routerLink]="['/login']" title="login">로그인</a>
-          <a [routerLink]="['/join']" title="join">회원가입</a>
+        <ul class="gnb-menu">
+          <li>
+            <div class="user"></div>
+          </li>
+          <li>
+            <a [routerLink]="['/login']" title="login">로그인</a>
+          </li>
+          <li>
+            <a [routerLink]="['/join']" title="join">회원가입</a>
+          </li>
+        </ul>
+      </div>
+      <div class="user-pop">
+        <div class="user-pop-bg"></div>
+        <div class="user-pop-body">
+          <div class="user-profile">
+            <div class="user-picture"></div>
+            <div class="user-name">noname</div>
+          </div>
+          <ul class="user-menu">
+            <li>
+              <a [routerLink]="['/fundinglist']" class="fundinglist">펀딩 내역</a>
+            </li>
+            <li>
+              <a [routerLink]="['/likelist']" class="likelist">좋아한 프로젝트</a>
+            </li>
+          </ul>
+          <ul class="user-setting">
+            <li><a [routerLink]="['/setting']">설정</a></li>
+            <li><a [routerLink]="['/logout']">로그아웃</a></li>
+          </ul>
         </div>
       </div>
-    <div>
+    </div>
   `,
   styles: [`
     .header {
       position: relative;
       width: 100%;
       box-shadow: 0 1px 0 0 rgba(0,0,0,.08);
-      background: #00cca3;
+      z-index: 100;
+      background: #fff;
     }
     .gnb {
       position: relative;
@@ -49,9 +74,117 @@ import { Component, OnInit } from '@angular/core';
       position: absolute;
       top: 0;
       right: 16px;
+      height: 56px;
+      overflow: hidden;
+    }
+    .gnb-menu li {
+      float: left;
+      height: 56px;
+      line-height: 56px;
+      padding-left: 15px;
     }
     .gnb-menu a {
-      margin-left: 10px;
+      color: #44484b;
+    }
+    .user {
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(0,0,0,.1);
+      border-radius: 16px;
+      overflow: hidden;
+      background: url(http://www.wadiz.kr/resources/static/img/common/img_blank.png) no-repeat -1px;
+      background-size: 108%;
+      margin-top: 12px;
+      cursor: pointer;
+    }
+    .user-pop {
+      position: relative;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 1200px;
+      transition: all .25s;
+    }
+    .user-pop a {
+      color: rgba(0,0,0,.87);
+      font-size: 13px;
+    }
+    .user-pop:before, .user-pop:after {
+      position: absolute;
+      top: -8px;
+      right: 152px;
+      border-width: 0 7px 7px;
+      border-style: solid;
+      border-color: transparent;
+      border-bottom-color: #fff;
+      content: "";
+    }
+    .user-pop:before {
+      margin-top: -1.5px;
+      border-bottom-color: #dedede;
+    }
+    .user-pop-bg {
+      position: fixed;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .user-pop-body {
+      position: absolute;
+      width: 100%;
+      max-width: 360px;
+      top: 0;
+      right: 0;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.1);
+      box-shadow: 1px 1px 1px rgba(0,0,0,.2);
+      margin-top: -4px;
+      padding: 36px 0 0;
+    }
+    .user-profile {
+      position: relative;
+      padding-left: 18px;
+      min-height: 56px;
+    }
+    .user-picture {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      background: url(http://www.wadiz.kr/resources/static/img/common/img_blank.png) no-repeat -1px;
+      background-size: 108%;
+      border-radius: 50px;
+    }
+    .user-picture:after {
+      border: 1px solid rgba(0,0,0,.1);
+    }
+    .user-name {
+      padding-left: 66px;
+      padding-top: 4px;
+      font-size: 21px;
+      font-weight: 700;
+    }
+    .user-menu:after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+    .user-menu li {
+      float: left;
+      width: 50%;
+      text-align: center;
+      padding: 15px 0;
+    }
+    .user-setting {
+      border-top: 1px solid rgba(0,0,0,.1);
+      padding-top: 12px;
+      padding-bottom: 20px;
+    }
+    .fundinglist:before {
+      display: block;
+      content: url(https://png.icons8.com/dotty/50/000000/overview-pages-1.png);
+    }
+    .likelist:before {
+      display: block;
+      content: url(https://png.icons8.com/ios/50/000000/like.png);
     }
   `]
 })

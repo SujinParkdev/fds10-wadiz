@@ -15,6 +15,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { LikelistComponent } from './components/likelist/likelist.component';
 import { FundinglistComponent } from './components/fundinglist/fundinglist.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

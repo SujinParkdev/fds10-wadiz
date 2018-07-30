@@ -12,14 +12,36 @@ import { Component, OnInit } from '@angular/core';
           </strong><br>
           © Wadiz Corp.
         </p>
+        <p class="company">
+          와디즈 (주) | 대표이사 신혜성 | 사업자등록번호 220-88-37661 | 통신판매업신고 2013-경기성남-0428<br>
+          경기도 성남시 분당구 판교로 242 (삼평동) 판교디지털센터 A동 4층 402호
+        </p><br>
+        <p class="contact">
+          고객센터 1661-9056 | <a href="mailto:info@wadiz.kr">info@wadiz.kr</a><br>
+          제휴문의 070-5088-0219 | <a href="mailto:partner@wadiz.kr">partner@wadiz.kr</a>
+        </p><br>
+        <p class="yellowid">
+          <a href="https://pf.kakao.com/_pEeEl" target="_blank">Yellow ID @와디즈</a><br>
+        </p>
+        <p>
+          이용약관 | 개인정보처리방침 | 수수료 항목
+        </p><br>
+        <p class="warn">
+          투자위험고지<br>
+          비상장기업 투자는 원금 손실의 가능성이 크니 투자 위험 안내를 꼭 확인하세요.
+        </p><br>
+        <p class="blur">
+          와디즈(주)는 플랫폼을 제공하는 중개자(온라인소액투자중개자 및 통신판매중개자)로 크라우드펀딩으로 자금을 모집하는 당사자가 아니며, 투자손실의 위험을 보전하거나 보상품 제공을 보장해 드리지 못합니다.
+        </p>
       </div>
     </div>
   `,
   styles: [`
     .footer {
+      box-shadow: inset 0 1px #ebeced;
       width: 100%;
-      padding: 48px 16px 25px;
-      background: #00cca3;
+      padding: 48px 16px 35px;
+      background: #fafbfc;
     }
     .footer-info {
       position: relative;
@@ -27,7 +49,32 @@ import { Component, OnInit } from '@angular/core';
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 16px;
-      background: #ebeced;
+      background: #fafbfc;
+      font-size: 13px;
+      color: #212121;
+    }
+    .footer-info a {
+      color: #212121;
+    }
+    .footer-info .copyright {
+      color: #00cca3;
+      margin-bottom: 32px;
+      font-size: 17px;
+    }
+    .footer-info .copyright strong {
+      color: #00cca3;
+    }
+    .yellowid {
+      font-weight: bold;
+    }
+    .warn {
+      border-top: 1px solid #ebeced;
+      margin: 0 -16px;
+      padding: 24px 16px 0 16px;
+      color: #e54545;
+    }
+    .blur {
+      color: #737374;
     }
   `]
 })
