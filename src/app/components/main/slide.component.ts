@@ -36,7 +36,7 @@ import { Component, OnInit } from '@angular/core';
       height: 100%;
       background: no-repeat 50%/cover;
       opacity: 0;
-      transition: all 800ms;
+      transition: all .8s;
     }
     .slide-img:before {
       position: absolute;
@@ -121,7 +121,7 @@ import { Component, OnInit } from '@angular/core';
       position: absolute;
       height: 5px;
       background: #00cca3;
-      transition: all 300ms;
+      transition: all .3s;
     }
   `]
 })

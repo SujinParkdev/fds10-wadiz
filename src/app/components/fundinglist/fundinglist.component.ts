@@ -37,6 +37,7 @@ import { Component, OnInit } from '@angular/core';
       font-size: 36px;
       line-height: 44px;
       text-align: left;
+      color: #44484b;
     }
     .fundinglist-container .list {
       background: #f5f7fa;
@@ -53,7 +54,7 @@ import { Component, OnInit } from '@angular/core';
     }
     .empty-text .link-text:after {
       content: "";
-      background: url(https://png.icons8.com/android/50/00bf99/forward.png) no-repeat;
+      background: url("https://png.icons8.com/android/50/00bf99/forward.png") no-repeat;
       background-size: contain;
       width: 12px;
       height: 12px;
