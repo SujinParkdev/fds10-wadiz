@@ -16,7 +16,8 @@ const routes: Routes = [
   { path: 'setting', component: SettingComponent },
   { path: 'fundinglist', component: FundinglistComponent },
   { path: 'likelist', component: LikelistComponent },
-  { path: 'reward/detail/:id', component: DetailComponent }
+  { path: 'reward/detail/:id', component: DetailComponent },
+  { path: '**', redirectTo: 'main', pathMatch: 'full' }
 ];
 
 @NgModule({

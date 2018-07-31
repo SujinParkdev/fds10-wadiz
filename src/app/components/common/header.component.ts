@@ -15,7 +15,7 @@ import {
         <a [routerLink]="['/main']" class="logo" title="wadiz"></a>
         <ul class="gnb-menu">
           <li>
-            <div class="user" (click)="isLogin = !isLogin"></div>
+            <div class="user" (click)="isUserPop = !isUserPop"></div>
           </li>
           <li>
             <a [routerLink]="['/login']" title="login">로그인</a>
@@ -25,8 +25,8 @@ import {
           </li>
         </ul>
       </div>
-      <div class="user-pop" [@userState]="isLogin">
-        <div class="user-pop-bg" (click)="isLogin = !isLogin"></div>
+      <div class="user-pop" [@userState]="isUserPop">
+        <div class="user-pop-bg" (click)="isUserPop = !isUserPop"></div>
         <div class="user-pop-body">
           <div class="user-profile">
             <div class="user-picture"></div>
@@ -67,18 +67,10 @@ import {
   ]
 })
 export class HeaderComponent implements OnInit {
-  isLogin: boolean = false;
+  isUserPop = false;
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  userPopup() {
-    if (this.isLogin) {   // close popup
-      
-    } else {              // open popup
-
-    }
   }
 }
