@@ -16,6 +16,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { LikelistComponent } from './components/likelist/likelist.component';
 import { FundinglistComponent } from './components/fundinglist/fundinglist.component';
 import { SlideComponent } from './components/main/slide.component';
+import { CreateElementComponent } from './create-element.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SlideComponent } from './components/main/slide.component';
     PaymentComponent,
     LikelistComponent,
     FundinglistComponent,
-    SlideComponent
+    SlideComponent,
+    CreateElementComponent
   ],
   imports: [
     BrowserModule,

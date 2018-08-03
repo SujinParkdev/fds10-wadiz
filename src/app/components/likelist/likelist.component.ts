@@ -257,7 +257,7 @@ export class LikelistComponent implements OnInit {
       {
         id: 1
       }
-    ]
+    ];
   }
 
   goReward() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ComponentFactoryResolver, HostListener } from '@angular/core';
 import {
   trigger,
   state,
@@ -6,6 +6,7 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import { CreateElementService } from '../../create-element.service';
 
 @Component({
   selector: 'app-header',
@@ -42,16 +43,17 @@ import {
           </ul>
           <ul class="user-setting">
             <li><a [routerLink]="['/setting']" class="setting">설정</a></li>
-            <li><a [routerLink]="['/logout']" class="logout">로그아웃</a></li>
+            <li><a href="#" class="logout">로그아웃</a></li>
           </ul>
         </div>
       </div>
+      <div class="page-top" [class.active]="isScrollTop" (click)="scrollTop()"></div>
     </div>
   `,
   styleUrls: ['./header.component.css'],
   animations: [
     trigger('userState', [
-      state('false', style({
+      state('false' , style({
         opacity: '0',
         top: '-8px',
         display: 'none'
@@ -68,9 +70,28 @@ import {
 })
 export class HeaderComponent implements OnInit {
   isUserPop = false;
+  isScrollTop = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+    if (scrollTop >= window.innerHeight) {
+      this.isScrollTop = true;
+    } else {
+      this.isScrollTop = false;
+    }
+  }
+
+  scrollTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 }

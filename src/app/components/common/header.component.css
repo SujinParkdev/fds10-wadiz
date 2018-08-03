@@ -185,3 +185,22 @@
     display: block;
     padding: 12px 10px 12px 40px;
 }
+.page-top {
+    position: fixed;
+    right: 20px;
+    bottom: -40px;
+    background: url("https://png.icons8.com/ios/60/babdc0/circled-chevron-up.png") no-repeat;
+    background-size: contain;
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+    transition: all .6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    cursor: pointer;
+}
+.page-top.active {
+    bottom: 20px;
+    opacity: .8;
+}
+.page-top.active:hover {
+    opacity: 1;
+}
