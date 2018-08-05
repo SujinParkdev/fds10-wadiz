@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-payment',
+  selector: 'app-funding-step3',
   template: ``,
   styles: [``]
 })
-export class PaymentComponent implements OnInit {
+export class FundingStep3Component implements OnInit {
 
   constructor() { }
 

@@ -4,9 +4,14 @@ import { CreateElementService } from './create-element.service';
 /*
   test template :
     <div class="fade-bg active">
-    <div class="alert active">
-      <div class="alert-text">텍스트</div>
-      <button class="alert-btn">확인</button>
+    <div class="pop active">
+      <div class="pop-text confirm-text">텍스트</div>
+      <button class="pop-btn confirm-false-btn">취소</button>
+      <button class="pop-btn confirm-true-btn">확인</button>
+    </div>
+    <div class="pop active">
+      <div class="pop-text alert-text">텍스트</div>
+      <button class="pop-btn alert-btn">확인</button>
     </div>
     <div class="toast active">텍스트</div>
  */
@@ -50,7 +55,7 @@ import { CreateElementService } from './create-element.service';
     .fade-bg.active {
       opacity: 1;
     }
-    .alert {
+    .pop {
       position: fixed;
       background: #fff;
       width: 300px;
@@ -65,18 +70,18 @@ import { CreateElementService } from './create-element.service';
       text-align: center;
       z-index: 7000;
     }
-    .alert.active {
+    .pop.active {
       opacity: 1;
       top: 20%;
     }
-    .alert-text {
+    .pop-text {
       margin: 35px auto 30px;
       padding: 2px 15px 0;
       font-size: 12px !important;
       color: #4a4a4a;
       line-height: 20px;
     }
-    .alert-btn {
+    .pop-btn {
       display: inline-block;
       width: 110px;
       height: 42px;
@@ -86,11 +91,19 @@ import { CreateElementService } from './create-element.service';
       background: #50e3c2;
       color: #fff;
       box-shadow: inset 0 1px 0 0 hsla(0,0%,100%,.5);
-      margin-bottom: 20px;
+      margin: 0 10px 20px;
       outline: 0;
       border: 0;
       cursor: pointer;
- }
+    }
+    .pop-btn:hover {
+      background: #00cca3;
+    }
+    .confirm-false-btn {
+      background: #7c8288;
+    }
+    .confirm-false-btn:hover {
+      background: #676363;
     }
   `]
 })

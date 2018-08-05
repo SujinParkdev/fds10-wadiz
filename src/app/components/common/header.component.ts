@@ -43,7 +43,7 @@ import { CreateElementService } from '../../create-element.service';
           </ul>
           <ul class="user-setting">
             <li><a [routerLink]="['/setting']" class="setting">설정</a></li>
-            <li><a href="#" class="logout">로그아웃</a></li>
+            <li><a ng-href="#" class="logout" (click)="confirm()">로그아웃</a></li>
           </ul>
         </div>
       </div>
@@ -72,7 +72,7 @@ export class HeaderComponent implements OnInit {
   isUserPop = false;
   isScrollTop = false;
 
-  constructor() { }
+  constructor(private createElementService: CreateElementService) { }
 
   ngOnInit() {
   }
@@ -86,12 +86,21 @@ export class HeaderComponent implements OnInit {
     } else {
       this.isScrollTop = false;
     }
+    this.isUserPop = false;
   }
 
   scrollTop() {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
+    });
+  }
+
+  confirm() {
+    this.createElementService.confirm('로그아웃 하시겠습니까?', '확인', () => {
+      this.createElementService.alert('로그아웃 되었습니다.', () => {
+        this.isUserPop = false;
+      });
     });
   }
 }
