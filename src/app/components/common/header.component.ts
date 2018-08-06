@@ -7,6 +7,8 @@ import {
   transition
 } from '@angular/animations';
 import { CreateElementService } from '../../create-element.service';
+import { LoginService } from '../../core/services/login.service';
+import { Router } from '../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -15,13 +17,13 @@ import { CreateElementService } from '../../create-element.service';
       <div class="gnb">
         <a [routerLink]="['/main']" class="logo" title="wadiz"></a>
         <ul class="gnb-menu">
-          <li>
+          <li *ngIf="loginService.isLogin">
             <div class="user" (click)="isUserPop = !isUserPop"></div>
           </li>
-          <li>
-            <a [routerLink]="['/login']" title="login">로그인</a>
+          <li *ngIf="!loginService.isLogin">
+            <a ng-href="#" title="login" (click)="login()">로그인</a>
           </li>
-          <li>
+          <li *ngIf="!loginService.isLogin">
             <a [routerLink]="['/join']" title="join">회원가입</a>
           </li>
         </ul>
@@ -43,7 +45,7 @@ import { CreateElementService } from '../../create-element.service';
           </ul>
           <ul class="user-setting">
             <li><a [routerLink]="['/setting']" class="setting">설정</a></li>
-            <li><a ng-href="#" class="logout" (click)="confirm()">로그아웃</a></li>
+            <li><a ng-href="#" class="logout" (click)="logout()">로그아웃</a></li>
           </ul>
         </div>
       </div>
@@ -72,9 +74,15 @@ export class HeaderComponent implements OnInit {
   isUserPop = false;
   isScrollTop = false;
 
-  constructor(private createElementService: CreateElementService) { }
+  constructor(
+    private router: Router,
+    private createElementService: CreateElementService,
+    public loginService: LoginService  
+  ) { }
 
   ngOnInit() {
+    this.loginService.isLogin = true;
+    this.router.navigate(['/funding/1/step1']);
   }
 
   @HostListener('window:scroll', [])
@@ -96,11 +104,18 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  confirm() {
+  logout() {
+    console.log(this.router.url);
     this.createElementService.confirm('로그아웃 하시겠습니까?', '확인', () => {
       this.createElementService.alert('로그아웃 되었습니다.', () => {
         this.isUserPop = false;
+        this.loginService.isLogin = false;
+        this.router.navigate(['main']);
       });
     });
+  }
+
+  login() {
+    this.loginService.isLogin = true;
   }
 }
