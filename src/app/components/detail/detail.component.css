@@ -1,0 +1,585 @@
+/* common css  */
+a {
+  text-decoration: none !important;
+  color: rgba(0,0,0,.84);
+}
+/* --------------------------------------------- */
+
+.detail-container .detail-header {
+  position: relative;
+  padding: 60px 0 55px;
+  text-align: center;
+  overflow: hidden;
+}
+.detail-container .detail-header .title-info{
+  position: relative;
+  margin-bottom: 20px;
+  line-height: 20px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+}
+.detail-container .detail-header .title {
+  position: relative;
+  padding-right: 30px;
+  padding-left: 30px;
+  line-height: 42px;
+  color: #fff;
+  font-size: 36px;
+  font-weight: 500;
+}
+.detail-container .detail-nav {
+  position: sticky;
+  box-shadow: 0 1px 0 0 rgba(0,0,0,.08);
+  height: 56px;
+  margin-bottom: 12px;
+}
+.detail-container .detail-body {
+  padding: 0 30px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1024px;
+}
+.detail-container .detail-body:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+.detail-container .detail-body .detail-info {
+  float: left;
+  width: 100%;
+  max-width: 632px;
+
+}
+.detail-container .detail-body .detail-side {
+  float: right;
+  width: 284px;
+}
+/* detail-header */
+.detail-header-bg {
+  background-image: url('https://cdn.wadiz.kr/wwwwadiz/green002/2018/0726/20180726132120021_22042.jpg/wadiz/format/jpg/quality/95/optimize');
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  bottom: -20px;
+  left: -20px;
+  background-repeat: no-repeat;
+  background-position: 50% 30%;
+  background-size: cover;
+  z-index: 1;
+  -webkit-filter: blur(10px);
+}
+.title-info  {
+  position: relative;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 20px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  z-index: 4;
+}
+.detail-header .title-info em {
+  display: inline-block;
+  margin-right: 5px;
+  height: 28px;
+  line-height: 28px;
+  color: #1affd1;
+  font-weight: 700;
+  font-style: normal;
+}
+.detail-header .title-info strong {
+  font-weight: bold;
+  color: white;
+  margin-right: 2px;
+}
+.detail-header::before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  clear: both;
+  margin-bottom: 0;
+  background: linear-gradient(0deg,rgba(0,0,0,.1),rgba(0,0,0,.4));
+  width: 100%;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+.title > h2 {
+  color: white;
+  z-index: 3;
+}
+.title > h2 > a, .title > h2 > a:hover {
+  color: white;
+}
+/* detail nav start */
+.detail-nav {
+  height: 56px;
+  margin-bottom: 12px;
+  max-width: 1024px;
+  padding: 0 30px;
+  margin: 0 auto;
+  width: 100%
+}
+.tab-list {
+  /* padding: 0 50vh 0 50vh; */
+  overflow: hidden;
+}
+.tab-link {
+  display: block;
+  float: left;
+  padding: 16px;
+  font-style: 12px;
+  color: black;
+  position: relative;
+}
+.count-total {
+  display: inline-block;
+  color: #00bf99;
+  font-size: 12px;
+  height: 18px;
+}
+
+/* detail side start */
+.text-hidden {
+  visibility: hidden;
+  height: 1px;
+  overflow: hidden;
+}
+/* project state info start */
+.project-state-info {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+.remaining-day {
+  font-size: 28px;
+  font-weight: 500;
+  color: #4a4a4a;
+}
+.remaining-day, p.rate-bar {
+  margin-bottom: 25px;
+}
+.rate-bar {
+  width: 100%;
+  height: 3px;
+  background: #ddd;
+  overflow: hidden;
+}
+p.rate-bar em {
+  display: block;
+  height: 3px;
+  background: #00cca3;
+}
+.achievement-rate, .total-amount, .total-supporter {
+  margin-bottom: 25px;
+  color: #4a4a4a;
+  font-size: 15px;
+}
+.state-box p strong {
+  font-size: 25px;
+  margin-right: 2px;
+  font-weight: 500;
+}
+.wz-btn {
+  width: 100%;
+  text-align: center;
+  background: #00cca3;
+  border: none;
+  color: white;
+  height: 48px;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+.btn-wrap-float {
+  width: 100%;
+  display: block;
+  margin: 10 0;
+  float: left;
+}
+.btn-wrap-float::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+button#btnLike, button.campaign-message, button#btnShare {
+  height: 38px;
+  align-items: center;
+  width: 32.3%;
+  background: #fff;
+  border: 1px solid #dadce0;
+  font-size: 15px;
+}
+button.campaign-message {
+  margin: 0 4px;
+}
+/* project state info end */
+
+/* project maker info start */
+.project-right-title {
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  color: #777;
+  -webkit-font-smoothing: antialiased;
+}
+.project-maker-info .maker-box {
+  border: 1px solid #eaeaea;
+}
+.project-maker-info .maker-info {
+  padding: 20px 19px 20px;
+  border-bottom: 1px solid #eaeaea;
+}
+.project-maker-info .maker-info dl {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.project-maker-info .maker-info dt {
+  display: table-cell;
+  width: 80px;
+  vertical-align: top;
+}
+.project-maker-info .maker-info dt button {
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 80px;
+  height: 80px;
+  background: no-repeat 0 0;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+.project-maker-info .maker-info dd {
+  display: table-cell;
+  width: auto;
+  padding-left: 20px;
+  vertical-align: top;
+}
+.project-maker-info .maker-info .name {
+  margin-bottom: 7px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #555;
+}
+.project-maker-info .maker-info .website {
+  margin-bottom: 15px;
+  padding-left: 1px;
+}
+.project-maker-info .maker-info .website li a {
+  display: block;
+  width: 100%;
+  font-size: 11px;
+  line-height: 16px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.project-maker-info .contact-info {
+  border-top: none;
+}
+.project-maker-info .contact-info .direct-message {
+  padding: 20px 20px 0;
+  text-align: center;
+}
+.wz.button {
+  box-sizing: border-box;
+  display: inline-block;
+  text-decoration: none;
+  height: 48px;
+  line-height: 1;
+  text-align: center;
+  width: 100%;
+  padding: 0 24px;
+  font-size: 17px;
+  color: rgba(0,0,0,.54);
+  border: 1px solid rgba(0,0,0,.15);
+}
+.project-maker-info .contact-info .sub-content {
+  padding: 0 19px 20px;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 12px;
+  color: #676363;
+}
+#answerTime {
+  font-size: 12px;
+  padding: 0 0 0 12px;
+  color: #00cca3;
+}
+.sub-title-answerTime {
+  margin: 0;
+  padding: 14px 19px 0px;
+  line-height: 15px;
+  color: #777;
+  font-size: 12px;
+}
+.project-maker-info .contact-info .sub-title {
+  padding: 20px;
+  font-size: 12px;
+  line-height: 15px;
+  color: #777;
+}
+.project-maker-info .contact-info .sub-title button {
+  padding: 0;
+  text-align: left;
+}
+.project-maker-info .contact-info .sub-title button .icon-more {
+  float: right;
+  font-size: 15px;
+}
+.project-maker-info .contact-info .sub-title button {
+  padding: 0;
+  text-align: left;
+  height: 32px;
+  line-height: 30px;
+  font-size: 13px;
+  background-color: transparent!important;
+  width: 100%;
+  border: none;
+}
+.project-maker-info .contact-info .contact-detail-info {
+  background-color: #f0f2f5;
+  padding: 20px;
+  font-size: 13px;
+}
+/* project maker info end */
+
+/* campain-rewards start */
+.moveRewards {
+  margin-top: 20px;
+}
+.rightinfo-reward-list {
+  position: relative;
+  margin-bottom: 20px;
+  border: 1px solid #eaeaea;
+  text-align: left;
+}
+.rightinfo-reward-list .top-info {
+  padding: 20px;
+  background: #fff;
+}
+.rightinfo-reward-list .reward-info {
+  margin-bottom: 20px;
+}
+.rightinfo-reward-list .reward-info dt {
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #00132C;
+}
+.rightinfo-reward-list .reward-info dd p.reward-name {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 21px;
+  color: #4a4a4a;
+}
+.rightinfo-reward-list .reward-info dd p {
+  font-size: 12px;
+  line-height: 19px;
+  color: #929292;
+}
+.rightinfo-reward-list .data-info {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.rightinfo-reward-list .data-info li {
+  float: left;
+  font-size: 12px;
+  line-height: 22px;
+  color: #9b9b9b;
+}
+.rightinfo-reward-list .data-info li em {
+  display: block;
+  font-size: 14px;
+  line-height: 22px;
+  color: #4a4a4a;
+}
+.rightinfo-reward-list .data-info li {
+  float: left;
+  font-size: 12px;
+  line-height: 22px;
+  color: #9b9b9b;
+}
+.rightinfo-reward-list .data-info:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.rightinfo-reward-list .reward-qty {
+  margin-bottom: 5px;
+  font-size: 12px;
+  line-height: 21px;
+  color: #c88af9;
+}
+.rightinfo-reward-list .reward-qty em {
+  padding: 2px 6px;
+  font-weight: 500;
+  background: #f6ecfe;
+}
+.rightinfo-reward-list .reward-soldcount {
+  font-size: 12px;
+  line-height: 21px;
+  color: #00132C;
+}
+.rightinfo-reward-list .reward-qty.soldout {
+  color: #f89ba6;
+}
+.rightinfo-reward-list .hover-text {
+  display: none;
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  line-height: 23px;
+}
+/* campain-rewards end */
+
+/* 프로젝트 신고 팝업 start */
+.wz-message-box, .wzui .message-box {
+  margin: 24px auto;
+  border: 1px solid #babdc0;
+  background: #f5f7fa;
+  padding: 16px;
+  color: #7c8288;
+  font-size: 13px;
+}
+.project-report p.title {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #44484b;
+  font-size: 13px;
+}
+.reward .wd-ui-sub-opener-info .project-report p {
+  line-height: 1.54;
+  color: #7c8288;
+}
+.wz-btn.gray {
+  background-color: #7c8288;
+  color: #fff;
+  padding: 0 16px;
+  height: 36px;
+  line-height: 34px;
+  font-size: 15px;
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 0 !important;
+}
+/* 프로젝트 신고 팝업 end */
+
+.recommend-box {
+  float: none;
+  margin-top: 18px;
+  border: 1px solid #e4e4e4;
+  background-color: #fff;
+  padding: 20px;
+  width: 100%!important;
+  box-sizing: border-box;
+}
+.recommend-box .title {
+  margin: 5px 0 10px 5px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 3px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+}
+.recommend-box .recommend-number {
+  background: #babdc0;
+  display: inline-block;
+  margin: 1px 8px 1px 0;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  line-height: 18px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+}
+.recommend-box .text {
+  display: inline-block;
+  padding-top: 2px;
+  width: 209px;
+  height: 22px;
+  overflow: hidden;
+  vertical-align: top;
+  text-overflow: ellipsis;
+  line-height: 18px;
+  white-space: nowrap;
+  font-size: 13px;
+}
+/* detail side end */
+
+
+/* ----------------------------------- */
+/* detail info start */
+.campaign-summary {
+  padding: 40px 20px 20px;
+  line-height: 1.7;
+  color: #676363;
+  font-size: 18px;
+  font-weight: 500;
+}
+.inner-contents table td, .inner-contents table th {
+  font-size: 14px;
+  line-height: 1.4em;
+  border: 1px solid #DADCE0;
+  font-weight: 400;
+  padding: 4px 6px !important;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.inner-contents hr {
+  margin: 56px auto 40px;
+  width: 220px;
+  border: 0;
+  border-top: 1px solid #dadce0;
+}
+.inner-contents p {
+  font-size: 17px;
+  line-height: 1.8em;
+  margin: 17px 0;
+}
+.inner-contents h2 {
+  font-size: 28px;
+  text-align: left;
+  word-break: keep-all;
+  margin: 56px 0 0;
+}
+.inner-contents u {
+  text-decoration: none;
+  border-bottom: 2px solid #00cca3;
+}
+.inner-contents table th, .inner-contents table td.head-cell {
+  background: #E6EAED;
+  font-weight: 500;
+}
+.inner-contents table td, .inner-contents table th {
+  font-size: 14px;
+  line-height: 1.4em;
+  border: 1px solid #DADCE0;
+  font-weight: 400;
+  padding: 4px 6px !important;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.inner-contents h3 {
+  font-size: 19px;
+  word-break: keep-all;
+}
+.wd-ui-update-link {
+  height: 167px;
+  display: block;
+  overflow: hidden;
+  border-bottom: 1px dotted #cccccc;
+}
+.wd-ui-update-link .wd-ui-update-link-div {
+  background-color: white;
+  height: 54px;
+}
