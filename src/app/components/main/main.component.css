@@ -20,8 +20,8 @@
 .rewardlist-container {
   position: relative;
   max-width: 1032px;
-  margin: 0 auto;
-  background: skyblue;
+  margin: 0 92;
+
 }
 .rewardlist-container .reward-filter {
   border-bottom: 1px solid rgba(0,0,0,.1);
@@ -36,7 +36,6 @@
   width: 33.33%;
 }
 .reward {
-  padding: 16px;
   box-sizing: border-box;
 }
 
@@ -69,7 +68,7 @@
   justify-content: center
 }
 .category:hover::before {
-  border: 2px solid #00bf99; 
+  border: 2px solid #00bf99;
   position: absolute;
   border-radius: 50%;
   width: 56px;
@@ -135,28 +134,176 @@
 
 /* reward list header start */
 .reward-filter-header {
-  position: relative;
-  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 30px 30px 30px;
+  padding: 30px 0 5px 0;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  box-sizing: border-box;
 }
 .reward-filter-list-title>h3 {
-  position: absolute;
+  width: 60vh;
+  justify-content: flex-start;
+  bottom: 12px;
+  left: 0;
   line-height: 32px;
   font-size: 24px;
-  font-weight: bold;
-  width: 94px;
+}
+.for-reward-searchbox-float {
+  width: 50vh;
+  height: 32px;
 }
 .reward-search {
-  position: absolute;
-  padding-left: 200px;
+  float: left;
+  font-size: 15px;
+  width: 197px;
+  height: 32px;
 }
-.filter1-category {
-  position: absolute;
-  right: 200px;
-  width: 90px;
+input#keyword {
+  float: left;
+  width: 147px;
+  height: 32px;
+  background: none;
+  border: none;
+  line-height: 24px;
+  font-size: 15px;
+  text-decoration: none;
+  color: black;
+  /* transition: opacity .25s; */
+  /* opacity: 0; */
+}
+.forbtn {
+  float: right;
+  display: block;
+  margin-top: auto;
+  border: none;
+  height: 32px;
+  width: 32px;
+  background: url('https://png.icons8.com/ios-glyphs/50/000000/search.png') no-repeat;
+  background-size: 18px 18px;
+  background-position: center;
+}
+.search-btn {
+  border: none;
+  background: none;
 }
 .filter2-order {
-  position: absolute;
-  right: 100px;
-  width: 90px;
+  float: right;
+}
+.filter1-category {
+  margin-top: 1px;
+  float: right;
+}
+select {
+  background: none;
+  border: none;
 }
 /* reward list header end */
+
+.reward-lists {
+  margin: 0 30px 0 30px;
+}
+li {
+  margin: 18px 0 18px 0;
+}
+.reward:nth-child(2n), .reward:nth-child(3n){
+  padding: 16px 16px 16px 0;
+}
+.reward {
+  width: 100%;
+  height: 181px;
+  padding: 16px;
+  float: left;
+  height: 300px;
+  position: relative;
+}
+.reward-img {
+  border-radius: 3px;
+  width: 100%;
+  height: 181px;
+  overflow: hidden;
+  border-radius: 3px;
+}
+.reward-item-deadlinesoon {
+  width: 55px;
+  height: 20px;
+  position: absolute;
+  z-index: 1;
+  background-color: #00bf99;
+  color: white;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 1px 6px 0 6px;
+  overflow: hidden;
+}
+.rewar-img::before {
+  border-radius: 3px;
+  border: 5px solid rgba(0,0,0,.06);
+}
+.reward-img-span {
+  background-image: url('https://cdn.wadiz.kr/wwwwadiz/green002/2018/0726/20180726132120021_22042.jpg/wadiz/resize/600/format/jpg/quality/95/optimize');
+  background-size: cover;
+  transform: scale(1);
+  transition: all .3s;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.reward:hover .reward-img-span {
+  transform: scale(1.03);
+}
+.reward:hover .reward-info .reward-item-title {
+  text-decoration-line: underline;
+}
+.reward-info {
+  height: 80px;
+  padding: 11px 0 0;
+}
+.reward-item-title {
+  display: inline-box;
+}
+.reward-item-title > h4 {
+  display: inline;
+  max-height: 48px;
+  line-height: 24px;
+  font-size: 17px;
+  font-weight: 700;
+}
+.reward-item-category {
+  color: rgba(0,0,0,.84);
+  position: relative;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #90949c;
+}
+.reward-item-percentbar {
+  height: 3px;
+  display: block;
+  background-color: #e6eaed;
+}
+.reward-item-percentbar > span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #00bf99 !important;
+}
+.reward-item-completed-per {
+  color: #00bf99;
+  font-size: 17px;
+  font-weight: bold;
+  float: left;
+}
+.reward-item-completed-money, .reward-item-remainday {
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  line-height: 24px;
+  color: #90949c;
+}
+.reward-item-completed-money {
+  margin-left: 5px;
+}
+.reward-item-remainday {
+  float: right;
+}
