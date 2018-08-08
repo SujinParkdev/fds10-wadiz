@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -11,11 +12,13 @@ import { DetailComponent } from './components/detail/detail.component';
 import { LoginComponent } from './components/login/login.component';
 import { JoinComponent } from './components/join/join.component';
 import { SettingComponent } from './components/setting/setting.component';
-import { FundingComponent } from './components/funding/funding.component';
-import { PaymentComponent } from './components/payment/payment.component';
+import { FundingStep1Component } from './components/funding/step1/funding-step1.component';
+import { FundingStep2Component } from './components/funding/step2/funding-step2.component';
+import { FundingStep3Component } from './components/funding/step3/funding-step3.component';
 import { LikelistComponent } from './components/likelist/likelist.component';
 import { FundinglistComponent } from './components/fundinglist/fundinglist.component';
-
+import { SlideComponent } from './components/main/slide.component';
+import { CreateElementComponent } from './create-element.component';
 
 @NgModule({
   declarations: [
@@ -27,15 +30,19 @@ import { FundinglistComponent } from './components/fundinglist/fundinglist.compo
     JoinComponent,
     SettingComponent,
     DetailComponent,
-    FundingComponent,
-    PaymentComponent,
+    FundingStep1Component,
+    FundingStep2Component,
+    FundingStep3Component,
     LikelistComponent,
-    FundinglistComponent
+    FundinglistComponent,
+    SlideComponent,
+    CreateElementComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

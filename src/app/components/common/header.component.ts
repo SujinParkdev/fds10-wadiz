@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ComponentFactoryResolver, HostListener } from '@angular/core';
 import {
   trigger,
   state,
@@ -6,6 +6,9 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import { CreateElementService } from '../../create-element.service';
+import { LoginService } from '../../core/services/login.service';
+import { Router } from '../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,19 +17,19 @@ import {
       <div class="gnb">
         <a [routerLink]="['/main']" class="logo" title="wadiz"></a>
         <ul class="gnb-menu">
-          <li>
-            <div class="user" (click)="isLogin = !isLogin"></div>
+          <li *ngIf="loginService.isLogin">
+            <div class="user" (click)="isUserPop = !isUserPop"></div>
           </li>
-          <li>
-            <a [routerLink]="['/login']" title="login">로그인</a>
+          <li *ngIf="!loginService.isLogin">
+            <a ng-href="#" title="login" (click)="login()">로그인</a>
           </li>
-          <li>
+          <li *ngIf="!loginService.isLogin">
             <a [routerLink]="['/join']" title="join">회원가입</a>
           </li>
         </ul>
       </div>
-      <div class="user-pop" [@userState]="isLogin">
-        <div class="user-pop-bg" (click)="isLogin = !isLogin"></div>
+      <div class="user-pop" [@userState]="isUserPop">
+        <div class="user-pop-bg" (click)="isUserPop = !isUserPop"></div>
         <div class="user-pop-body">
           <div class="user-profile">
             <div class="user-picture"></div>
@@ -34,24 +37,25 @@ import {
           </div>
           <ul class="user-menu">
             <li>
-              <a [routerLink]="['/fundinglist']" class="fundinglist">펀딩 내역</a>
+              <a [routerLink]="['/fundinglist']" class="fundinglist far">펀딩 내역</a>
             </li>
             <li>
-              <a [routerLink]="['/likelist']" class="likelist">좋아한 프로젝트</a>
+              <a [routerLink]="['/likelist']" class="likelist far">좋아한 프로젝트</a>
             </li>
           </ul>
           <ul class="user-setting">
-            <li><a [routerLink]="['/setting']" class="setting">설정</a></li>
-            <li><a [routerLink]="['/logout']" class="logout">로그아웃</a></li>
+            <li><a [routerLink]="['/setting']" class="setting fas">설정</a></li>
+            <li><a ng-href="#" class="logout fas" (click)="logout()">로그아웃</a></li>
           </ul>
         </div>
       </div>
+      <div class="page-top fas" [class.active]="isScrollTop" (click)="scrollTop()"></div>
     </div>
   `,
   styleUrls: ['./header.component.css'],
   animations: [
     trigger('userState', [
-      state('false', style({
+      state('false' , style({
         opacity: '0',
         top: '-8px',
         display: 'none'
@@ -67,18 +71,51 @@ import {
   ]
 })
 export class HeaderComponent implements OnInit {
-  isLogin: boolean = false;
+  isUserPop = false;
+  isScrollTop = false;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private createElementService: CreateElementService,
+    public loginService: LoginService
+  ) { }
 
   ngOnInit() {
+    this.loginService.isLogin = true;
+    this.router.navigate(['/funding/1/step1']);
   }
 
-  userPopup() {
-    if (this.isLogin) {   // close popup
-      
-    } else {              // open popup
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
+    if (scrollTop >= window.innerHeight) {
+      this.isScrollTop = true;
+    } else {
+      this.isScrollTop = false;
     }
+    this.isUserPop = false;
+  }
+
+  scrollTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  logout() {
+    console.log(this.router.url);
+    this.createElementService.confirm('로그아웃 하시겠습니까?', '확인', () => {
+      this.createElementService.alert('로그아웃 되었습니다.', () => {
+        this.isUserPop = false;
+        this.loginService.isLogin = false;
+        this.router.navigate(['main']);
+      });
+    });
+  }
+
+  login() {
+    this.loginService.isLogin = true;
   }
 }

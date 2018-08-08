@@ -1,0 +1,33 @@
+.fundinglist-container {
+  position: relative;
+}
+.fundinglist-container .title-container {
+  position: relative;
+  box-shadow: 0 1px 0 0 rgba(0,0,0,.08);
+}
+.fundinglist-container .title-container .title {
+  width: 1032px;
+  margin: 0 auto;
+  padding: 56px 24px 44px;
+  font-size: 36px;
+  line-height: 44px;
+  text-align: left;
+  color: #44484b;
+}
+.fundinglist-container .list {
+  background: #f5f7fa;
+  padding-bottom: 160px;
+}
+.empty-text {
+  font-size: 17px;
+  line-height: 24px;
+  text-align: center;
+  padding-top: 100px;
+}
+.empty-text a {
+  color: #00bf99;
+}
+.empty-text .link-text:after {
+  content: "\f105";
+  display: inline-block;
+}
