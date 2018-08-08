@@ -75,7 +75,7 @@ export class CreateElementService {
       setTimeout(() => {
         this.renderer.removeChild(this.el.nativeElement, alert);
       }, 1000);
-      
+
       if (callback) {
         callback();
       }
@@ -139,7 +139,7 @@ export class CreateElementService {
     // confirm true btn click
     this.renderer.listen(confirmTrueBtn, 'click', (e) => {
       this.fadeOut();
-      
+
       setTimeout(() => {
         this.renderer.removeClass(confirm, 'active');
       }, 1);

@@ -9,7 +9,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class FundingStep1Component implements OnInit {
   isNoticePop = false;
   noticeForm: FormGroup;
-  rewardForm: FormGroup;
 
   constructor() { }
 
