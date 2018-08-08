@@ -1,0 +1,224 @@
+.notice-pop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.8);
+  top: 0;
+  left: 0;
+  z-index: 6000;
+  transition: all .2s;
+  overflow-y: auto;
+}
+.notice-container {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 5% auto;
+  padding: 36px 32px 76px;
+  background: #fff;
+}
+.notice-back-btn {
+  color: rgba(0,0,0,.54);
+  margin-bottom: 5px;
+  font-size: 15px;
+  vertical-align: middle;
+}
+.notice-back-btn:hover {
+  color: rgba(0,0,0,.84);
+}
+.notice-back-btn::before {
+  content: "\f060";
+  margin-right: 10px;
+}
+.notice-close-btn {
+  opacity: 1;
+  border: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  height: 56px;
+  line-height: 56px;
+  font-weight: 700;
+  padding: 0 32px;
+  font-size: 21px;
+  cursor: pointer;
+  background-color: #00cca3;
+  color: #fff;
+  transition: all .2s;
+}
+.notice-close-btn:hover {
+  background-color: #00be8f;
+}
+.notice-close-btn:disabled {
+  cursor: no-drop;
+  background-color: #e6eaed;
+  color: hsla(0,0%,100%,.7);
+}
+.title {
+  margin-bottom: 24px;
+  line-height: 1.29;
+  font-size: 28px;
+  font-weight: 400;
+}
+.title strong {
+  color: #363636;
+  font-weight: 700;
+}
+.notice-container dt, .notice-container dd {
+  border: 1px solid #f0f2f5;
+}
+.notice-container dd {
+  margin-bottom: 12px;
+  border-top: 0;
+  padding: 16px;
+}
+.notice-container dd p {
+  line-height: 1.33;
+  letter-spacing: -.4px;
+  font-weight: 400;
+  font-size: 15px;
+}
+.notice-container dd p em {
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 0;
+  color: #90949c;
+  font-size: 13px;
+  font-style: normal;
+}
+.notice-container label {
+  padding: 12px;
+  color: #babdc0;
+  font-size: 17px;
+  display: block;
+  line-height: 24px;
+  cursor: pointer;
+}
+.notice-container input[type=checkbox] {
+  margin-top: -4px;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  transition: all .2s;
+  outline: none;
+  border: 1px solid #e6eaed;
+  background: #fff;
+  cursor: pointer;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  margin-right: 8px;
+}
+.notice-container input[type=checkbox]:before {
+  display: inline-block;
+  color: #e6eaed;
+  margin-top: 5px;
+  margin-left: 4px;
+  content: "\f00c";
+  font-size: 12px;
+  font-weight: 700;
+}
+.notice-container span {
+  transition: all .2s;
+}
+.notice-container input[type=checkbox]:checked+span {
+  color: #7c8288;
+}
+.notice-container input[type=checkbox]:checked {
+  background: #00cca3;
+}
+.notice-container input[type=checkbox]:checked::before {
+  color: #fff;
+}
+
+.funding-container {
+  color: #4a4a4a;
+}
+.funding-title {
+  position: relative;
+  width: 100%;
+  height: 67px;
+  background: #A29584;
+}
+.funding-title a {
+  height: 67px;
+  line-height: 67px;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  display: inline-block;
+  font-size: 16px;
+  color: #fff;
+}
+.funding-title a > i {
+  font-size: 30px;
+  padding: 10px 20px 10px 10px;
+  vertical-align: middle;
+}
+.funding-title div {
+  font-size: 22px;
+  line-height: 67px;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+}
+.funding-contents {
+  width: 860px;
+  margin: 0 auto;
+  padding: 0 0 100px;
+}
+.funding-step {
+  padding: 30px 0 42px;
+  text-align: center;
+  position: relative;
+}
+.funding-step ol {
+  width: 430px;
+  margin: 0 auto;
+  list-style: none;
+  overflow: hidden;
+}
+.funding-step ol li {
+  float: left;
+  display: block;
+  width: 90px;
+  padding: 0;
+}
+.funding-step ol li:nth-child(2) {
+  padding: 0 80px;
+  box-sizing: content-box;
+}
+.funding-step ol li em {
+  display: table-cell;
+  vertical-align: middle;
+  width: 90px;
+  height: 90px;
+  font-size: 16px;
+  line-height: 20px;
+  border: 1px dashed #979797;
+  border-radius: 50%;
+  background: #fff;
+  font-style: normal;
+}
+.funding-step ol li.active em {
+  color: #fff;
+  border: none;
+  background: #00cca3;
+}
+.funding-step:before {
+  content: "";
+  position: absolute;
+  border-top: 1px dashed #797979;
+  left: 50%;
+  margin-left: -215px;
+  top: 74px;
+  width: 430px;
+  z-index: -1;
+}

@@ -13,8 +13,8 @@ import { Component, OnInit } from '@angular/core';
         </div>
       </div>
       <div class="slide-btn">
-        <button class="slide-prev" (click)="slidePrev()" (blur)="slidePlay()"></button>
-        <button class="slide-next" (click)="slideNext()" (blur)="slidePlay()"></button>
+        <button class="slide-prev fas" (click)="slidePrev()" (blur)="slidePlay()"></button>
+        <button class="slide-next fas" (click)="slideNext()" (blur)="slidePlay()"></button>
       </div>
       <div class="slide-active">
         <div class="active-bar" [ngStyle]="{
@@ -23,107 +23,7 @@ import { Component, OnInit } from '@angular/core';
       </div>
     </div>
   `,
-  styles: [`
-    .slide-container {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      background: #babdc0;
-    }
-    .slide-img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: no-repeat 50%/cover;
-      opacity: 0;
-      transition: all .8s;
-    }
-    .slide-img:before {
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 100%;
-      background-image: linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.2) 50%,rgba(0,0,0,.5));
-    }
-    .slide-img.active {
-      opacity: 1;
-    }
-    .slide-info {
-      position: absolute;
-      left: 50%;
-      margin-left: -516px;
-      bottom: 25px;
-      color: #fff;
-      text-shadow: 0 0 2px rgba(0,0,0,.4);
-    }
-    .slide-title {
-      max-width: 400px;
-      line-height: 40px;
-      font-size: 36px;
-      font-weight: 700;
-      word-break: keep-all;
-      margin-bottom: 10px;
-    }
-    .slide-btn {
-      position: absolute;
-      bottom: 20px;
-      width: 1032px;
-      left: 50%;
-      margin-left: -516px;
-      text-align: right;
-    }
-    .slide-prev, .slide-next {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      outline: none;
-      width: 40px;
-      height: 40px;
-      background: rgba(0,0,0,.4);
-      cursor: pointer;
-      position: relative;
-    }
-    .slide-prev:before {
-      content: "";
-      background: url(https://png.icons8.com/android/50/ffffff/back.png) no-repeat;
-      background-size: contain;
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      left: 11px;
-      top: 11px;
-      opacity: .5;
-    }
-    .slide-next:before {
-      content: "";
-      background: url(https://png.icons8.com/android/50/ffffff/forward.png) no-repeat;
-      background-size: contain;
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      left: 11px;
-      top: 11px;
-      opacity: .5;
-    }
-    .slide-prev:hover::before, .slide-next:hover::before,
-    .slide-prev:focus::before, .slide-next:focus::before {
-      opacity: 1;
-    }
-    .slide-active {
-      position: absolute;
-      bottom: -5px;
-      height: 5px;
-      width: 1032px;
-      left: 50%;
-      margin-left: -516px;
-    }
-    .slide-active .active-bar {
-      position: absolute;
-      height: 5px;
-      background: #00cca3;
-      transition: all .3s;
-    }
-  `]
+  styleUrls: ['./slide.component.css']
 })
 export class SlideComponent implements OnInit {
   slides = [];

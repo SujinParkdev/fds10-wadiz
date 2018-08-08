@@ -64,9 +64,10 @@
     top: 0;
 }
 .user-pop a {
-    display: block;
+    display: inline-block;
     color: rgba(0,0,0,.87);
     font-size: 13px;
+    width: 100%;
 }
 .user-pop:after,
 .user-pop:before {
@@ -114,7 +115,12 @@
     border-radius: 50px;
 }
 .user-picture:after {
+    content: "";
     border: 1px solid rgba(0,0,0,.1);
+    display: block;
+    width: 48px;
+    height: 48px;
+    border-radius: 50px;
 }
 .user-name {
     padding-left: 66px;
@@ -135,7 +141,7 @@
     float: left;
     width: 50%;
     text-align: center;
-    padding: 15px 0;
+    padding: 10px 0 15px;
 }
 .user-setting {
     position: relative;
@@ -144,58 +150,49 @@
 }
 .fundinglist:before {
     display: block;
-    background: url("https://png.icons8.com/dotty/50/000000/overview-pages-1.png") no-repeat;
-    background-size: contain;
-    width: 36px;
-    height: 36px;
     margin: 0 auto;
-    content: "";
+    content: "\f15c";
+    font-size: 30px;
+    line-height: 1.5;
 }
 .likelist:before {
     display: block;
-    background: url("https://png.icons8.com/ios/50/000000/hearts.png") no-repeat;
-    background-size: contain;
-    width: 34px;
-    height: 36px;
+    content: "\f004";
     margin: 0 auto;
-    content: "";
+    font-size: 30px;
+    line-height: 1.5;
 }
 .setting:before {
-    position: absolute;
-    background: url("https://png.icons8.com/windows/50/000000/settings.png") no-repeat;
-    background-size: contain;
-    width: 28px;
-    height: 28px;
-    top: 18px;
-    left: 0;
-    content: "";
+    content: "\f013";
+    font-size: 22px;
+    margin-right: 15px;
+    vertical-align: middle;
+    font-weight: 900;
 }
 .logout:before {
-    position: absolute;
-    background: url("https://png.icons8.com/ios/50/000000/exit.png") no-repeat;
-    background-size: contain;
-    width: 24px;
-    height: 24px;
-    left: 4px;
-    top: 62px;
-    content: "";
+    content: "\f2f5";
+    font-size: 22px;
+    margin-right: 15px;
+    vertical-align: middle;
+    font-weight: 900;
 }
-.logout,
-.setting {
-    display: block;
-    padding: 12px 10px 12px 40px;
+.user-pop .logout,
+.user-pop .setting {
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: 400;
 }
 .page-top {
     position: fixed;
     right: 20px;
     bottom: -40px;
-    background: url("https://png.icons8.com/ios/60/babdc0/circled-chevron-up.png") no-repeat;
-    background-size: contain;
-    width: 60px;
-    height: 60px;
     opacity: 0;
     transition: all .6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     cursor: pointer;
+}
+.page-top:before {
+    content: "\f139";
+    font-size: 60px;
 }
 .page-top.active {
     bottom: 20px;

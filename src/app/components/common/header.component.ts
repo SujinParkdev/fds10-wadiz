@@ -37,19 +37,19 @@ import { Router } from '../../../../node_modules/@angular/router';
           </div>
           <ul class="user-menu">
             <li>
-              <a [routerLink]="['/fundinglist']" class="fundinglist">펀딩 내역</a>
+              <a [routerLink]="['/fundinglist']" class="fundinglist far">펀딩 내역</a>
             </li>
             <li>
-              <a [routerLink]="['/likelist']" class="likelist">좋아한 프로젝트</a>
+              <a [routerLink]="['/likelist']" class="likelist far">좋아한 프로젝트</a>
             </li>
           </ul>
           <ul class="user-setting">
-            <li><a [routerLink]="['/setting']" class="setting">설정</a></li>
-            <li><a ng-href="#" class="logout" (click)="logout()">로그아웃</a></li>
+            <li><a [routerLink]="['/setting']" class="setting fas">설정</a></li>
+            <li><a ng-href="#" class="logout fas" (click)="logout()">로그아웃</a></li>
           </ul>
         </div>
       </div>
-      <div class="page-top" [class.active]="isScrollTop" (click)="scrollTop()"></div>
+      <div class="page-top fas" [class.active]="isScrollTop" (click)="scrollTop()"></div>
     </div>
   `,
   styleUrls: ['./header.component.css'],
@@ -77,7 +77,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private createElementService: CreateElementService,
-    public loginService: LoginService  
+    public loginService: LoginService
   ) { }
 
   ngOnInit() {
