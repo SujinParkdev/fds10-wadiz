@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-funding-step2',
-  template: ``,
-  styles: [``]
+  templateUrl: './funding-step2.component.html',
+  styleUrls: ['./funding-step2.component.css']
 })
 export class FundingStep2Component implements OnInit {
 

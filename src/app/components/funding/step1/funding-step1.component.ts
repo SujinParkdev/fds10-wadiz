@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-funding-step1',
@@ -10,7 +11,7 @@ export class FundingStep1Component implements OnInit {
   isNoticePop = false;
   noticeForm: FormGroup;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.noticeForm = new FormGroup({
@@ -22,6 +23,10 @@ export class FundingStep1Component implements OnInit {
 
   noticePopClose() {
     this.isNoticePop = false;
+  }
+
+  nextStep() {
+    this.router.navigate(['/funding/1/step2']);
   }
 
 }

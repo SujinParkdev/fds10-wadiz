@@ -6,3 +6,38 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+body i {
+    margin-right: 5px;
+}
+em {
+    font-style: normal;
+}
+input[type=checkbox] {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    transition: .25s;
+    outline: none;
+    border: 1px solid rgba(0,0,0,.15);
+    background: #fff;
+    cursor: pointer;
+    vertical-align: middle;
+    -webkit-appearance: none;
+}
+input[type=checkbox]:hover {
+    border: 1px solid #00cca3;
+}
+input[type=checkbox]:before {
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    color: #fff;
+    margin-top: 2px;
+    margin-left: 2px;
+    content: "\f00c";
+    font-size: 12px;
+    font-weight: 700;
+}
+input[type=checkbox]:checked {
+    background: #00cca3;
+    border: 1px solid #00cca3;
+}

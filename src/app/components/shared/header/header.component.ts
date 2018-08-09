@@ -6,52 +6,13 @@ import {
   animate,
   transition
 } from '@angular/animations';
-import { CreateElementService } from '../../create-element.service';
-import { LoginService } from '../../core/services/login.service';
-import { Router } from '../../../../node_modules/@angular/router';
+import { CreateElementService } from '../../../core/services/create-element/create-element.service';
+import { LoginService } from '../../../core/services/login.service';
+import { Router } from '../../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-header',
-  template: `
-    <div class="header">
-      <div class="gnb">
-        <a [routerLink]="['/main']" class="logo" title="wadiz"></a>
-        <ul class="gnb-menu">
-          <li *ngIf="loginService.isLogin">
-            <div class="user" (click)="isUserPop = !isUserPop"></div>
-          </li>
-          <li *ngIf="!loginService.isLogin">
-            <a ng-href="#" title="login" (click)="login()">로그인</a>
-          </li>
-          <li *ngIf="!loginService.isLogin">
-            <a [routerLink]="['/join']" title="join">회원가입</a>
-          </li>
-        </ul>
-      </div>
-      <div class="user-pop" [@userState]="isUserPop">
-        <div class="user-pop-bg" (click)="isUserPop = !isUserPop"></div>
-        <div class="user-pop-body">
-          <div class="user-profile">
-            <div class="user-picture"></div>
-            <div class="user-name">noname</div>
-          </div>
-          <ul class="user-menu">
-            <li>
-              <a [routerLink]="['/fundinglist']" class="fundinglist far">펀딩 내역</a>
-            </li>
-            <li>
-              <a [routerLink]="['/likelist']" class="likelist far">좋아한 프로젝트</a>
-            </li>
-          </ul>
-          <ul class="user-setting">
-            <li><a [routerLink]="['/setting']" class="setting fas">설정</a></li>
-            <li><a ng-href="#" class="logout fas" (click)="logout()">로그아웃</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="page-top fas" [class.active]="isScrollTop" (click)="scrollTop()"></div>
-    </div>
-  `,
+  templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
   animations: [
     trigger('userState', [
