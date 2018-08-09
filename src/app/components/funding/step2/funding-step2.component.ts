@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '../../../../../node_modules/@angular/router';
-import { FormBuilder } from '../../../../../node_modules/@angular/forms';
+import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-funding-step2',
