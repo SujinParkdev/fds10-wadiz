@@ -2,27 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-slide',
-  template: `
-    <div class="slide-container">
-      <div *ngFor="let slide of slides; let i = index"
-          class="slide-img" [class.active]="slideIndex === i"
-          [ngStyle]="{ 'background-image' : 'url(' + slide.url + ')'}">
-        <div class="slide-info">
-          <div class="slide-title">{{ slide.title }}</div>
-          <div class="slide-text">{{ slide.text }}</div>
-        </div>
-      </div>
-      <div class="slide-btn">
-        <button class="slide-prev fas" (click)="slidePrev()" (blur)="slidePlay()"></button>
-        <button class="slide-next fas" (click)="slideNext()" (blur)="slidePlay()"></button>
-      </div>
-      <div class="slide-active">
-        <div class="active-bar" [ngStyle]="{
-          'width' : 100 / slides.length + '%',
-          'left' : slideIndex * (100 / slides.length) + '%'}"></div>
-      </div>
-    </div>
-  `,
+  templateUrl: './slide.component.html',
   styleUrls: ['./slide.component.css']
 })
 export class SlideComponent implements OnInit {

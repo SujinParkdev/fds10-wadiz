@@ -4,10 +4,14 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <app-header></app-header>
-    <router-outlet></router-outlet>
+    <router-outlet (deactivate)="onDeactivate()"></router-outlet>
     <app-footer></app-footer>
     <app-create-element></app-create-element>
   `,
   styles: [``]
 })
-export class AppComponent { }
+export class AppComponent {
+  onDeactivate() {
+    window.scrollTo(0, 0);
+  }
+}

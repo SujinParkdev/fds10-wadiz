@@ -8,7 +8,7 @@ import {
 } from '@angular/animations';
 import { CreateElementService } from '../../../core/services/create-element/create-element.service';
 import { LoginService } from '../../../core/services/login.service';
-import { Router } from '../../../../../node_modules/@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -42,8 +42,6 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loginService.isLogin = true;
-    this.router.navigate(['/funding/1/step1']);
   }
 
   @HostListener('window:scroll', [])

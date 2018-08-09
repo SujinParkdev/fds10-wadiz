@@ -54,9 +54,9 @@
 </div>
 
 <app-funding-top></app-funding-top>
-<div class="funding-contents">
-  <div class="funding-reward">
-    <div class="funding-reward-top">
+
+<div class="funding-step1">
+    <div class="funding-step1-top">
       <h3>
         <em>리워드 선택</em>
       </h3>
@@ -65,10 +65,10 @@
         <i class="fas fa-exclamation-circle"></i>펀딩하기는 쇼핑하기가 아닙니다! 자세히 알아보세요.
       </a>
     </div>
-    <div class="funding-reward-list">
+    <div class="purchase-list">
       <ul>
         <li>
-          <dl class="reward-box active">
+          <dl class="purchase active">
             <dt>
               <input type="checkbox" id="ckrw" class="reward-check" name="rewardId" checked>
             </dt>
@@ -111,7 +111,7 @@
           </dl>
         </li>
         <li>
-          <dl class="reward-box">
+          <dl class="purchase">
             <dt>
               <input type="checkbox" id="ckrw2" class="reward-check" name="rewardId">
             </dt>
@@ -142,14 +142,11 @@
           </dl>
         </li>
         <li>
-          <dl class="reward-box soldout" data-rid="45521">
+          <dl class="purchase soldout" data-rid="45521">
             <dt>
               <input type="checkbox" id="ckrw45521" class="reward-check" name="rewardId" value="45521" disabled="disabled">
             </dt>
             <dd>
-              <input type="hidden" id="amountRw45521" value="24900">
-              <input type="hidden" id="remainCnt45521" class="remain-cnt" value="0">
-              <input type="hidden" id="limitCnt45521" class="limit-cnt" value="150">
               <label for="ckrw45521">
                 <p class="sum">24,900원 펀딩합니다.</p>
                 <p class="num">[슈퍼 얼리버드] 핏콩큐브 그린티 7set (1주분)
@@ -162,16 +159,6 @@
                   <em>말 (21~말일) 예정</em>
                 </p>
               </label>
-              <div class="checked-area">
-                <div class="amount">
-                  <p class="title">수량</p>
-                  <p class="input-area">
-                    <button type="button" onclick="changeQty('minus', 45521)" class="icon-remove-box-o"></button>
-                    <input type="text" id="qty45521" class="reward-qty" value="0">
-                    <button type="button" onclick="changeQty('plus', 45521)" class="icon-add-box-o"></button>
-                  </p>
-                </div>
-              </div>
             </dd>
           </dl>
         </li>
@@ -198,5 +185,4 @@
         <i class="fas fa-angle-right"></i>
       </button>
     </div>
-  </div>
 </div>

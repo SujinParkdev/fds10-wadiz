@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,13 +11,16 @@ export class FundingStep1Component implements OnInit {
   isNoticePop = false;
   noticeForm: FormGroup;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
-    this.noticeForm = new FormGroup({
-      check1: new FormControl(false, Validators.pattern('true')),
-      check2: new FormControl(false, Validators.pattern('true')),
-      check3: new FormControl(false, Validators.pattern('true'))
+    this.noticeForm = this.fb.group({
+      check1: [false, Validators.pattern('true')],
+      check2: [false, Validators.pattern('true')],
+      check3: [false, Validators.pattern('true')]
     });
   }
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '../../../../../node_modules/@angular/router';
+import { FormBuilder } from '../../../../../node_modules/@angular/forms';
 
 @Component({
   selector: 'app-funding-step2',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FundingStep2Component implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
   }
 
+  nextStep() {
+    this.router.navigate(['/funding/1/step3']);
+  }
 }

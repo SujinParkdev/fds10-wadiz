@@ -56,13 +56,13 @@
   background-color: #e6eaed;
   color: hsla(0,0%,100%,.7);
 }
-.title {
+.notice-container .title {
   margin-bottom: 24px;
   line-height: 1.29;
   font-size: 28px;
   font-weight: 400;
 }
-.title strong {
+.notice-container .title strong {
   color: #363636;
   font-weight: 700;
 }
@@ -132,21 +132,22 @@
 .notice-container input[type=checkbox]:checked::before {
   color: #fff;
 }
-.funding-contents {
+
+.funding-step1 {
   width: 860px;
   margin: 0 auto;
   padding: 0 0 100px;
 }
-.funding-reward-top {
+.funding-step1-top {
   position: relative;
   margin-bottom: 20px;
 }
-.funding-reward h3 {
+.funding-step1 h3 {
   float: left;
   text-align: left;
 }
 
-.funding-reward h3 em {
+.funding-step1 h3 em {
   display: inline-block;
   padding: 0 15px;
   height: 28px;
@@ -157,7 +158,7 @@
   border-radius: 5px;
   font-style: normal;
 }
-.funding-reward .sub-text {
+.funding-step1 .sub-text {
   display: inline-block;
   margin-bottom: 0px;
   padding: 0 5px;
@@ -165,7 +166,7 @@
   font-weight: 500;
   line-height: 18px;
 }
-.funding-reward a.help-text {
+.funding-step1 a.help-text {
   position: absolute;
   top: 5px;
   right: 0;
@@ -174,89 +175,89 @@
   font-size: 12px;
   text-decoration: underline;
 }
-.funding-reward-list {
+.purchase-list {
   overflow: hidden;
 }
-.funding-reward-list li {
+.purchase-list li {
   width: 100%;
   margin-bottom: 5px;
 }
-.reward-box {
+.purchase {
   padding: 0;
   width: 860px;
   background: #f9f9f9;
   border: 1px solid #fff;
   border-radius: 5px;
 }
-.reward-box.active {
+.purchase.active {
   background: #d6f5ef;
   border: 1px solid #edfffc;
 }
-.reward-box:after {
+.purchase:after {
   display: block;
   content: "";
   clear: both;
 }
-.reward-box dt {
+.purchase dt {
   float: left;
   text-align: center;
   width: 100px;
   padding-top: 50px;
 }
-.reward-box dd {
+.purchase dd {
   float: left;
   padding: 20px 10px;
   width: 740px;
   color: #00132C;
 }
-.reward-box dd .sum {
+.purchase dd .sum {
   margin-bottom: 15px;
   font-weight: 500;
   font-size: 18px;
 }
-.reward-box dd .num {
+.purchase dd .num {
   margin-bottom: 5px;
   font-size: 14px;
   line-height: 17px;
 }
-.reward-box dd .num .remains {
+.purchase dd .num .remains {
   padding-left: 10px;
   font-size: 12px;
 }
-.reward-box dd .text {
+.purchase dd .text {
   margin-bottom: 5px;
   font-size: 12px;
   line-height: 16px;
   color: #686868;
 }
-.reward-box dd .date {
+.purchase dd .date {
   font-size: 12px;
   line-height: 15px;
 }
-.reward-box .soldout{
+.purchase .soldout{
   padding-left: 10px;
   font-size: 12px;
   color: #F9283C;
 }
-.reward-box.soldout dd p {
+.purchase.soldout dd p {
   color: #9b9b9b;
 }
-.reward-box label {
+.purchase label {
   display: block;
   cursor: pointer;
 }
-.reward-box.soldout label {
+.purchase.soldout label {
   display: block;
   cursor: no-drop;
 }
-.reward-box .checked-area {
+.purchase .checked-area {
   display: none;
   padding: 15px 0 0;
 }
-.reward-box.active .checked-area {
+.purchase.active .checked-area {
   display: block;
 }
-.reward-box .checked-area input[type=text] {
+.purchase .checked-area input[type=text] {
   width: 70px;
   text-align: right;
   padding: 0 10px;
@@ -268,7 +269,7 @@
   border-radius: 3px;
   box-sizing: border-box;
 }
-.reward-box .checked-area button {
+.purchase .checked-area button {
   padding: 0 3px;
   font-size: 12px;
   vertical-align: middle;
@@ -276,24 +277,25 @@
   background: transparent;
   border: 1px solid #65696B;
   cursor: pointer;
+  height: 20px;
 }
-.reward-box .checked-area button i {
+.purchase .checked-area button i {
   margin: 0;
 }
-.reward-box .checked-area .amount {
+.purchase .checked-area .amount {
   float: left;
   width: 180px;
 }
-.reward-box .checked-area .option {
+.purchase .checked-area .option {
   float: left;
   width: 500px;
 }
-.reward-box .checked-area .option input[type=text] {
+.purchase .checked-area .option input[type=text] {
   width: 100%;
   text-align: left;
   margin: 0;
 }
-.reward-box .checked-area:after {
+.purchase .checked-area:after {
   display: block;
   content: "";
   clear: both;
@@ -325,8 +327,7 @@
   text-align: right;
   height: 48px;
   line-height: 1.2em;
-  transition-property: border-color,height,padding-right,color;
-  transition-duration: .2s,0s;
+  transition: .2s;
   outline: none;
   border: 1px solid rgba(0,0,0,.15);
   border-radius: 0;
@@ -356,26 +357,3 @@
   text-decoration: underline;
   color: #00cca3;
 }
-.btn-wrap button {
-  background-color: #00cca3;
-  color: #fff;
-  border-color: #00cca3;
-  display: inline-block;
-  padding-top: .07em;
-  transition-property: background-color,border-color,color,opacity;
-  transition-duration: .2s;
-  border-radius: 0;
-  border-width: 0;
-  cursor: pointer;
-  padding: 0 1.41176em;
-  height: 48px;
-  vertical-align: middle;
-  text-decoration: none;
-  line-height: 1;
-  font-size: 17px;
-  font-weight: 400;
-  box-sizing: border-box!important;
-  -webkit-appearance: none;
-  margin: 0;
-}
-

@@ -1,0 +1,52 @@
+.funding-step3 {
+    width: 860px;
+    margin: 0 auto;
+    padding: 0 0 100px;
+}
+.purchase-result-wrap {
+    width: 650px;
+    margin: 0 auto;
+}
+.purchase-result {
+    margin-bottom: 42px;
+}
+.purchase-result .result-box {
+    padding: 45px;
+    border: 1px solid #00cca3;
+    border-radius: 5px;
+}
+.purchase-result .result-box p {
+    font-size: 26px;
+    line-height: 36px;
+    text-align: center;
+    color: #00cca3;
+}
+.purchase-result .result-box p strong {
+    color: #00cca3;
+}
+.purchase-notice.center {
+    margin-bottom: 67px;
+}
+.purchase-notice.center .title {
+    text-align: left;
+}
+.purchase-notice .title {
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.purchase-notice.center .inner-rdbox {
+    padding: 15px 20px 15px 40px;
+    border: 1px solid #c8c8c8;
+    border-radius: 8px;
+    text-align: left;
+}
+.purchase-notice li {
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 10px;
+    list-style-type: disc;
+}
+.btn-wrap {
+    text-align: center;
+}

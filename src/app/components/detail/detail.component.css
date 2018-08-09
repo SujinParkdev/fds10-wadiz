@@ -356,6 +356,9 @@ button.campaign-message {
   margin-bottom: 20px;
   border: 1px solid #eaeaea;
   text-align: left;
+  background-color: #fff;
+  height: auto;
+  padding: 0;
 }
 .rightinfo-reward-list .top-info {
   padding: 20px;
