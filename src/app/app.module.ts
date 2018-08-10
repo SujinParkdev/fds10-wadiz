@@ -13,6 +13,8 @@ import { JoinComponent } from './components/join/join.component';
 import { SettingComponent } from './components/setting/setting.component';
 import { LikelistComponent } from './components/likelist/likelist.component';
 import { FundinglistComponent } from './components/fundinglist/fundinglist.component';
+import { ModalComponent } from './components/join/modal.component';
+import { ModalService } from './components/join/modal.service';
 import { CreateElementComponent } from './core/services/create-element/create-element.component';
 import { SlideComponent } from './components/main/slide/slide.component';
 
@@ -31,7 +33,8 @@ import { FundingModule } from './components/funding/funding.module';
     LikelistComponent,
     FundinglistComponent,
     SlideComponent,
-    CreateElementComponent
+    CreateElementComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,9 @@ import { FundingModule } from './components/funding/funding.module';
     AppRoutingModule,
     FundingModule
   ],
-  providers: [],
+  providers: [
+    ModalService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
