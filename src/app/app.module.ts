@@ -4,21 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/common/header.component';
-import { FooterComponent } from './components/common/footer.component';
+import { HeaderComponent } from './components/shared/header/header.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 import { MainComponent } from './components/main/main.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { LoginComponent } from './components/login/login.component';
 import { JoinComponent } from './components/join/join.component';
 import { SettingComponent } from './components/setting/setting.component';
-import { FundingComponent } from './components/funding/funding.component';
-import { PaymentComponent } from './components/payment/payment.component';
 import { LikelistComponent } from './components/likelist/likelist.component';
 import { FundinglistComponent } from './components/fundinglist/fundinglist.component';
-import { SlideComponent } from './components/main/slide.component';
-import { CreateElementComponent } from './create-element.component';
 import { ModalComponent } from './components/join/modal.component';
 import { ModalService } from './components/join/modal.service';
+import { CreateElementComponent } from './core/services/create-element/create-element.component';
+import { SlideComponent } from './components/main/slide/slide.component';
+
+import { FundingModule } from './components/funding/funding.module';
 
 @NgModule({
   declarations: [
@@ -30,8 +30,6 @@ import { ModalService } from './components/join/modal.service';
     JoinComponent,
     SettingComponent,
     DetailComponent,
-    FundingComponent,
-    PaymentComponent,
     LikelistComponent,
     FundinglistComponent,
     SlideComponent,
@@ -41,7 +39,8 @@ import { ModalService } from './components/join/modal.service';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FundingModule
   ],
   providers: [
     ModalService

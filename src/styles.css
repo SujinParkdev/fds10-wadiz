@@ -5,4 +5,64 @@ body {
     font-family: Roboto, 'Noto Sans KR', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -.02em;
+}
+body i {
+    margin-right: 5px;
+}
+em {
+    font-style: normal;
+}
+input[type=checkbox] {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    transition: .25s;
+    outline: none;
+    border: 1px solid rgba(0,0,0,.15);
+    background: #fff;
+    cursor: pointer;
+    vertical-align: middle;
+    -webkit-appearance: none;
+}
+input[type=checkbox]:hover {
+    border: 1px solid #00cca3;
+}
+input[type=checkbox]:before {
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    color: #fff;
+    margin-top: 2px;
+    margin-left: 2px;
+    content: "\f00c";
+    font-size: 12px;
+    font-weight: 700;
+}
+input[type=checkbox]:checked {
+    background: #00cca3;
+    border: 1px solid #00cca3;
+}
+button {
+  background-color: #00cca3;
+  color: #fff;
+  border-color: #00cca3;
+  display: inline-block;
+  transition: .2s;
+  border-radius: 0;
+  border-width: 0;
+  cursor: pointer;
+  padding: 0 1.41176em;
+  height: 48px;
+  vertical-align: middle;
+  text-decoration: none;
+  line-height: 1;
+  font-size: 17px;
+  font-weight: 400;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  margin: 0;
+}
+button:hover {
+    background-color: #00be8f;
+    border-color: #00be8f;
 }

@@ -1,0 +1,188 @@
+<div class="notice-pop" *ngIf="isNoticePop">
+  <div class="notice-container">
+    <a [routerLink]="['/reward/detail/1']" class="notice-back-btn fas">스토리로 돌아가기</a>
+    <p class="title">
+      <strong>잠깐!</strong> 펀딩과 쇼핑이 어떻게 다른지 확인 후 펀딩을 진행하세요</p>
+    <form [formGroup]="noticeForm" novalidate>
+      <dl>
+        <dt>
+          <label>
+            <input type="checkbox" formControlName="check1" class="fas">
+            <span>바로 결제되지 않아요</span>
+          </label>
+        </dt>
+        <dd>
+          <p>지금 펀딩하시면
+            <strong>결제 예약</strong>되며, 목표금액 달성 시,
+            <strong>2018.08.29</strong>에 모두 함께 결제됩니다.</p>
+        </dd>
+        <dt>
+          <label>
+            <input type="checkbox" formControlName="check2" class="fas">
+            <span>펀딩 종료 후에는 취소할 수 없어요</span>
+          </label>
+        </dt>
+        <dd>
+          <p>리워드 결제 예약 취소와 변경은
+            <strong>프로젝트 펀딩기간 중</strong>에만 가능합니다.
+            <br>펀딩 취소는
+            <strong>2018.08.28</strong>까지 가능합니다. 이후로는 취소가 불가합니다.
+          </p>
+        </dd>
+        <dt>
+          <label>
+            <input type="checkbox" formControlName="check3" class="fas">
+            <span>바로 리워드가 발송되지 않아요</span>
+          </label>
+        </dt>
+        <dd>
+          <p>리워드는 메이커가
+            <strong>약속한 날짜</strong>에 발송됩니다.
+            <br>선택한 리워드의 발송 예정일을 확인한 후에 펀딩해 주세요.</p>
+          <p>
+            <em>
+              - 리워드 펀딩 특성상 발송이 지연되거나 불가할 수 있습니다.
+              <br> - 펀딩 안내 탭의 리워드 발송 예상 변동 기간 및 교환, 환불, AS 정책을 참고해주세요.
+              <br> - 기부•후원인 경우, 리워드가 발송되지 않습니다.
+            </em>
+          </p>
+        </dd>
+      </dl>
+      <button type="button" class="notice-close-btn" (click)="noticePopClose()" [disabled]="noticeForm.invalid">계속해서 펀딩하기</button>
+    </form>
+  </div>
+</div>
+
+<app-funding-top></app-funding-top>
+
+<div class="funding-step1">
+    <div class="funding-step1-top">
+      <h3>
+        <em>리워드 선택</em>
+      </h3>
+      <p class="sub-text">펀딩해주시는 금액에 따라 감사의 의미로 리워드를 제공해 드립니다.</p>
+      <a class="help-text" ng-href="#">
+        <i class="fas fa-exclamation-circle"></i>펀딩하기는 쇼핑하기가 아닙니다! 자세히 알아보세요.
+      </a>
+    </div>
+    <div class="purchase-list">
+      <ul>
+        <li>
+          <dl class="purchase active">
+            <dt>
+              <input type="checkbox" id="ckrw" class="reward-check" name="rewardId" checked>
+            </dt>
+            <dd>
+              <label for="ckrw">
+                <p class="sum">46,900원 펀딩합니다.</p>
+                <p class="num">[슈퍼 얼리버드] 핏콩큐브 그린티 14set (2주분)
+                  <em class="remains">(108개 남음)</em>
+                </p>
+                <p class="text">핏콩 큐브 그린티 14ea (2주일 분)</p>
+                <p class="date">
+                  배송비 없음 | 리워드 제공 예상일 :
+                  <em>2018년 09월</em>
+                  <em>말 (21~말일) 예정</em>
+                </p>
+              </label>
+              <div class="checked-area">
+                <div class="amount">
+                  <p class="title">수량</p>
+                  <p class="input-area">
+                    <button type="button" onclick="changeQty('minus', 45522)">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <input type="text" id="qty45522" class="reward-qty" value="0">
+                    <button type="button" onclick="changeQty('plus', 45522)">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </p>
+                </div>
+                <div class="option">
+                  <p class="title">옵션
+                    <em>색상:블랙/화이트</em>
+                  </p>
+                  <p class="input-area">
+                    <input type="text" maxlength="128" id="memo42145">
+                  </p>
+                </div>
+              </div>
+            </dd>
+          </dl>
+        </li>
+        <li>
+          <dl class="purchase">
+            <dt>
+              <input type="checkbox" id="ckrw2" class="reward-check" name="rewardId">
+            </dt>
+            <dd>
+              <label for="ckrw2">
+                <p class="sum">46,900원 펀딩합니다.</p>
+                <p class="num">[슈퍼 얼리버드] 핏콩큐브 그린티 14set (2주분)
+                  <em class="remains">(108개 남음)</em>
+                </p>
+                <p class="text">핏콩 큐브 그린티 14ea (2주일 분)</p>
+                <p class="date">
+                  배송비 없음 | 리워드 제공 예상일 :
+                  <em>2018년 09월</em>
+                  <em>말 (21~말일) 예정</em>
+                </p>
+              </label>
+              <div class="checked-area">
+                <div class="amount">
+                  <p class="title">수량</p>
+                  <p class="input-area">
+                    <button type="button" onclick="changeQty('minus', 45522)" class="icon-remove-box-o"></button>
+                    <input type="text" id="qty45522" class="reward-qty" value="0">
+                    <button type="button" onclick="changeQty('plus', 45522)" class="icon-add-box-o"></button>
+                  </p>
+                </div>
+              </div>
+            </dd>
+          </dl>
+        </li>
+        <li>
+          <dl class="purchase soldout" data-rid="45521">
+            <dt>
+              <input type="checkbox" id="ckrw45521" class="reward-check" name="rewardId" value="45521" disabled="disabled">
+            </dt>
+            <dd>
+              <label for="ckrw45521">
+                <p class="sum">24,900원 펀딩합니다.</p>
+                <p class="num">[슈퍼 얼리버드] 핏콩큐브 그린티 7set (1주분)
+                  <em class="soldout">(마감)</em>
+                </p>
+                <p class="text">핏콩 큐브 그린티 7ea (1주일 분)</p>
+                <p class="date">
+                  배송비 없음 | 리워드 제공 예상일 :
+                  <em>2018년 09월</em>
+                  <em>말 (21~말일) 예정</em>
+                </p>
+              </label>
+            </dd>
+          </dl>
+        </li>
+      </ul>
+    </div>
+    <div class="purchase-donation">
+      <h3>
+        <em>후원금 더하기
+          <span>(선택)</span>
+        </em>
+      </h3>
+      <div class="donation-wrap">
+        <p class="sub-text">후원금을 더하여 펀딩할 수 있습니다. 추가 후원금을 입력하시겠습니까?</p>
+        <div class="input-area">
+          <input type="text" name="addDonationTmp" maxlength="8" placeholder="0"> 원을 추가로 후원합니다.
+        </div>
+      </div>
+    </div>
+    <div class="btn-wrap">
+      <p class="confirm">[핏콩큐브 그린티] 녹덕들의 성지를 마련하다! NO밀가루 단백질 수제쿠키에
+        <em id="sumTotalNum">0</em> 원을 펀딩합니다.</p>
+      <button (click)="nextStep()">
+        다음 단계로
+        <i class="fas fa-angle-right"></i>
+      </button>
+    </div>
+</div>

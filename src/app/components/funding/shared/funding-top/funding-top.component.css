@@ -1,0 +1,82 @@
+
+.funding-title {
+  position: relative;
+  width: 100%;
+  height: 67px;
+  background: #A29584;
+}
+.funding-title a {
+  height: 67px;
+  line-height: 67px;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  display: inline-block;
+  font-size: 16px;
+  color: #fff;
+}
+.funding-title a > i {
+  font-size: 30px;
+  padding: 10px 20px 10px 10px;
+  vertical-align: middle;
+}
+.funding-title div {
+  font-size: 22px;
+  line-height: 67px;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+}
+.funding-step {
+  padding: 30px 0 42px;
+  text-align: center;
+  position: relative;
+}
+.funding-step ol {
+  width: 430px;
+  margin: 0 auto;
+  list-style: none;
+  overflow: hidden;
+}
+.funding-step ol li {
+  float: left;
+  display: block;
+  width: 90px;
+  padding: 0;
+}
+.funding-step ol li:nth-child(2) {
+  padding: 0 80px;
+  box-sizing: content-box;
+}
+.funding-step ol li em {
+  display: table-cell;
+  vertical-align: middle;
+  width: 90px;
+  height: 90px;
+  font-size: 16px;
+  line-height: 20px;
+  border: 1px dashed #979797;
+  border-radius: 50%;
+  background: #fff;
+  font-style: normal;
+}
+.funding-step ol li.active em {
+  color: #fff;
+  border: none;
+  background: #00cca3;
+}
+.funding-step:before {
+  content: "";
+  position: absolute;
+  border-top: 1px dashed #797979;
+  left: 50%;
+  margin-left: -215px;
+  top: 74px;
+  width: 430px;
+  z-index: -1;
+}

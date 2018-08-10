@@ -1,0 +1,379 @@
+.funding-step2 {
+    width: 860px;
+    margin: 0 auto;
+    padding: 0 0 100px;
+}
+.purchase-order {
+    width: 650px;
+    margin: 0 auto 42px;
+}
+.order-list {
+    border-top: 1px solid #666;
+}
+.order-list li {
+    padding: 15px;
+    border-bottom: 1px solid #e4e4e4;
+}
+.order-list li .title {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 17px;
+    color: #00cca3;
+}
+.order-list li .text {
+    margin-bottom: 20px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #686868;
+}
+.order-list li .option {
+    font-size: 12px;
+    line-height: 15px;
+}
+.order-list li .sum {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    text-align: right;
+}
+.order-list li .sum em {
+    padding-right: 25px;
+}
+.order-addinfo dl:first-child {
+    border-top: 0;
+}
+.order-addinfo dl {
+    display: table;
+    width: 100%;
+    border-top: 1px solid #e4e4e4;
+}
+.order-addinfo dt {
+    display: table-cell;
+    width: 140px;
+    padding: 15px 0 15px 15px;
+    font-size: 14px;
+    font-weight: 500;
+    box-sizing: border-box;
+}
+.order-addinfo dd {
+    display: table-cell;
+    padding: 15px 15px 15px 0;
+    font-size: 14px;
+    text-align: right;
+}
+.order-suminfo {
+    padding: 10px 0;
+    background: #ececec;
+}
+.order-suminfo dl {
+    display: table;
+    width: 100%;
+}
+.order-suminfo dt {
+    display: table-cell;
+    width: 140px;
+    padding: 7px 0 7px 15px;
+    font-size: 14px;
+    font-weight: 500;
+    box-sizing: border-box;
+}
+.order-suminfo dd {
+    display: table-cell;
+    padding: 7px 15px 7px 0;
+    font-size: 14px;
+    text-align: right;
+}
+.order-suminfo dl.total {
+    color: #00cca3;
+}
+.order-suminfo dl.total dd {
+    font-size: 22px;
+}
+.purchase-delivery-wrap {
+    width: 100%;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #A29584;
+}
+.purchase-delivery-wrap:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.purchase-delivery-wrap .purchase-notice {
+    float: left;
+    width: 280px;
+    margin-right: 30px;
+    margin-bottom: 0;
+}
+.purchase-notice .title {
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.purchase-notice .text {
+    font-size: 12px;
+    line-height: 16px;
+}
+.purchase-delivery-wrap .purchase-supporter-info {
+    float: left;
+    width: 260px;
+    margin-right: 30px;
+    margin-bottom: 0;
+}
+.funding-step2 h3 {
+    display: inline-block;
+    margin-bottom: 14px;
+}
+.funding-step2 h3 em {
+    display: inline-block;
+    padding: 0 15px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    color: #fff;
+    background: #A29584;
+    border-radius: 5px;
+}
+.purchase-input-box {
+    padding: 15px 12px;
+    background: #EEEDE9;
+    border-radius: 3px;
+}
+.purchase-input-box dl {
+    margin-bottom: 15px;
+}
+.purchase-input-box dl dt {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+.purchase-input-box dl dd {
+    line-height: 36px;
+    font-size: 14px;
+    color: #9B9B9B;
+}
+.purchase-input-box dl dd input[type=text] {
+    padding: 0 10px;
+    vertical-align: middle;
+    margin-right: 8px;
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    font-size: 13px;
+    background: #fff;
+    border: none;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.purchase-terms {
+    padding-top: 42px;
+    border-top: 1px solid #A29584;
+}
+.purchase-terms .check-area {
+    margin-bottom: 32px;
+}
+.purchase-terms .check-area input {
+    position: absolute;
+}
+.purchase-terms .check-area span {
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    padding-left: 24px;
+}
+.purchase-delivery-wrap .purchase-delivery {
+    float: left;
+    width: 260px;
+    margin-bottom: 0;
+}
+.purchase-delivery .delivery-list {
+    border-top: 1px solid #e4e4e4;
+}
+.purchase-delivery .deliver-new dl {
+    border-top: 1px solid #e4e4e4;
+}
+.purchase-delivery dl {
+    display: table;
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: 1px solid #e4e4e4;
+}
+.purchase-delivery .deliver-new.active .input-area {
+    display: block;
+}
+.purchase-delivery .input-area {
+    display: none;
+    padding: 0 20px 10px;
+    border-bottom: 1px solid #e4e4e4;
+}
+.purchase-delivery .input-area .title {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.purchase-delivery .input-area input[type=text], .purchase-delivery .input-area input[type=tel] {
+    padding: 0 15px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid #A29584;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.purchase-delivery .input-area button {
+    height: 36px;
+    padding: 0 15px;
+    line-height: 36px;
+    font-size: 14px;
+    color: #fff;
+    background: #9F9583;
+    border: none;
+    border-radius: 3px;
+}
+.purchase-delivery .input-area .text {
+    padding: 10px;
+    font-size: 14px;
+    line-height: 17px;
+}
+.purchase-delivery .delivery-shippingMemo {
+    margin-top: 15px;
+}
+.purchase-delivery .delivery-shippingMemo .input-area {
+    display: block;
+    padding: 10px 20px 10px;
+    border-bottom: 1px solid #e4e4e4;
+}
+.purchase-delivery .input-area .subtext {
+    font-size: 12px;
+    color: #a29584;
+}
+.purchase-notice {
+    margin-bottom: 42px;
+}
+.purchase-notice .title {
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.purchase-notice li {
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 10px;
+    list-style-type: disc;
+}
+.purchase-type {
+    margin-bottom: 42px;
+}
+.purchase-type ul {
+    margin-bottom: 15px;
+}
+.purchase-type .text {
+    font-size: 12px;
+    line-height: 14px;
+}
+.purchase-payment-info {
+    margin-bottom: 20px;
+}
+.purchase-payment-info .purchase-input-box {
+    width: 550px;
+    padding: 15px 12px;
+    background: #EEEDE9;
+    border-radius: 3px;
+}
+.purchase-payment-info .purchase-input-box:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.purchase-input-box {
+    padding: 15px 12px;
+    background: #EEEDE9;
+    border-radius: 3px;
+}
+.purchase-input-box dl dt {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+.purchase-input-box dl dd {
+    line-height: 36px;
+    font-size: 14px;
+    color: #9B9B9B;
+}
+.purchase-payment-info .purchase-input-box dl {
+    float: left;
+    width: 50%;
+    margin-bottom: 15px;
+}
+.purchase-input-box dl dd input[type=tel], .purchase-input-box dl dd input[type=password] {
+    padding: 0 10px;
+    vertical-align: middle;
+    margin-right: 8px;
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    font-size: 13px;
+    background: #fff;
+    border: none;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.purchase-input-box dl dd input.xs {
+    width: 56px !important;
+    margin-left: -4px;
+}
+.purchase-input-box dl dd input.sm {
+    width: 88px !important;
+}
+.purchase-input-box dl dd input.md {
+    width: 120px !important;
+}
+.purchase-input-box dl dd .pwdot {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 500;
+    font-size: 30px;
+    color: #00132C;
+    line-height: 36px;
+}
+.purchase-input-box dl dd .comment {
+    font-size: 12px;
+}
+.purchase-terms {
+    padding-top: 42px;
+    border-top: 1px solid #A29584;
+}
+.purchase-terms .terms-box {
+    width: 100%;
+    height: 110px;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 10px;
+    overflow-y: scroll;
+    border: 1px solid #e4e4e4;
+    box-sizing: border-box;
+}
+.purchase-terms .terms-box .inner-terms h4 {
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    color: #65696b;
+}
+.purchase-terms .terms-box .inner-terms p {
+    font-size: 12px;
+    line-height: 15px;
+}
+.purchase-terms .check-area {
+    margin-bottom: 32px;
+}
+.funding-step2 .btn-wrap {
+    padding-top: 10px;
+    text-align: center;
+}

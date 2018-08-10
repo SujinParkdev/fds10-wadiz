@@ -9,61 +9,51 @@
 
     <div class="category1 category">
       <a href="#">
-        <div class="category-img"></div>
         <span class="category-text">전체보기</span>
       </a>
     </div>
     <div class="category2 category">
       <a href="#">
-        <div class="category-img"></div>
         <span class="category-text">테크·가전</span>
       </a>
     </div>
     <div class="category3 category">
       <a href="#">
-        <div class="category-img"></div>
         <span class="category-text">패션·잡화</span>
       </a>
     </div>
     <div class="category4 category">
       <a href="#">
-        <div class="category-img"></div>
         <span class="category-text">뷰티</span>
       </a>
     </div>
     <div class="category5 category">
       <a href="#">
-        <div class="category-img"></div>
         <span class="category-text">푸드</span>
       </a>
     </div>
     <div class="category6 category">
       <a href="#">
-        <div class="category-img"></div>
         <span class="category-text">홈리빙</span>
       </a>
     </div>
     <div class="category7 category">
       <a href="#">
-        <div class="category-img"></div>
         <span class="category-text">디자인소품</span>
       </a>
     </div>
     <div class="category8 category">
       <a href="#">
-        <div class="category-img"></div>
         <span class="category-text">여행·레저</span>
       </a>
     </div>
     <div class="category9 category">
       <a href="#">
-        <div class="category-img"></div>
         <span class="category-text">스포츠·모빌리티</span>
       </a>
     </div>
     <div class="category10 category">
       <a href="#">
-        <div class="category-img"></div>
         <span class="category-text">반려동물</span>
       </a>
     </div>
@@ -80,43 +70,102 @@
       <div class="reward-filter-list-title">
         <h3>전체보기</h3>
       </div>
-      <label class="reward-search" for="keyword">
-        <input type="text" placeholder="프로젝트 검색" for="keyword">
-        <button class="search-bnt">search</button>
-      </label>
-      <div class="filter1-category">
-        <select name="status">
-          <option value="ALL">전체</option>
-          <option value="N">펀딩중</option>
-          <option value="Y">종료된</option>
-        </select>
-      </div>
-      <div class="filter2-order">
-        <select name="order">
-          <option value="recommend">추천순</option>
-          <option value="popular">인기순</option>
-          <option value="amount">펀딩액순</option>
-          <option value="closing">마감임박순</option>
-          <option value="recent">최신순</option>
-          <option value="support">응원참여자순</option>
-        </select>
+      <div class="for-reward-searchbox-float">
+        <label class="reward-search" for="keyword">
+          <input type="text" placeholder="프로젝트 검색" for="keyword" id="keyword">
+          <div class="forbtn">
+            <button class="search-btn" aria-label="검색"></button>
+          </div>
+        </label>
+        <div class="filter1-category">
+          <select name="status">
+            <option value="ALL">전체</option>
+            <option value="N">펀딩중</option>
+            <option value="Y">종료된</option>
+          </select>
+          <div class="filter2-order">
+            <select name="order">
+                <option value="recent">최신순</option>
+              <option value="popular">인기순</option>
+              <option value="closing">마감임박순</option>
+            </select>
+          </div>
+        </div>
       </div>
     </div>
     <!-- reward list header end -->
-    <ul>
-      <li>
-        <div class="reward">
-          <a [routerLink]="['/reward/detail/1']">
-            <div class="reward-img">
-              <img src="http://placehold.it/322x182">
+    <div class="reward-lists">
+      <ul>
+        <li>
+          <div class="reward">
+            <a [routerLink]="['/reward/detail/1']">
+              <div class="reward-item-deadlinesoon">마감임박</div>
+              <div class="reward-img">
+                <span class="reward-img-span"></span>
+              </div>
+            </a>
+            <div class="reward-info">
+              <div class="reward-item-title">
+                <h4>유선의 한계를 뛰어넘는 차량용 무선 청소기</h4>
+              </div>
+              <span class="reward-item-category">테크·가전 | 더크루 </span>
             </div>
-          </a>
-          <div class="reward-info">
-            text
+            <div class="reward-item-percentbar"><span></span></div>
+            <div class="reward-completed-float">
+              <span class="reward-item-completed-per">875%</span>
+              <span class="reward-item-completed-money">26,254,000원</span>
+              <span class="reward-item-remainday">19일 남음</span>
+            </div>
           </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+        <li>
+            <div class="reward">
+              <a [routerLink]="['/reward/detail/1']">
+                <div class="reward-item-deadlinesoon">마감임박</div>
+                <div class="reward-img">
+                    <span class="reward-img-span"></span>
+                </div>
+              </a>
+              <div class="reward-info">
+                <div class="reward-item-title">
+                  <h4>유선의 한계를 뛰어넘는 차량용 무선 청소기</h4>
+                </div>
+                <span class="reward-item-category">테크·가전 | 더크루 </span>
+              </div>
+              <div class="reward-item-percentbar"><span></span></div>
+              <div class="reward-completed-float">
+                <span class="reward-item-completed-per">875%</span>
+                <span class="reward-item-completed-money">26,254,000원</span>
+                <span class="reward-item-remainday">19일 남음</span>
+              </div>
+            </div>
+          </li>
+          <li>
+              <div class="reward">
+                <a [routerLink]="['/reward/detail/1']">
+                  <div class="reward-item-deadlinesoon">마감임박</div>
+                  <div class="reward-img">
+                      <span class="reward-img-span"></span>
+                  </div>
+                </a>
+                <div class="reward-info">
+                  <div class="reward-item-title">
+                    <h4>유선의 한계를 뛰어넘는 차량용 무선 청소기</h4>
+                  </div>
+                  <span class="reward-item-category">테크·가전 | 더크루 </span>
+                </div>
+                <div class="reward-item-percentbar"><span></span></div>
+                <div class="reward-completed-float">
+                  <span class="reward-item-completed-per">875%</span>
+                  <span class="reward-item-completed-money">26,254,000원</span>
+                  <span class="reward-item-remainday">19일 남음</span>
+                </div>
+              </div>
+            </li>
+
+      </ul>
+    </div>
   </div>
 </div>
+<router-outlet></router-outlet>
 <!-- reward list end -->
