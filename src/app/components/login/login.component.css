@@ -1,0 +1,53 @@
+article, blockquote, body, dd, div, dl, dt, h1, h2, h3, h4, html, li, main, ol, p, section, table, tbody, td, th, thead, tr, ul {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
+.login-container{
+  margin: 0 auto;
+  padding-bottom: 96px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
+}
+
+.login-heading-text{
+  color: rgba(0,0,0,.84);
+  line-height: 36px;
+  letter-spacing: -.6px;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.form-container{
+  position: relative;
+  padding: 40px 16px;
+  box-sizing: border-box;
+  line-height: 20px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.checkbox{
+  line-height: 18px;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(0,0,0,.54);
+}
+
+.submit-button {
+  display: block;
+  margin: 24px 0 16px;
+  background-color: #00cca3;
+  color: #fff;
+  padding-top: .07em;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  border: 0;
+  border-radius: 0;
+}

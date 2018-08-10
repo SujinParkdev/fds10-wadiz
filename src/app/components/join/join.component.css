@@ -1,0 +1,205 @@
+article, blockquote, body, dd, div, dl, dt, h1, h2, h3, h4, html, li, main, ol, p, section, table, tbody, td, th, thead, tr, ul {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+}
+modal {
+  display: none;
+  margin: 5% auto;
+
+}
+.modal {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,.4);
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  overflow: auto;
+}
+.modal .modal-content {
+  padding: 20px;
+  background: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+.modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.75;
+  z-index: 900;
+}
+
+.modal-close {
+  position: absolute;
+  top: 28px;
+  left: 32px;
+  border: 0;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  line-height: 1;
+  font-size: 24px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.modal-agree {
+  display: block;
+  margin: 24px 0 16px;
+  background-color: #00cca3;
+  color: #fff;
+  padding-top: .07em;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  border: 0;
+  border-radius: 0;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+body li, body ol, body ul {
+  list-style: none;
+}
+
+input.toggle {
+  display: none
+}
+
+label{
+  min-height: 24px;
+}
+
+label.toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  color: rgba(0,0,0,.54);
+  font-size: 13px
+}
+
+.term-more .term-box {
+  margin-left: -64px
+}
+
+input.toggle:checked+label.toggle span:first-child, label.toggle span:last-child {
+  display: none
+}
+
+input.toggle:checked+label.toggle span:last-child {
+  display: inline
+}
+
+input.toggle:checked~.term-box {
+  height: 192px
+}
+
+/* 본문 */
+
+.text-large{
+  line-height: 20px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px !important;
+}
+
+.text-normal{
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.join-container{
+  position: relative;
+  padding: 40px 16px;
+  line-height: 20px;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0 auto;
+  padding-bottom: 96px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
+}
+
+.join-large-text{
+  color: rgba(0,0,0,.84);
+  line-height: 36px;
+  letter-spacing: -.6px;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.submit-button {
+  display: block;
+  margin: 24px 0 16px;
+  background-color: #00cca3;
+  color: #fff;
+  padding-top: .07em;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  border: 0;
+  border-radius: 0;
+}
+
+.check-list {
+  position: relative;
+  margin-bottom: 32px;
+  padding-right: 24px;
+}
+
+.check-list label {
+  display: block;
+  margin: 0;
+  padding-left: 34px;
+}
+
+.check-list label > input{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 2px;
+  margin-left: 2px;
+}
+
+.check-list button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  border: 0;
+  background: 0 0;
+  padding: 0;
+  width: 24px;
+  height: 100%;
+  border: 1px solid #00cca3;
+}
+
+.check-list .control {
+  position: static;
+}
+
+.check-list button > i.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
