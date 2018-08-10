@@ -11,8 +11,7 @@ import { LoginGuard } from './core/guards/login.guard';
 
 
 const routes: Routes = [
-  { path: '', component: MainComponent },
-  { path: 'main', component: MainComponent },
+  { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'join', component: JoinComponent },
   { path: 'setting', component: SettingComponent, canActivate: [LoginGuard] },

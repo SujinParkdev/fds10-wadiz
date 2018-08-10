@@ -1,98 +1,27 @@
-<div class="slide-container">
-  <app-slide></app-slide>
-</div>
-<div class="rewards-container">
-<!-- category start-->
-<div class="category-container">
-  <div class="only-category-container"
-    [ngStyle]="{ 'transform' : 'translate('+ categoryX +'px, 0)' }">
-    <a href="#" *ngFor="let category of categorys">
-      <div class="category"
-      [ngStyle]="{ 'background-image' : 'url(' + category.img + ')' }">
-        <span class="category-text">{{ category.name }}</span>
-      </div>
-    </a>
-  </div>
-  <button class="category-arrow-btn category-arrow-btn-left"
-      (click)="prevCategory()"
-      [class.active]="categoryX < 0">
-      <i class="fas fa-chevron-left"></i>
-  </button>
-  <button class="category-arrow-btn category-arrow-btn-right"
-      (click)="nextCategory()"
-      [class.active]="categoryX >= 0">
-      <i class="fas fa-chevron-right"></i>
-  </button>
-</div>
-<!-- category end-->
+<app-slide></app-slide>
 
-<!-- reward list start -->
-<div class="rewardlist-container">
-    <!-- reward list header start -->
-    <div class="reward-filter-header">
-      <div class="reward-filter-list-title">
-        <h3>전체보기</h3>
-      </div>
-      <div class="for-reward-searchbox-float">
-        <label class="reward-search" for="keyword" [class.active]="isSearch">
-          <input type="text" placeholder="프로젝트 검색" id="keyword" #keyword>
-          <div class="forbtn">
-            <button class="search-btn" (click)="rewardSearch(keyword.value)"><i class="fas fa-search"></i></button>
+<div class="rewards-container">
+  <!-- category start-->
+  <div class="category-container">
+    <div class="only-category-container" [ngStyle]="{ 'transform' : 'translate('+ categoryX +'px, 0)' }">
+      <ng-container *ngFor="let category of categorys">
+        <a [routerLink]="'/main' + category.url" 
+           [routerLinkActive]="'active'" 
+           [routerLinkActiveOptions]="{ exact: true }"
+           [queryParams]="{ filter: category.name }">
+          <div class="category" [ngStyle]="{ 'background-image' : 'url(' + category.img + ')' }">
+            <span class="category-text">{{ category.name }}</span>
           </div>
-        </label>
-        <div class="fas filter filter1-category">
-          {{ status }}
-          <select name="status" #statusId (change)="setStatus(statusId.selectedIndex)">
-            <option value="ALL">전체</option>
-            <option value="N">펀딩중</option>
-            <option value="Y">종료된</option>
-          </select>
-        </div>
-        <div class="fas filter filter2-order">
-          {{ order }}
-          <select name="order" #orderId (change)="setOrder(orderId.selectedIndex)">
-            <option value="recent">최신순</option>
-            <option value="amount">펀딩액순</option>
-            <option value="popular">인기순</option>
-            <option value="closing">마감임박순</option>
-          </select>
-        </div>
-      </div>
+        </a>
+      </ng-container>
     </div>
-    <!-- reward list header end -->
-    <div class="reward-lists">
-      <ul *ngIf="rewards">
-        <li *ngFor="let reward of rewards">
-          <div class="reward">
-            <a [routerLink]="['/reward/detail/' + reward.pk]">
-              <div class="reward-item-deadlinesoon">마감임박</div>
-              <div class="reward-img">
-                <span class="reward-img-span"
-                  [ngStyle]="{ 'background-image': 'url(' + reward.product_img + ')' }"></span>
-              </div>
-            </a>
-            <div class="reward-info">
-              <div class="reward-item-title">
-                <h4>{{ reward.product_name }}</h4>
-              </div>
-              <span class="reward-item-category">{{ reward.product_type }} | {{ reward.product_company_name }} </span>
-            </div>
-            <div class="reward-item-percentbar">
-              <span [style.width]="getPercent(reward.product_cur_amount, reward.product_total_amount) + '%'"></span>
-            </div>
-            <div class="reward-completed-float">
-              <span class="reward-item-completed-per">{{ getPercent(reward.product_cur_amount, reward.product_total_amount) }}%</span>
-              <span class="reward-item-completed-money">{{ reward.product_cur_amount }}원</span>
-              <span class="reward-item-remainday">19일 남음</span>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="reward-more">
-      <button class="btn-more">더보기<i class="fas fa-chevron-down"></i></button>
-    </div>
+    <button class="category-arrow-btn category-arrow-btn-left" (click)="prevCategory()" [class.active]="categoryX < 0">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="category-arrow-btn category-arrow-btn-right" (click)="nextCategory()" [class.active]="categoryX >= 0">
+      <i class="fas fa-chevron-right"></i>
+    </button>
   </div>
+  <!-- category end-->
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
-<!-- reward list end -->

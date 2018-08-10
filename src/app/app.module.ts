@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
-import { MainComponent } from './components/main/main.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { LoginComponent } from './components/login/login.component';
 import { JoinComponent } from './components/join/join.component';
@@ -17,15 +16,14 @@ import { FundinglistComponent } from './components/fundinglist/fundinglist.compo
 import { ModalComponent } from './components/join/modal.component';
 import { ModalService } from './components/join/modal.service';
 import { CreateElementComponent } from './core/services/create-element/create-element.component';
-import { SlideComponent } from './components/main/slide/slide.component';
 
 import { FundingModule } from './components/funding/funding.module';
+import { MainModule } from './components/main/main.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    MainComponent,
     FooterComponent,
     LoginComponent,
     JoinComponent,
@@ -33,7 +31,6 @@ import { FundingModule } from './components/funding/funding.module';
     DetailComponent,
     LikelistComponent,
     FundinglistComponent,
-    SlideComponent,
     CreateElementComponent,
     ModalComponent
   ],
@@ -42,7 +39,8 @@ import { FundingModule } from './components/funding/funding.module';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    FundingModule
+    FundingModule,
+    MainModule
   ],
   providers: [
     ModalService

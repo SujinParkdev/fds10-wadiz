@@ -1,19 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
-
-interface Reward {
-  pk: number;
-  product_name: string;
-  product_type: string;
-  product_company_name: string;
-  product_img: string;
-  product_interested_count: number;
-  product_start_time: string;
-  product_end_time: string;
-  product_cur_amount: number;
-  product_total_amount: number;
-}
+import { Component, OnInit } from '@angular/core';
 
 interface Category {
   id: number;
@@ -22,36 +7,17 @@ interface Category {
   url: string;
 }
 
-interface HashMap {
-  key: string;
-  value: string;
-}
-
-interface RewardApi {
-  count: number;
-  next?: string;
-  previous?: string;
-  results: Reward[];
-}
-
 @Component({
   selector: 'app-main',
   templateUrl: 'main.component.html',
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  rewards: Reward[];
   categorys: Category[];
   categoryX = 0;
-  statusArr: HashMap[];
-  orderArr: HashMap[];
-  status: string;
-  order: string;
-  isSearch = false;
-  rewardsUrl = environment.rewardsUrl;
-  @ViewChild('keyword') keyword: ElementRef;
+  categoryPath = '';
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   ngOnInit() {
     this.categorys = [
@@ -146,48 +112,6 @@ export class MainComponent implements OnInit {
         url: '/publishing'
       }
     ];
-
-    this.statusArr = [
-      { key: '전체',
-        value: 'ALL'
-      },
-      { key: '펀딩중',
-        value: 'N'
-      },
-      { key: '종료된',
-        value: 'Y'
-      }
-    ];
-
-    this.orderArr = [
-      { key: '최신순',
-        value: 'recent'
-      },
-      { key: '펀딩액순',
-        value: 'amount'
-      },
-      { key: '인기순',
-        value: 'popular'
-      },
-      { key: '마감임박순',
-        value: 'closing'
-      }
-    ];
-
-    this.status = this.statusArr[0].key;
-    this.order = this.orderArr[0].key;
-
-    console.log(this.rewardsUrl);
-
-    this.http.get<RewardApi>(this.rewardsUrl)
-      .subscribe(
-        res => {
-          this.rewards = res.results;
-        },
-        error => {
-          console.log(error);
-        }
-      );
   }
 
   prevCategory() {
@@ -196,29 +120,5 @@ export class MainComponent implements OnInit {
 
   nextCategory() {
     this.categoryX -= 930;
-  }
-
-  setStatus(index: number) {
-    this.status = this.statusArr[index].key;
-  }
-
-  setOrder(index: number) {
-    this.order = this.orderArr[index].key;
-  }
-
-  rewardSearch(value: string) {
-    if (!this.isSearch) {
-      this.isSearch = true;
-        setTimeout(() => {
-          const keyword = this.keyword.nativeElement as HTMLElement;
-          keyword.focus();
-        }, 250);
-      return;
-    }
-  }
-
-  getPercent(amount, target): number {
-    const p = Math.round(amount / target * 100);
-    return p > 100 ? 100 : p;
   }
 }

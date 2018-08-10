@@ -1,6 +1,6 @@
 <div class="header">
   <div class="gnb">
-    <a [routerLink]="['/main']" class="logo" title="wadiz"></a>
+    <a [routerLink]="'/main'" class="logo" title="wadiz"></a>
     <ul class="gnb-menu">
       <li *ngIf="loginService.isLogin">
         <div class="user" (click)="isUserPop = !isUserPop"></div>
@@ -9,7 +9,7 @@
         <a ng-href="#" title="login" (click)="login()">로그인</a>
       </li>
       <li *ngIf="!loginService.isLogin">
-        <a [routerLink]="['/join']" title="join">회원가입</a>
+        <a [routerLink]="'/join'" title="join">회원가입</a>
       </li>
     </ul>
   </div>
@@ -22,15 +22,15 @@
       </div>
       <ul class="user-menu">
         <li>
-          <a [routerLink]="['/fundinglist']" class="fundinglist far">펀딩 내역</a>
+          <a [routerLink]="'/fundinglist'" class="fundinglist far">펀딩 내역</a>
         </li>
         <li>
-          <a [routerLink]="['/likelist']" class="likelist far">좋아한 프로젝트</a>
+          <a [routerLink]="'/likelist'" class="likelist far">좋아한 프로젝트</a>
         </li>
       </ul>
       <ul class="user-setting">
         <li>
-          <a [routerLink]="['/setting']" class="setting fas">설정</a>
+          <a [routerLink]="'/setting'" class="setting fas">설정</a>
         </li>
         <li>
           <a ng-href="#" class="logout fas" (click)="logout()">로그아웃</a>
