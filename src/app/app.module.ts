@@ -17,6 +17,8 @@ import { LikelistComponent } from './components/likelist/likelist.component';
 import { FundinglistComponent } from './components/fundinglist/fundinglist.component';
 import { SlideComponent } from './components/main/slide.component';
 import { CreateElementComponent } from './create-element.component';
+import { ModalComponent } from './components/join/modal.component';
+import { ModalService } from './components/join/modal.service';
 
 @NgModule({
   declarations: [
@@ -33,14 +35,17 @@ import { CreateElementComponent } from './create-element.component';
     LikelistComponent,
     FundinglistComponent,
     SlideComponent,
-    CreateElementComponent
+    CreateElementComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ModalService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
