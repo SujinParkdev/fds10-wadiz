@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./funding-step1.component.css']
 })
 export class FundingStep1Component implements OnInit {
-  isNoticePop = false;
+  isNoticePop = true;
   noticeForm: FormGroup;
 
   constructor(

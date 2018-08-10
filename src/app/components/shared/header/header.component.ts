@@ -64,7 +64,6 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    console.log(this.router.url);
     this.createElementService.confirm('로그아웃 하시겠습니까?', '확인', () => {
       this.createElementService.alert('로그아웃 되었습니다.', () => {
         this.isUserPop = false;

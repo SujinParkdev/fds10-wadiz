@@ -119,6 +119,5 @@ export class CreateElementComponent implements OnInit {
     this.createElementService.viewContainerRef = this.viewContainerRef;
     this.createElementService.el = this.el;
     this.createElementService.renderer = this.renderer;
-
   }
 }

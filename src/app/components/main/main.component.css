@@ -6,7 +6,7 @@
 .rewards-container {
   position: relative;
   margin: 0 auto;
-  max-width: 1065px;
+  max-width: 1064px;
 }
 .category-container {
   position: relative;
@@ -17,7 +17,7 @@
 .rewardlist-container {
   position: relative;
   max-width: 1032px;
-  margin: 0 92;
+  margin: 0 auto;
 
 }
 .rewardlist-container .reward-filter {
@@ -38,19 +38,40 @@
 
 /* category start */
 .category-container {
+  position: relative;
+  margin-top: 10px;
   margin-bottom: 0;
   /* padding: 0 60px 14px 0; */
+  width: 1032px;
   height: 210px;
   overflow: hidden;
   padding-top: 20px;
   padding-bottom: 20px;
-  display: flex;
-  flex-direction: row;
 }
 .only-category-container {
-  width: 1032px;
-  display: flex;
-  justify-content: space-evenly;
+  width: 200%;
+  margin-top: 56px;
+  transition: .5s;
+}
+.only-category-container a {
+  display: inline-block;
+  width: 98px;
+  height: 80px;
+  text-align: center;
+  position: relative;
+}
+.only-category-container a:hover::before {
+  border: 2px solid #00bf99;
+  position: absolute;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  content:"";
+  display: inline-block;
+  cursor: pointer;
+}
+.only-category-container a:hover .category-text {
+  color: #00bf99;
 }
 .category {
   display: inline-block;
@@ -60,96 +81,70 @@
   background-size: cover;
   width: 56px;
   height: 56px;
-  margin-top: 55px;
-  display: flex;
-  justify-content: center
-}
-.category:hover::before {
-  border: 2px solid #00bf99;
-  position: absolute;
-  border-radius: 50%;
-  width: 56px;
-  height: 56px;
-  content:"";
-  display: block;
-  cursor: pointer;
-}
-.category:hover .category-text {
-  color: #00bf99;
 }
 .category-text {
+  position: absolute;
   color: black;
-  margin-top: 60px;
-  display: inline-block;
   line-height: 18px;
   font-size: 12px;
   font-weight: 500;
-  text-align: center;
-  width: 80px;
-}
-.category1 {
-  background-image: url(https://cdn.wadiz.kr/resources/assets/img/912f519d6d62214aea09ffd35630daab.jpg)
-}
-.category2 {
-  background-image: url(https://cdn.wadiz.kr/resources/assets/img/56a64dc0f600839f467920a2598e1340.jpg)
-}
-.category3 {
-  background-image: url(https://cdn.wadiz.kr/resources/assets/img/29ca1d6c801542767c5f9fe2a14746c6.jpg)
-}
-.category4 {
-  background-image: url(https://cdn.wadiz.kr/resources/assets/img/b8f23dda2954a81dcb83ee92460d14fe.jpg)
-}
-.category5 {
-  background-image: url(https://cdn.wadiz.kr/resources/assets/img/8794e59843df576beb42a54be20444a6.jpg)
-}
-.category6 {
-  background-image: url(https://cdn.wadiz.kr/resources/assets/img/c215ebf31bc7d3d28a2e427ce47c4886.jpg)
-}
-.category7 {
-  background-image: url(https://cdn.wadiz.kr/resources/assets/img/165c7094a3543601cf70fa4ba859ac96.jpg)
-}
-.category8 {
-  background-image: url(https://cdn.wadiz.kr/resources/assets/img/963a880fd2ee56a0e1869cee8b69c363.jpg)
-}
-.category9 {
-  background-image: url(https://cdn.wadiz.kr/resources/assets/img/9d7f8702ca73c5fcc73bc871983fc684.jpg)
-}
-.category10 {
-  background-image: url(https://cdn.wadiz.kr/resources/assets/img/3e377b6e291726caad316b351ff0b0e1.jpg)
+  width: 100%;
+  left: 0;
+  bottom: 0;
 }
 /* category end */
 
 /* category arrow button start */
 .category-arrow-btn {
-  margin-top: 20px;
+  position: absolute;
+  top: 0;
   font-size: 40px;
-  background: none;
+  width: 70px;
+  height: 100%;
   border: none;
+  padding: 0;
+  color: rgba(0,0,0,.54);
+  outline: 0;
+  display: none;
+}
+.category-arrow-btn:hover {
+  color: rgba(0,0,0,.84);
+}
+.category-arrow-btn-left {
+  background: linear-gradient(270deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.8) 50%,#fff);
+  left: 0;
+}
+.category-arrow-btn-right {
+  background: linear-gradient(90deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.8) 50%,#fff);
+  right: 0;
+}
+.category-arrow-btn.active {
+  display: block;
 }
 /* category arrow button end */
 
 
 /* reward list header start */
 .reward-filter-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 0 30px 30px 30px;
-  padding: 30px 0 5px 0;
+  padding: 10px 0 5px 0;
   border-bottom: 1px solid rgba(0,0,0,.1);
-  box-sizing: border-box;
 }
-.reward-filter-list-title>h3 {
-  width: 60vh;
-  justify-content: flex-start;
+.reward-filter-header:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+.reward-filter-list-title h3 {
+  float: left;
   bottom: 12px;
   left: 0;
   line-height: 32px;
   font-size: 24px;
+  font-weight: bold;
 }
 .for-reward-searchbox-float {
-  width: 50vh;
   height: 32px;
+  float: right;
 }
 .reward-search {
   float: left;
@@ -167,41 +162,69 @@ input#keyword {
   font-size: 15px;
   text-decoration: none;
   color: black;
-  /* transition: opacity .25s; */
-  /* opacity: 0; */
+  visibility: hidden;
+  transition: opacity .25s;
+  opacity: 0;
+}
+.reward-search.active input#keyword{
+  opacity: 1;
+  visibility: visible;
 }
 .forbtn {
-  float: right;
-  display: block;
-  margin-top: auto;
-  border: none;
-  height: 32px;
-  width: 32px;
-  background: url('https://png.icons8.com/ios-glyphs/50/000000/search.png') no-repeat;
-  background-size: 18px 18px;
-  background-position: center;
+  float: left;
 }
 .search-btn {
   border: none;
   background: none;
+  color: #000;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  font-size: 15px;
 }
 .filter2-order {
-  float: right;
+  float: left;
 }
 .filter1-category {
-  margin-top: 1px;
-  float: right;
+  float: left;
+}
+.filter {
+  position: relative;
+  display: inline-block;
+  padding-right: 24px;
+  padding-left: 12px;
+  line-height: 32px;
+}
+.filter:after {
+  position: absolute;
+  top: -3px;
+  right: 7px;
+  content: "\f0dd";
 }
 select {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
   background: none;
   border: none;
+  -webkit-appearance: none; /* 화살표 없애기 for chrome*/
+  -moz-appearance: none;    /* 화살표 없애기 for firefox*/
+  appearance: none;         /* 화살표 없애기 공통*/
+  padding-right: 16px;
+  font-size: 16px;
+  line-height: 32px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 /* reward list header end */
 
 .reward-lists {
-  margin: 0 30px 0 30px;
+  margin: 0 -16px;
+  padding-bottom: 50px;
 }
-li {
+.reward-lists li {
   margin: 18px 0 18px 0;
 }
 .reward:nth-child(2n), .reward:nth-child(3n){
@@ -209,7 +232,6 @@ li {
 }
 .reward {
   width: 100%;
-  height: 181px;
   padding: 16px;
   float: left;
   height: 300px;
@@ -233,13 +255,14 @@ li {
   font-weight: 400;
   padding: 1px 6px 0 6px;
   overflow: hidden;
+  display: none;
 }
 .rewar-img::before {
   border-radius: 3px;
   border: 5px solid rgba(0,0,0,.06);
 }
 .reward-img-span {
-  background-image: url('https://cdn.wadiz.kr/wwwwadiz/green002/2018/0726/20180726132120021_22042.jpg/wadiz/resize/600/format/jpg/quality/95/optimize');
+  background-color: #f7f7f7;
   background-size: cover;
   transform: scale(1);
   transition: all .3s;
@@ -256,9 +279,10 @@ li {
 .reward-info {
   height: 80px;
   padding: 11px 0 0;
+  margin-bottom: 10px;
 }
 .reward-item-title {
-  display: inline-box;
+  display: block;
 }
 .reward-item-title > h4 {
   display: inline;
@@ -282,7 +306,6 @@ li {
 .reward-item-percentbar > span {
   display: block;
   height: 3px;
-  width: 100%;
   background-color: #00bf99 !important;
 }
 .reward-item-completed-per {
@@ -303,4 +326,14 @@ li {
 }
 .reward-item-remainday {
   float: right;
+}
+.reward-more {
+  text-align: center;
+}
+.btn-more {
+  width: 600px;
+  margin-bottom: 50px;
+}
+.btn-more i {
+  margin-left: 5px;
 }
