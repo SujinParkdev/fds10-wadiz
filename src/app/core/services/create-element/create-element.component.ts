@@ -24,7 +24,7 @@ import { CreateElementService } from './create-element.service';
       position: fixed;
       bottom: 10px;
       right: 10px;
-      z-index: 5000;
+      z-index: 999999;
     }
     .toast {
       width: 350px;
@@ -48,7 +48,7 @@ import { CreateElementService } from './create-element.service';
       height: 100%;
       top: 0;
       left: 0;
-      z-index: 6000;
+      z-index: 999999;
       opacity: 0;
       transition: all .2s;
     }
@@ -68,7 +68,7 @@ import { CreateElementService } from './create-element.service';
       border-radius: 3px;
       box-shadow: 0 3px 3px rgba(0,0,0,.3);
       text-align: center;
-      z-index: 7000;
+      z-index: 999999;
     }
     .pop.active {
       opacity: 1;

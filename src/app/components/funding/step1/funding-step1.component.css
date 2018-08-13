@@ -5,7 +5,7 @@
   background: rgba(0,0,0,.8);
   top: 0;
   left: 0;
-  z-index: 6000;
+  z-index: 999999;
   transition: all .2s;
   overflow-y: auto;
 }

@@ -30,9 +30,13 @@ a {
 }
 .detail-container .detail-nav {
   position: sticky;
+  top: 0;
+  background: rgba(255,255,255,.95);
   box-shadow: 0 1px 0 0 rgba(0,0,0,.08);
   height: 56px;
   margin-bottom: 12px;
+  width: 100%;
+  z-index: 9999;
 }
 .detail-container .detail-body {
   padding: 0 30px;
@@ -113,26 +117,28 @@ a {
 .title > h2 > a, .title > h2 > a:hover {
   color: white;
 }
-/* detail nav start */
-.detail-nav {
-  height: 56px;
-  margin-bottom: 12px;
-  max-width: 1024px;
-  padding: 0 30px;
-  margin: 0 auto;
-  width: 100%
-}
 .tab-list {
   /* padding: 0 50vh 0 50vh; */
-  overflow: hidden;
+  text-align: center;
+}
+.tab-list li {
+  display: inline-block;
 }
 .tab-link {
   display: block;
-  float: left;
   padding: 16px;
-  font-style: 12px;
   color: black;
   position: relative;
+}
+.tab-list li.active .tab-link:before {
+  display: block;
+  position: absolute;
+  right: 13px;
+  bottom: 0;
+  left: 13px;
+  background-color: #00bf99;
+  height: 3px;
+  content: "";
 }
 .count-total {
   display: inline-block;
@@ -186,7 +192,6 @@ p.rate-bar em {
 .wz-btn {
   width: 100%;
   text-align: center;
-  background: #00cca3;
   border: none;
   color: white;
   height: 48px;
@@ -211,9 +216,19 @@ button#btnLike, button.campaign-message, button#btnShare {
   background: #fff;
   border: 1px solid #dadce0;
   font-size: 15px;
+  color: #4a4a4a;
+  padding: 0;
+  transition: .2s;
 }
 button.campaign-message {
   margin: 0 4px;
+}
+button#btnLike:hover, button.campaign-message:hover, button#btnShare:hover {
+  background: #eaeaea;
+}
+
+button i {
+  margin-right: 3px;
 }
 /* project state info end */
 
@@ -295,8 +310,14 @@ button.campaign-message {
   width: 100%;
   padding: 0 24px;
   font-size: 17px;
-  color: rgba(0,0,0,.54);
-  border: 1px solid rgba(0,0,0,.15);
+  background-color: #fff;
+  color: rgba(0,0,0,.35);
+  border: 1px solid rgba(0,0,0,.35);
+}
+.wz.button:hover {
+  background-color: #fff;
+  color: rgba(0,0,0,.65);
+  border: 1px solid rgba(0,0,0,.65);
 }
 .project-maker-info .contact-info .sub-content {
   padding: 0 19px 20px;
@@ -339,6 +360,7 @@ button.campaign-message {
   background-color: transparent!important;
   width: 100%;
   border: none;
+  color: #4a4a4a;
 }
 .project-maker-info .contact-info .contact-detail-info {
   background-color: #f0f2f5;
@@ -359,6 +381,7 @@ button.campaign-message {
   background-color: #fff;
   height: auto;
   padding: 0;
+  width: 100%;
 }
 .rightinfo-reward-list .top-info {
   padding: 20px;
@@ -441,6 +464,47 @@ button.campaign-message {
   font-size: 16px;
   line-height: 23px;
 }
+.rightinfo-reward-list:hover::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #d19cfa;
+  opacity: .8;
+}
+.rightinfo-reward-list:hover::after {
+  position: absolute;
+  content: "이 리워드 펀딩하기";
+  top: 50%;
+  width: 100%;
+  opacity: .8;
+  margin-top: -20px;
+  text-align: center;
+  color: #fff;
+  line-height: 150%;
+}
+.rightinfo-reward-list.soldout:hover::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #263441;
+  opacity: .8;
+}
+.rightinfo-reward-list.soldout:hover::after {
+  position: absolute;
+  content: "제한수량이 \A모두 펀딩되었습니다.";
+  top: 50%;
+  width: 100%;
+  opacity: .8;
+  margin-top: -25px;
+  text-align: center;
+  white-space: pre;
+  color: #fff;
+  line-height: 150%;
+}
 /* campain-rewards end */
 
 /* 프로젝트 신고 팝업 start */
@@ -473,6 +537,10 @@ button.campaign-message {
   text-align: center;
   margin-top: 8px;
   margin-bottom: 0 !important;
+  transition: .2s;
+}
+.wz-btn.gray:hover {
+  background-color: #4a4a4a;
 }
 /* 프로젝트 신고 팝업 end */
 
@@ -516,6 +584,9 @@ button.campaign-message {
   line-height: 18px;
   white-space: nowrap;
   font-size: 13px;
+}
+.recommend-box .text:hover {
+  text-decoration: underline;
 }
 /* detail side end */
 

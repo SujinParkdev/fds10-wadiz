@@ -50,7 +50,7 @@
           </div>
           <div class="reward-completed-float">
             <span class="reward-item-completed-per">{{ getPercent(reward.product_cur_amount, reward.product_total_amount) }}%</span>
-            <span class="reward-item-completed-money">{{ reward.product_cur_amount }}원</span>
+            <span class="reward-item-completed-money">{{ reward.product_cur_amount | comma }}원</span>
             <span class="reward-item-remainday">19일 남음</span>
           </div>
         </div>
