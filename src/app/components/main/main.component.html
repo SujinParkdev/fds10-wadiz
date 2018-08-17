@@ -3,12 +3,20 @@
 <div class="rewards-container">
   <!-- category start-->
   <div class="category-container">
-    <div class="only-category-container" [ngStyle]="{ 'transform' : 'translate('+ categoryX +'px, 0)' }">
-      <ng-container *ngFor="let category of categorys">
-        <a [routerLink]="'/main' + category.url" 
-           [routerLinkActive]="'active'" 
-           [routerLinkActiveOptions]="{ exact: true }"
-           [queryParams]="{ filter: category.name }">
+    <div class="only-category-container"
+      *ngIf="categorys"
+      [ngStyle]="{ 'transform' : 'translate('+ categoryX +'px, 0)' }">
+      <ng-container *ngFor="let category of categorys; let i = index">
+        <a *ngIf="i === 0" [routerLink]="['/main']"
+             [routerLinkActive]="'active'"
+             [routerLinkActiveOptions]="{ exact: true }">
+          <div class="category" [ngStyle]="{ 'background-image' : 'url(' + category.img + ')' }">
+            <span class="category-text">{{ category.name }}</span>
+          </div>
+        </a>
+        <a *ngIf="i !== 0" [routerLink]="['/main', category.url ]"
+           [routerLinkActive]="'active'"
+           [routerLinkActiveOptions]="{ exact: true }">
           <div class="category" [ngStyle]="{ 'background-image' : 'url(' + category.img + ')' }">
             <span class="category-text">{{ category.name }}</span>
           </div>

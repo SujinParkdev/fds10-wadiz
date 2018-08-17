@@ -146,7 +146,6 @@ select {
     font-weight: 400;
     padding: 1px 6px 0 6px;
     overflow: hidden;
-    display: none;
 }
 .reward-img::after {
     position: absolute;

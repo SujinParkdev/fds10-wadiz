@@ -1,16 +1,14 @@
-<app-funding-top></app-funding-top>
-
 <div class="funding-step2">
     <div class="purchase-order">
         <div class="order-list">
-            <ul>
-                <li>
-                    <p class="title">[기념품세트]제트라이드볼펜 100자루</p>
-                    <p class="text">&lt;리워드구매시 색상별수량 선택가능합니다.&gt; 구성품 1. 제트라이드볼펜 100자루</p>
+            <ul *ngIf="rewards">
+                <li *ngFor="let reward of rewards">
+                    <p class="title">{{ reward.reward_name }}</p>
+                    <p class="text">{{ reward.reward_option }}</p>
                     <div class="info">
-                        <p class="option">옵션-미기재</p>
+                        <!-- <p class="option">옵션-미기재</p> -->
                         <p class="sum">
-                            <em>수량 : 1개</em>160,000원</p>
+                            <em>수량 : {{ reward.reward_purchase_count }}개</em> {{ reward.reward_price * reward.reward_purchase_count | comma }}원</p>
                     </div>
                 </li>
             </ul>
@@ -18,30 +16,30 @@
         <div class="order-addinfo">
             <dl>
                 <dt>추가 후원금</dt>
-                <dd>0원</dd>
+                <dd>{{ sponsorshipAmount | comma }}원</dd>
             </dl>
             <dl>
                 <dt>배송비</dt>
-                <dd>0원</dd>
+                <dd>{{ shipping_charge | comma }}원</dd>
             </dl>
         </div>
         <div class="order-suminfo">
             <dl>
                 <dt>펀딩금액</dt>
-                <dd>7,000원</dd>
+                <dd>{{ reward_price | comma }}원</dd>
             </dl>
             <dl>
                 <dt>추가 후원금</dt>
-                <dd>0원</dd>
+                <dd>{{ sponsorshipAmount | comma }}원</dd>
             </dl>
             <dl>
                 <dt>배송비</dt>
-                <dd>0원</dd>
+                <dd>{{ shipping_charge | comma }}원</dd>
             </dl>
             <dl class="total">
                 <dt>최종결제금액</dt>
                 <dd>
-                    <em>7,000</em>원</dd>
+                    <em>{{ total_price | comma }}</em>원</dd>
             </dl>
         </div>
     </div>
@@ -59,7 +57,7 @@
                 <br> 기부•후원 프로젝트인 경우, 리워드가 발송되지 않지만 배송지를 입력해야 펀딩이 완료됩니다.</p>
         </div>
 
-        <div class="purchase-supporter-info">
+        <!-- <div class="purchase-supporter-info">
             <h3>
                 <em>펀딩 서포터</em>
             </h3>
@@ -87,7 +85,7 @@
                     </p>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="purchase-delivery">
             <h3>
@@ -132,7 +130,7 @@
         </h3>
         <ul>
             <li>
-                <label class="wz checkbox">
+                <label class="checkbox">
                     <input type="radio" id="rdpt01" checked="checked">
                     <span>신용(체크)카드</span>
                 </label>

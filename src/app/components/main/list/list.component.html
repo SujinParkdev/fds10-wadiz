@@ -7,21 +7,22 @@
     </div>
     <div class="for-reward-searchbox-float">
       <label class="reward-search" for="keyword" [class.active]="isSearch">
-        <input type="text" placeholder="프로젝트 검색" id="keyword" #keyword>
+        <input type="text" placeholder="프로젝트 검색" id="keyword" #keyword
+            (keyup.enter)="rewardSearchEnter(keyword.value)">
         <div class="forbtn">
-          <button class="search-btn" (click)="rewardSearch(keyword.value)">
+          <button class="search-btn" (click)="rewardSearch()">
             <i class="fas fa-search"></i>
           </button>
         </div>
       </label>
       <div class="fas filter filter1-category">
-        {{ status }}
+        {{ status.key }}
         <select #statusId (change)="setStatus(statusId.selectedIndex)">
           <option *ngFor="let status of statusArr" [value]="status.value">{{ status.key }}</option>
         </select>
       </div>
       <div class="fas filter filter2-order">
-        {{ order }}
+        {{ order.key }}
         <select #orderId (change)="setOrder(orderId.selectedIndex)">
           <option *ngFor="let order of orderArr" [value]="order.value">{{ order.key }}</option>
         </select>
@@ -33,8 +34,8 @@
     <ul *ngIf="rewards">
       <li *ngFor="let reward of rewards">
         <div class="reward">
-          <a [routerLink]="'/reward/detail/' + reward.pk">
-            <div class="reward-item-deadlinesoon">마감임박</div>
+          <a [routerLink]="['/reward/detail/', reward.pk]">
+            <div class="reward-item-deadlinesoon" *ngIf="reward.product_deadline">마감임박</div>
             <div class="reward-img">
               <span class="reward-img-span" [ngStyle]="{ 'background-image': 'url(' + reward.product_img + ')' }"></span>
             </div>
@@ -46,12 +47,12 @@
             <span class="reward-item-category">{{ reward.product_type }} | {{ reward.product_company_name }} </span>
           </div>
           <div class="reward-item-percentbar">
-            <span [style.width]="getPercent(reward.product_cur_amount, reward.product_total_amount) + '%'"></span>
+            <span [style.width]="reward.product_percentbar + '%'"></span>
           </div>
           <div class="reward-completed-float">
-            <span class="reward-item-completed-per">{{ getPercent(reward.product_cur_amount, reward.product_total_amount) }}%</span>
+            <span class="reward-item-completed-per">{{ reward.product_percent }}%</span>
             <span class="reward-item-completed-money">{{ reward.product_cur_amount | comma }}원</span>
-            <span class="reward-item-remainday">19일 남음</span>
+            <span class="reward-item-remainday"> {{ reward.product_term }} </span>
           </div>
         </div>
       </li>

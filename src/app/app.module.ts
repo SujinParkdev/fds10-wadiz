@@ -19,6 +19,8 @@ import { CreateElementComponent } from './core/services/create-element/create-el
 
 import { FundingModule } from './components/funding/funding.module';
 import { MainModule } from './components/main/main.module';
+import { CommaPipe } from './core/pipes/comma.pipe';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
