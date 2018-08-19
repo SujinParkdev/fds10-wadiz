@@ -5,7 +5,7 @@
       <form name="frm_login" id="frm_login" class="login-form-container" [formGroup]="signinForm" (ngSubmit)="signin()" novalidate>
         <div class="field">
           <div class="control">
-            <input formControlName="userName" type="email" id="userName" name="userName" class="input" placeholder="이메일 아이디" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+            <input formControlName="userid" type="email" id="userName" name="userName" class="input" placeholder="이메일 아이디" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
           </div>
           <em id="emailError" class="error-text help">이메일 형식이 올바르지 않습니다.</em>
         </div>
