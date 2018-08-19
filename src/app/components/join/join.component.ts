@@ -142,7 +142,7 @@ import { ModalService } from './modal.service';
           <input id="pwd2" type="password" name="password2" class="input large" placeholder="비밀번호 확인" readonly="true" required>
         </div>
           <em class="help">영문, 숫자, 특수문자 (!@#$%^&*+=-)를 조합한 8자 이상</em>
-        </div>
+      </div>
       </div>
       <div class="control">
         <button type="button" id="btnJoin" class="button submit-button" disabled>완료</button>

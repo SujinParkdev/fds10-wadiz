@@ -102,7 +102,7 @@
 }
 .purchase-delivery-wrap .purchase-notice {
     float: left;
-    width: 280px;
+    width: 400px;
     margin-right: 30px;
     margin-bottom: 0;
 }
@@ -115,12 +115,12 @@
     font-size: 12px;
     line-height: 16px;
 }
-.purchase-delivery-wrap .purchase-supporter-info {
+/* .purchase-delivery-wrap .purchase-supporter-info {
     float: left;
     width: 260px;
     margin-right: 30px;
     margin-bottom: 0;
-}
+} */
 .funding-step2 h3 {
     display: inline-block;
     margin-bottom: 14px;
@@ -184,8 +184,8 @@
     padding-left: 24px;
 }
 .purchase-delivery-wrap .purchase-delivery {
-    float: left;
-    width: 260px;
+    float: right;
+    width: 400px;
     margin-bottom: 0;
 }
 .purchase-delivery .delivery-list {
@@ -205,7 +205,7 @@
 }
 .purchase-delivery .input-area {
     display: none;
-    padding: 0 20px 10px;
+    padding: 0 10px 10px;
     border-bottom: 1px solid #e4e4e4;
 }
 .purchase-delivery .input-area .title {
@@ -245,11 +245,11 @@
 }
 .purchase-delivery .delivery-shippingMemo .input-area {
     display: block;
-    padding: 10px 20px 10px;
+    padding: 10px 10px 10px;
     border-bottom: 1px solid #e4e4e4;
 }
 .purchase-delivery .input-area .subtext {
-    font-size: 12px;
+    font-size: 11px;
     color: #a29584;
 }
 .purchase-notice {
@@ -275,6 +275,9 @@
 .purchase-type .text {
     font-size: 12px;
     line-height: 14px;
+}
+.purchase-type .checkbox span {
+    margin-left: 5px;
 }
 .purchase-payment-info {
     margin-bottom: 20px;

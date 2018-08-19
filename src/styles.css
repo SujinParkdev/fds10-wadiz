@@ -16,7 +16,7 @@ button i {
 em {
     font-style: normal;
 }
-input[type=checkbox] {
+input[type=checkbox], input[type=radio] {
     width: 18px;
     height: 18px;
     display: inline-block;
@@ -28,10 +28,10 @@ input[type=checkbox] {
     vertical-align: middle;
     -webkit-appearance: none;
 }
-input[type=checkbox]:hover {
+input[type=checkbox]:hover, input[type=radio]:hover {
     border: 1px solid #00cca3;
 }
-input[type=checkbox]:before {
+input[type=checkbox]:before, input[type=radio]:before {
     font-family: "Font Awesome 5 Free";
     display: inline-block;
     color: #fff;
@@ -41,7 +41,7 @@ input[type=checkbox]:before {
     font-size: 12px;
     font-weight: 700;
 }
-input[type=checkbox]:checked {
+input[type=checkbox]:checked, input[type=radio]:checked {
     background: #00cca3;
     border: 1px solid #00cca3;
 }

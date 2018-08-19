@@ -20,6 +20,8 @@ import { DetailCommentComponent } from './components/detail/detail-comment/detai
 
 import { FundingModule } from './components/funding/funding.module';
 import { MainModule } from './components/main/main.module';
+import { CommaPipe } from './core/pipes/comma.pipe';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [

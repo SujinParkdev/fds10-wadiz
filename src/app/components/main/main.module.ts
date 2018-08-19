@@ -5,19 +5,18 @@ import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { SlideComponent } from './slide/slide.component';
 import { ListComponent } from './list/list.component';
-
-import { CommaPipe } from '../../core/pipes/comma.pipe';
+import { CoreModule } from '../../core/core.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    MainRoutingModule
+    MainRoutingModule,
+    CoreModule
   ],
   declarations: [
     MainComponent,
     SlideComponent,
-    ListComponent,
-    CommaPipe
+    ListComponent
   ]
 })
 export class MainModule { }

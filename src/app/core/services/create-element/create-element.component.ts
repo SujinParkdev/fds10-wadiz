@@ -48,7 +48,7 @@ import { CreateElementService } from './create-element.service';
       height: 100%;
       top: 0;
       left: 0;
-      z-index: 999999;
+      z-index: 99999;
       opacity: 0;
       transition: all .2s;
     }
