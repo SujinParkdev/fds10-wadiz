@@ -44,7 +44,8 @@ import { CoreModule } from './core/core.module';
     HttpClientModule,
     AppRoutingModule,
     FundingModule,
-    MainModule
+    MainModule,
+    CoreModule
   ],
   providers: [
     ModalService

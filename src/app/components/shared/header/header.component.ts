@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loginService.isLogin = true;
+    // this.loginService.isLogin = true;
   }
 
   @HostListener('window:scroll', [])
