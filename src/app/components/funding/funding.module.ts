@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FundingRoutingModule } from './funding-routing.module';
 import { FundingStep1Component } from './step1/funding-step1.component';
@@ -13,8 +12,6 @@ import { CoreModule } from '../../core/core.module';
   imports: [
     CommonModule,
     FundingRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
     CoreModule
   ],
   declarations: [

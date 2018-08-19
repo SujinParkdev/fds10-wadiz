@@ -6,7 +6,8 @@
         <div class="user" (click)="isUserPop = !isUserPop"></div>
       </li>
       <li *ngIf="!loginService.isLogin">
-        <a ng-href="#" title="login" (click)="login()">로그인</a>
+        <a [routerLink]="'/login'" title="login">로그인</a>
+        <!-- <a ng-href="#" title="login" (click)="login()">로그인</a> -->
       </li>
       <li *ngIf="!loginService.isLogin">
         <a [routerLink]="'/join'" title="join">회원가입</a>

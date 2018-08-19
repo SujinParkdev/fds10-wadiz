@@ -3,16 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap, switchMap, shareReplay } from 'rxjs/operators';
 
-import { Token } from '../models/token';
-import { User } from '../models/user';
+import { Token } from '../interface/token';
+import { User } from '../interface/user';
 
 // import { JwtHelper } from 'angular2-jwt';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
-
 import { environment } from '../../../environments/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
   URL = `${environment.apiUrl}/auth`;
   TOKEN_NAME = environment.tokenName;
