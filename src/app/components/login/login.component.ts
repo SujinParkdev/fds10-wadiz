@@ -13,7 +13,9 @@ import { Router } from '@angular/router';
       <div class="user-sign-container">
       <div class=" field form-container form-login">
         <h2 class="login-heading-text">로그인</h2>
-        <form name="frm_login" id="frm_login" class="login-form-container" [formGroup]="signinForm" (ngSubmit)="signin()" novalidate>
+        <form name="frm_login" id="frm_login" class="login-form-container"
+          [formGroup]="signinForm"
+          (ngSubmit)="signin()" novalidate>
           <div class="field">
             <div class="control">
               <input formControlName="userName" type="email" id="userName" name="userName" class="input" placeholder="이메일 아이디" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
