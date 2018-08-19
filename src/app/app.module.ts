@@ -16,6 +16,7 @@ import { FundinglistComponent } from './components/fundinglist/fundinglist.compo
 import { ModalComponent } from './components/join/modal.component';
 import { ModalService } from './components/join/modal.service';
 import { CreateElementComponent } from './core/services/create-element/create-element.component';
+import { DetailCommentComponent } from './components/detail/detail-comment/detail-comment.component';
 
 import { FundingModule } from './components/funding/funding.module';
 import { MainModule } from './components/main/main.module';
@@ -32,7 +33,8 @@ import { MainModule } from './components/main/main.module';
     LikelistComponent,
     FundinglistComponent,
     CreateElementComponent,
-    ModalComponent
+    ModalComponent,
+    DetailCommentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DetailCommentComponent } from './detail-comment/detail-comment.component';
 
 @Component({
   selector: 'app-detail',
