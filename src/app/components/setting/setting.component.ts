@@ -18,7 +18,6 @@ import { Router } from '@angular/router';
         <input class="input" type="text" placeholder="현재 비밀번호">
       </div>
 
-
       <div class="control">
         <button type="button" ng-href="#" class="logout fas" >확인</button>
       </div>
@@ -64,7 +63,6 @@ export class SettingComponent implements OnInit {
     this.createElementService.confirm('정말로 탈퇴 하시겠습니까?', '확인', () => {
       this.createElementService.alert('탈퇴가 완료 되었습니다.', () => {
         this.isUserPop = false;
-        this.loginService.isLogin = false;
         this.router.navigate(['main']);
       });
     });

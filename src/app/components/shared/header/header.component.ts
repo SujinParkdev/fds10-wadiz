@@ -68,13 +68,8 @@ export class HeaderComponent implements OnInit {
     this.createElementService.confirm('로그아웃 하시겠습니까?', '확인', () => {
       this.createElementService.alert('로그아웃 되었습니다.', () => {
         this.isUserPop = false;
-        this.loginService.isLogin = false;
         this.router.navigate(['main']);
       });
     });
-  }
-
-  login() {
-    this.loginService.isLogin = true;
   }
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 import { User } from '../../core/interface/user';
-import { AuthService } from '../../core/services/login-auth.service';
 import { Router } from '@angular/router';
+import { LoginService } from '../../core/services/login.service';
 
 
 @Component({
@@ -11,45 +11,48 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  signinForm: FormGroup;
-  message: string;
+  loginForm: FormGroup;
+  isLoginError: boolean;
 
   constructor(
     private fb: FormBuilder,
-    private auth: AuthService,
+    private loginService: LoginService,
     private router: Router) { }
 
   ngOnInit() {
-    this.signinForm = this.fb.group({
-      userid: ['', [
+    this.loginForm = this.fb.group({
+      username: ['', [
         Validators.required,
         Validators.pattern(/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/)
       ]],
-      password: ['', [Validators.required,
-        Validators.pattern(/[a-zA-Z0-9]/),
-        Validators.minLength(4),
-        Validators.maxLength(10)
+      password: ['', [
+        Validators.required,
+        Validators.pattern(/(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/),
+        Validators.maxLength(17)
       ]]
     });
   }
 
-  signin() {
-    console.log('[payload]', this.signinForm.value);
-    this.auth.signin(this.signinForm.value)
+  testForm() {
+    console.dir(this.username);
+  }
+
+  submitLogin() {
+    console.log('[payload]', this.loginForm.value);
+    this.loginService.signin(this.loginForm.value)
       .subscribe(
         () => this.router.navigate(['main']),
-        ({error}) => {
-          console.log(error.message);
-          this.message = error.message;
+        (error) => {
+          this.isLoginError = true;
         }
       );
   }
 
-  get userid() {
-    return this.signinForm.get('userid');
+  get username() {
+    return this.loginForm.get('username');
   }
 
   get password() {
-    return this.signinForm.get('password');
+    return this.loginForm.get('password');
   }
 }

@@ -13,8 +13,6 @@ import { JoinComponent } from './components/join/join.component';
 import { SettingComponent } from './components/setting/setting.component';
 import { LikelistComponent } from './components/likelist/likelist.component';
 import { FundinglistComponent } from './components/fundinglist/fundinglist.component';
-import { ModalComponent } from './components/join/modal.component';
-import { ModalService } from './components/join/modal.service';
 import { CreateElementComponent } from './core/services/create-element/create-element.component';
 import { DetailCommentComponent } from './components/detail/detail-comment/detail-comment.component';
 
@@ -35,7 +33,6 @@ import { CoreModule } from './core/core.module';
     LikelistComponent,
     FundinglistComponent,
     CreateElementComponent,
-    ModalComponent,
     DetailCommentComponent
   ],
   imports: [
@@ -48,7 +45,6 @@ import { CoreModule } from './core/core.module';
     CoreModule
   ],
   providers: [
-    ModalService
   ],
   bootstrap: [AppComponent]
 })
