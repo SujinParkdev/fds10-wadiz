@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { LoginService } from '../../core/services/login.service';
 import { Router } from '@angular/router';
 import { CreateElementService } from '../../core/services/create-element/create-element.service';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-join',
@@ -22,7 +23,7 @@ export class JoinComponent implements OnInit {
     private createElementService: CreateElementService
   ) {
     if (loginService.isLogin) {
-      this.router.navigate(['main']);
+      this.router.navigate(['main', 'all']);
     }
   }
 
@@ -113,14 +114,17 @@ export class JoinComponent implements OnInit {
       password1: this.passwordGroup.get('password1').value,
       funding_set: []
     };
-    console.log('[payload]', payload);
+
+    this.createElementService.startLoading();
     this.loginService.signup(payload)
-      .subscribe(
+      .pipe(
+        delay(500)
+      ).subscribe(
         () => {
           this.createElementService.alert(
             '회원가입이 완료되었습니다.\n해당 이메일 계정으로 인증 절차를 거친 후\n로그인이 가능합니다.',
             () => {
-              this.router.navigate(['main']);
+              this.router.navigate(['main', 'all']);
               this.isJoinError = false;
             }
           );
@@ -128,6 +132,9 @@ export class JoinComponent implements OnInit {
         error => {
           console.log(error);
           this.isJoinError = true;
+        },
+        () => {
+          this.createElementService.endLoading();
         }
       );
   }

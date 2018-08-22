@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CreateElementService } from '../../../core/services/create-element/create-element.service';
 import { FundingService } from '../../../core/services/funding.service';
 
@@ -14,12 +14,7 @@ export class FundingStep2Component implements OnInit {
   shipping_charge = 0;
   reward_price = 0;
   total_price = 0;
-
-  daumAddressOptions =  {
-    type: 'layer',
-    target: 'layer',
-    class: ['btn-daum-post']
-  };
+  fundingForm: FormGroup;
 
   get sponsorshipAmount() {
     return this.fundingService.sponsorshipAmount;
@@ -45,14 +40,20 @@ export class FundingStep2Component implements OnInit {
       });
       this.total_price = this.reward_price + this.sponsorshipAmount + this.shipping_charge;
     }
+
+    this.fundingForm = this.fb.group({
+      username: ['', Validators.required ],
+      phone_number: ['', Validators.required ],
+      address1: ['', Validators.required ],
+      address2: ['', Validators.required ],
+      comment: [''],
+      chk1: [false, Validators.pattern('true')],
+      chk2: [false, Validators.pattern('true')],
+      chk3: [false, Validators.pattern('true')]
+    });
   }
 
   nextStep() {
     this.router.navigate(['/funding/step30']);
-  }
-
-  setDaumAddressApi(data) {
-    // 여기로 주소값이 반환
-    console.log(data);
   }
 }

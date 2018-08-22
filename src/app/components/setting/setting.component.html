@@ -6,10 +6,10 @@
         [class.error]="nickname.errors && nickname.touched"
         [value]="userInfo.nickname">
         <em class="error-text" *ngIf="nickname.errors?.minlength && nickname.touched">최소 2자 이상입니다.</em>
-      <input formControlName="username" class="input" type="text" placeholder="email"
+      <!-- <input formControlName="username" class="input" type="text" placeholder="email"
         [class.error]="username.errors && username.touched"
         [value]="userInfo.username">
-        <em class="error-text" *ngIf="username.errors?.pattern && username.touched">이메일을 정확히 입력해주세요.</em>
+        <em class="error-text" *ngIf="username.errors?.pattern && username.touched">이메일을 정확히 입력해주세요.</em> -->
     </div>
     <div class="setting-area" formGroupName="passwordGroup">
       <label class="title">비밀번호설정</label>

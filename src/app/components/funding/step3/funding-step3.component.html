@@ -2,8 +2,8 @@
     <div class="purchase-result-wrap">
         <div class="purchase-result">
             <div class="result-box">
-                <p>
-                    <strong>noname 서포터님,</strong>
+                <p *ngIf="userInfo">
+                    <strong>{{ userInfo.nickname }} 서포터님,</strong>
                 </p>
                 <p>펀딩으로 참여해주셔서 참 감사합니다!</p>
             </div>

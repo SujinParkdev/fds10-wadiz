@@ -25,15 +25,10 @@ export class SettingComponent implements OnInit {
 
   ngOnInit() {
     this.settingForm = this.fb.group({
-      username: ['',
-        [
-          Validators.pattern(/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/)
-        ]
-      ],
-      nickname: ['',
-        [
-          Validators.minLength(2)
-        ]
+      // username: ['',
+      //     Validators.pattern(/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/)
+      // ],
+      nickname: ['', Validators.minLength(2)
       ],
       passwordGroup: this.fb.group({
         newPassword: ['',

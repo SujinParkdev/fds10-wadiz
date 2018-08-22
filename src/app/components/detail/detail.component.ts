@@ -1,9 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-
-=======
->>>>>>> a32979245948621c6d1db89ee6dcddba349433dd
-import { DetailCommentComponent } from './detail-comment/detail-comment.component';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({

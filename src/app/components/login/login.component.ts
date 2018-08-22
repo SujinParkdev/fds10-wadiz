@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from
 import { User } from '../../core/interface/user';
 import { Router } from '@angular/router';
 import { LoginService } from '../../core/services/login.service';
+import { CreateElementService } from '../../core/services/create-element/create-element.service';
+import { delay } from 'rxjs/operators';
 
 
 @Component({
@@ -17,9 +19,11 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private loginService: LoginService,
-    private router: Router) {
+    private router: Router,
+    private createElementService: CreateElementService
+  ) {
       if (loginService.isLogin) {
-        this.router.navigate(['main']);
+        this.router.navigate(['main', 'all']);
       }
     }
 
@@ -38,15 +42,20 @@ export class LoginComponent implements OnInit {
   }
 
   submitLogin() {
-    console.log('[payload]', this.loginForm.value);
+    this.createElementService.startLoading();
     this.loginService.signin(this.loginForm.value)
-      .subscribe(
+      .pipe(
+        delay(500)
+      ).subscribe(
         () => {
-          this.router.navigate(['main']);
+          this.router.navigate(['main', 'all']);
           this.isLoginError = false;
         },
         error => {
           this.isLoginError = true;
+        },
+        () => {
+          this.createElementService.endLoading();
         }
       );
   }
