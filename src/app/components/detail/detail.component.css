@@ -53,7 +53,7 @@ a {
   float: left;
   width: 100%;
   max-width: 632px;
-
+  padding-bottom: 100px;
 }
 .detail-container .detail-body .detail-side {
   float: right;
@@ -61,7 +61,6 @@ a {
 }
 /* detail-header */
 .detail-header-bg {
-  background-image: url('https://cdn.wadiz.kr/wwwwadiz/green002/2018/0726/20180726132120021_22042.jpg/wadiz/format/jpg/quality/95/optimize');
   position: absolute;
   top: -20px;
   right: -20px;
@@ -167,6 +166,7 @@ a {
 }
 .remaining-day, p.rate-bar {
   margin-bottom: 25px;
+  margin-top: 25px;
 }
 .rate-bar {
   width: 100%;
@@ -203,6 +203,7 @@ p.rate-bar em {
   display: block;
   margin: 10 0;
   float: left;
+  margin-bottom: 10px;
 }
 .btn-wrap-float::after {
   content: '';
@@ -364,7 +365,7 @@ button i {
 }
 .project-maker-info .contact-info .contact-detail-info {
   background-color: #f0f2f5;
-  padding: 20px;
+  padding: 0 0 20px 0;
   font-size: 13px;
 }
 /* project maker info end */
@@ -591,7 +592,6 @@ button i {
 /* detail side end */
 
 
-/* ----------------------------------- */
 /* detail info start */
 .campaign-summary {
   padding: 40px 20px 20px;
@@ -657,3 +657,25 @@ button i {
   background-color: white;
   height: 54px;
 }
+
+/* detail likebtn toggle start */
+.alertify-logs {
+  background: rgba(0,0,0,.9);
+  padding: 15px;
+  border-radius: 4px;
+  color: #fff;
+  position: fixed;
+  z-index: 5000;
+  bottom: 10px;
+  right: 10px;
+  width: 350px;
+}
+.campaign-like i.fa-heart .active {
+  color : #fc5389;
+}
+.alertify-logs-hidden {
+  display: none;
+}
+
+
+/* detail likebtn toggle end */
