@@ -3,9 +3,11 @@
   <form class="login-form" [formGroup]="loginForm" novalidate>
     <input formControlName="username" type="email" placeholder="이메일 아이디" [class.error]="username.errors && username.touched || isLoginError">
     <em class="error-text" *ngIf="username.errors && username.touched">이메일 형식이 올바르지 않습니다.</em>
-    <input formControlName="password" type="password" maxlength="17" placeholder="비밀번호(영문, 숫자, 특수문자 포함 8자 이상)" [class.error]="password.errors && password.touched || isLoginError">
+    <input formControlName="password" type="password" maxlength="17" placeholder="비밀번호(영문, 숫자, 특수문자 포함 8자 이상)"
+      [class.error]="password.errors && password.touched || isLoginError"
+      (keyup.enter)="submitLogin()">
     <em class="error-text" *ngIf="password.errors && password.touched">비밀번호(영문, 숫자, 특수문자 포함 8자 이상)</em>
-    <em class="error-text" *ngIf="isLoginError">와디즈에 등록되지 않은 아이디거나, 아이디 또는 비밀번호가 회원정보와 일치하지 않습니다.</em>
+    <em class="error-text" *ngIf="isLoginError">와디즈에 등록되지 않은 아이디거나<br>이메일 인증이 안된 아이디거나<br>아이디 또는 비밀번호가 회원정보와 일치하지 않습니다.</em>
     <!-- <div class="checkbox">
       <label>
         <input type="checkbox" title="아이디 저장">

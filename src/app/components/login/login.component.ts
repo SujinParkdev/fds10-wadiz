@@ -17,7 +17,11 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private loginService: LoginService,
-    private router: Router) { }
+    private router: Router) {
+      if (loginService.isLogin) {
+        this.router.navigate(['main']);
+      }
+    }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -27,22 +31,21 @@ export class LoginComponent implements OnInit {
       ]],
       password: ['', [
         Validators.required,
-        Validators.pattern(/(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/),
+        // Validators.pattern(/(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/),
         Validators.maxLength(17)
       ]]
     });
-  }
-
-  testForm() {
-    console.dir(this.username);
   }
 
   submitLogin() {
     console.log('[payload]', this.loginForm.value);
     this.loginService.signin(this.loginForm.value)
       .subscribe(
-        () => this.router.navigate(['main']),
-        (error) => {
+        () => {
+          this.router.navigate(['main']);
+          this.isLoginError = false;
+        },
+        error => {
           this.isLoginError = true;
         }
       );

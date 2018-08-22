@@ -154,9 +154,9 @@
         <p class="text-large">전체동의</p>
         <p class="text-normal">와디즈 서비스 이용약관, 쿠폰포인트 오픈알림 뉴스레터 수신(선택)</p>
       </label>
-      <button class="btn-agree-open" (click)="isAgreePop = true">
+      <a ng-href="#" class="btn-agree-open" (click)="isAgreePop = true">
         <i class="fas fa-angle-right"></i>
-      </button>
+      </a>
     </div>
 
     <input formControlName="username" type="email" placeholder="이메일 계정" [class.error]="username.errors && username.touched">
@@ -170,9 +170,12 @@
         <em class="error-text" *ngIf="password.errors?.required && password.touched">비밀번호를 입력해주세요.</em>
         <em class="error-text" *ngIf="password.errors?.minlength && password.touched">최소 8자 이상입니다.</em>
         <em class="error-text" *ngIf="password.errors?.pattern && password.touched">영문,숫자,특수문자를 조합해주세요.</em>
-      <input formControlName="password1" type="password" name="password1" placeholder="비밀번호 확인" [class.error]="passwordGroup.errors">
+      <input formControlName="password1" type="password" name="password1" placeholder="비밀번호 확인"
+        [class.error]="passwordGroup.errors && password1.touched"
+        (keyup.enter)="submitJoin()">
         <em class="help">영문, 숫자, 특수문자 (!@#$%^&*+=-)를 조합한 8자 이상</em>
-        <em class="error-text" *ngIf="passwordGroup.errors?.match">동일한 비밀번호를 입력해주세요.</em>
+        <em class="error-text" *ngIf="passwordGroup.errors?.match && password1.touched">동일한 비밀번호를 입력해주세요.</em>
+        <em class="error-text" *ngIf="isJoinError">이미 등록된 이메일 계정이거나 혹은<br>알수없는 오류로 회원가입이 실패하였습니다.</em>
     </div>
 
     <button type="button" class="btn-join" [disabled]="joinForm.invalid" (click)="submitJoin()">완료</button>

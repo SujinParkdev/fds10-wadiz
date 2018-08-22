@@ -19,7 +19,7 @@
     <div class="user-pop-body">
       <div class="user-profile">
         <div class="user-picture"></div>
-        <div class="user-name">noname</div>
+        <div class="user-name" *ngIf="userInfo">{{ userInfo.nickname }}</div>
       </div>
       <ul class="user-menu">
         <li>

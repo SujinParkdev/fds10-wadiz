@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { shareReplay, tap } from 'rxjs/operators';
 
@@ -8,6 +8,14 @@ import { User } from '../interface/user';
 
 import { environment } from '../../../environments/environment';
 
+interface UserInfo {
+  pk: number;
+  username: string;
+  nickname: string;
+  img_profile: string;
+  funding_set?: any[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,17 +23,21 @@ export class LoginService {
   TOKEN_NAME = environment.tokenName;
   apiUrl = environment.usersUrl;
   userId: string;
+  isLogin: boolean;
+  userInfo: UserInfo;
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+    this.isAuthenticated();
+  }
 
-  signup(payload: User) {
-
+  signup(payload: User): Observable<UserInfo> {
+    return this.http.post<UserInfo>(`${this.apiUrl}/signup/`, payload);
   }
 
   signin(payload: User): Observable<Token> {
-    return this.http.post<Token>(`${this.apiUrl}/signin`, payload)
+    return this.http.post<Token>(`${this.apiUrl}/signin/`, payload)
       .pipe(
         tap(res => {
           this.setToken(res.token);
@@ -38,13 +50,34 @@ export class LoginService {
     this.removeToken();
   }
 
-  isAuthenticated(): boolean {
+  isAuthenticated() {
     const token = this.getToken();
-    return false;
+    if (token) {
+      this.getUserid(token);
+      this.isLogin = true;
+    } else {
+      this.isLogin = false;
+    }
   }
 
   // 토큰으로부터 사용자 아이디 취득
-  getUserid() {
+  getUserid(token: string) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `token ${token}`
+      })
+    };
+    console.log(httpOptions);
+    this.http.get<UserInfo>(`${this.apiUrl}/myinfo/`, httpOptions)
+      .subscribe(
+        res => {
+          this.userInfo = res;
+          console.log(this.userInfo);
+        },
+        error => {
+          console.log(error);
+        }
+      );
   }
 
   getToken(): string {
@@ -53,9 +86,11 @@ export class LoginService {
 
   setToken(token: string): void {
     localStorage.setItem(this.TOKEN_NAME, token);
+    this.isLogin = true;
   }
 
   removeToken(): void {
     localStorage.removeItem(this.TOKEN_NAME);
+    this.isLogin = false;
   }
 }

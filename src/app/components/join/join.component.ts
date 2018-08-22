@@ -1,6 +1,8 @@
 import { Component, OnInit,  } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { LoginService } from '../../core/services/login.service';
+import { Router } from '@angular/router';
+import { CreateElementService } from '../../core/services/create-element/create-element.service';
 
 @Component({
   selector: 'app-join',
@@ -11,11 +13,18 @@ export class JoinComponent implements OnInit {
   isAgreePop = false;
   agreeForm: FormGroup;
   joinForm: FormGroup;
+  isJoinError: boolean;
 
   constructor(
     private fb: FormBuilder,
-    private loginService: LoginService
-  ) { }
+    private loginService: LoginService,
+    private router: Router,
+    private createElementService: CreateElementService
+  ) {
+    if (loginService.isLogin) {
+      this.router.navigate(['main']);
+    }
+  }
 
   ngOnInit() {
     this.agreeForm = this.fb.group({
@@ -44,7 +53,7 @@ export class JoinComponent implements OnInit {
         password: [
           { value: '', disabled: true }, [
             Validators.required,
-            Validators.pattern(/(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/),
+            // Validators.pattern(/(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/),
             Validators.maxLength(17)
           ]
         ],
@@ -96,15 +105,31 @@ export class JoinComponent implements OnInit {
   }
 
   submitJoin() {
-    console.log('[payload]', this.joinForm.value);
+    if (this.joinForm.invalid) { return; }
     const payload = {
       username: this.username.value,
       nickname: this.nickname.value,
       password: this.password.value,
-      password1: this.passwordGroup.get('password1').value
+      password1: this.passwordGroup.get('password1').value,
+      funding_set: []
     };
-    console.log(payload);
-    this.loginService.signup(this.joinForm.value);
+    console.log('[payload]', payload);
+    this.loginService.signup(payload)
+      .subscribe(
+        () => {
+          this.createElementService.alert(
+            '회원가입이 완료되었습니다.\n해당 이메일 계정으로 인증 절차를 거친 후\n로그인이 가능합니다.',
+            () => {
+              this.router.navigate(['main']);
+              this.isJoinError = false;
+            }
+          );
+        },
+        error => {
+          console.log(error);
+          this.isJoinError = true;
+        }
+      );
   }
 
   private checkPassword(control: AbstractControl): {[key: string]: {} } {
@@ -131,6 +156,9 @@ export class JoinComponent implements OnInit {
   }
   get password() {
     return this.joinForm.get('passwordGroup').get('password');
+  }
+  get password1() {
+    return this.joinForm.get('passwordGroup').get('password1');
   }
   get passwordGroup() {
     return this.joinForm.get('passwordGroup');

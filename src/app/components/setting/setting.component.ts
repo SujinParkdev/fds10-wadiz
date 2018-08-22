@@ -2,70 +2,87 @@ import { Component, OnInit } from '@angular/core';
 import { CreateElementService } from '../../core/services/create-element/create-element.service';
 import { LoginService } from '../../core/services/login.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-setting',
-  template: `
-    <div class="setting-container">
-      <div class="field">
-        <label class="text">개인정보설정</label>
-        <input class="input" type="text" placeholder="nickname">
-        <input class="input" type="text" placeholder="email">
-        <label class="text">비밀번호설정</label>
-        <input class="input" type="text" placeholder="새 비밀번호">
-        <em class="help">영문, 숫자, 특수문자 (!@#$%^&*+=-)를 조합한 8자 이상</em>
-        <input class="input" type="text" placeholder="새 비밀번호 확인">
-        <input class="input" type="text" placeholder="현재 비밀번호">
-      </div>
-
-      <div class="control">
-        <button type="button" ng-href="#" class="logout fas" >확인</button>
-      </div>
-      <div class="control">
-        <button type="button" ng-href="#" class="logout quit fas" (click)="logout()">회원탈퇴</button>
-      </div>
-    </div>
-
-  `,
-  styles: [`
-    .setting-container {
-      margin: 0 auto;
-      width: 100%;
-      max-width: 400px;
-      padding: 40px 16px;
-      background: pink;
-    }
-    .logout {
-      width: 100%;
-      margin-bottom: 5px;
-    }
-    .quit {
-      background-color: #d10;
-    }
-    .input {
-      margin-bottom: 2%;
-    }
-  `]
+  templateUrl: './setting.component.html',
+  styleUrls: ['./setting.component.css']
 })
 export class SettingComponent implements OnInit {
-  isUserPop = false;
-  isScrollTop = false;
+  isSettingError: boolean;
+  settingForm: FormGroup;
 
-  constructor(  private router: Router,
-    private createElementService: CreateElementService,
-    public loginService: LoginService) { }
-
-  ngOnInit() {
+  get userInfo() {
+    return this.loginService.userInfo;
   }
 
-  logout() {
-    console.log(this.router.url);
-    this.createElementService.confirm('정말로 탈퇴 하시겠습니까?', '확인', () => {
-      this.createElementService.alert('탈퇴가 완료 되었습니다.', () => {
-        this.isUserPop = false;
-        this.router.navigate(['main']);
-      });
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private createElementService: CreateElementService,
+    private loginService: LoginService) { }
+
+  ngOnInit() {
+    this.settingForm = this.fb.group({
+      username: ['',
+        [
+          Validators.pattern(/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/)
+        ]
+      ],
+      nickname: ['',
+        [
+          Validators.minLength(2)
+        ]
+      ],
+      passwordGroup: this.fb.group({
+        newPassword: ['',
+          [
+            // Validators.pattern(/(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/),
+            Validators.maxLength(17)
+          ]
+        ],
+        newPassword1: ['']
+      },
+      { validator: this.checkPassword }),
+      password: ['', Validators.required]
     });
   }
 
+  clickSubmit() {
+    this.isSettingError = true;
+  }
+
+  clickQuit() {
+    this.isSettingError = false;
+  }
+
+  private checkPassword(control: AbstractControl): {[key: string]: {} } {
+    const password = control.get('newPassword').value;
+    const password1 = control.get('newPassword1').value;
+    if (password === password1) {
+      return null;
+    } else {
+      return { match: { password, password1 }};
+    }
+  }
+
+  get username() {
+    return this.settingForm.get('username');
+  }
+  get nickname() {
+    return this.settingForm.get('nickname');
+  }
+  get password() {
+    return this.settingForm.get('password');
+  }
+  get passwordGroup() {
+    return this.settingForm.get('passwordGroup');
+  }
+  get newPassword() {
+    return this.settingForm.get('passwordGroup').get('newPassword');
+  }
+  get newPassword1() {
+    return this.settingForm.get('passwordGroup').get('newPassword1');
+  }
 }

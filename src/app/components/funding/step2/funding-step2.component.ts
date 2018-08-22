@@ -15,6 +15,12 @@ export class FundingStep2Component implements OnInit {
   reward_price = 0;
   total_price = 0;
 
+  daumAddressOptions =  {
+    type: 'layer',
+    target: 'layer',
+    class: ['btn-daum-post']
+  };
+
   get sponsorshipAmount() {
     return this.fundingService.sponsorshipAmount;
   }
@@ -43,5 +49,10 @@ export class FundingStep2Component implements OnInit {
 
   nextStep() {
     this.router.navigate(['/funding/step30']);
+  }
+
+  setDaumAddressApi(data) {
+    // 여기로 주소값이 반환
+    console.log(data);
   }
 }

@@ -160,6 +160,7 @@
   padding: 0;
   width: 24px;
   height: 100%;
+  text-align: center;
 }
 .btn-agree-open i {
   position: absolute;

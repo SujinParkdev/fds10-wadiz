@@ -25,7 +25,7 @@ export class FundingService {
   ) { }
 
   getRewardDetail() {
-    this.http.get<RewardDetail>(`${this.rewardsUrl}/${this.id}`).subscribe(
+    this.http.get<RewardDetail>(`${this.rewardsUrl}/${this.id}/funding`).subscribe(
       res => {
         this.rewardDetail = {
           pk: res.pk,
