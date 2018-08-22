@@ -36,6 +36,7 @@ import { CreateElementService } from './create-element.service';
       transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       transform: translate(400px);
       opacity: 0;
+      font-size: 13px;
     }
     .toast.active {
       transform: translate(0);

@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     private createElementService: CreateElementService
   ) {
       if (loginService.isLogin) {
-        this.router.navigate(['main', 'all']);
+        this.router.navigate(['/main/all']);
       }
     }
 
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
         delay(500)
       ).subscribe(
         () => {
-          this.router.navigate(['main', 'all']);
+          this.router.navigate(['/main/all']);
           this.isLoginError = false;
         },
         error => {

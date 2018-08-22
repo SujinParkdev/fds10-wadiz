@@ -66,26 +66,26 @@ export class ListComponent implements OnInit {
     activateRoute.params.subscribe(params => {
       this.categoryPath = params['category'] ? params['category'] : '';
       if (!this.categoryPath) {
-        this.router.navigate(['main', 'all']);
+        this.router.navigate(['/main/all']);
+      } else {
+        this.statusArr = [
+          { key: '전체', value: 'A' },
+          { key: '펀딩중', value: 'Y' },
+          { key: '종료된', value: 'N' }
+        ];
+
+        this.orderArr = [
+          { key: '최신순', value: '-product_start_time' },
+          { key: '펀딩액순', value: 'product_cur_count' },
+          { key: '인기순', value: 'product_interested_count' },
+          { key: '마감임박순', value: 'product_end_time' }
+        ];
+
+        this.status = this.statusArr[0];
+        this.order = this.orderArr[0];
+
+        this.getRewards();
       }
-
-      this.statusArr = [
-        { key: '전체', value: 'A' },
-        { key: '펀딩중', value: 'Y' },
-        { key: '종료된', value: 'N' }
-      ];
-
-      this.orderArr = [
-        { key: '최신순', value: '-product_start_time' },
-        { key: '펀딩액순', value: 'product_cur_count' },
-        { key: '인기순', value: 'product_interested_count' },
-        { key: '마감임박순', value: 'product_end_time' }
-      ];
-
-      this.status = this.statusArr[0];
-      this.order = this.orderArr[0];
-
-      this.getRewards();
     });
   }
 

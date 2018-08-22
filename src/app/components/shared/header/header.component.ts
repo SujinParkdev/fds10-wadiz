@@ -71,7 +71,7 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.createElementService.confirm('로그아웃 하시겠습니까?', '확인', () => {
       this.loginService.signout();
-      this.router.navigate(['main']);
+      this.router.navigate(['/main/all']);
       this.isUserPop = false;
     });
   }

@@ -23,7 +23,7 @@ export class JoinComponent implements OnInit {
     private createElementService: CreateElementService
   ) {
     if (loginService.isLogin) {
-      this.router.navigate(['main', 'all']);
+      this.router.navigate(['/main/all']);
     }
   }
 
@@ -124,7 +124,7 @@ export class JoinComponent implements OnInit {
           this.createElementService.alert(
             '회원가입이 완료되었습니다.\n해당 이메일 계정으로 인증 절차를 거친 후\n로그인이 가능합니다.',
             () => {
-              this.router.navigate(['main', 'all']);
+              this.router.navigate(['/main/all']);
               this.isJoinError = false;
             }
           );

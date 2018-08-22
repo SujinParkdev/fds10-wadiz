@@ -67,15 +67,15 @@ export class LoginService {
         'Authorization': `token ${token}`
       })
     };
-    console.log(httpOptions);
+    // console.log(httpOptions);
     this.http.get<UserInfo>(`${this.apiUrl}/myinfo/`, httpOptions)
       .subscribe(
         res => {
           this.userInfo = res;
-          console.log(this.userInfo);
+          // console.log(this.userInfo);
         },
         error => {
-          console.log(error);
+          // console.log(error);
         }
       );
   }

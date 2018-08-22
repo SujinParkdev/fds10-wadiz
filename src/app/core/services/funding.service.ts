@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { CreateElementService } from './create-element/create-element.service';
+import { delay } from 'rxjs/operators';
 
 interface RewardDetail {
   pk: number;
@@ -21,11 +23,16 @@ export class FundingService {
   isNoticePop = true;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private createElementService: CreateElementService
   ) { }
 
   getRewardDetail() {
-    this.http.get<RewardDetail>(`${this.rewardsUrl}/${this.id}/funding`).subscribe(
+    this.createElementService.startLoading();
+    this.http.get<RewardDetail>(`${this.rewardsUrl}/${this.id}/funding`)
+    .pipe(
+      delay(500)
+    ).subscribe(
       res => {
         this.rewardDetail = {
           pk: res.pk,
@@ -34,6 +41,10 @@ export class FundingService {
           product_cancel_time: this.getCancelTime(res.product_end_time),
           rewards: this.getRewards(res.rewards)
         };
+      },
+      error => {},
+      () => {
+        this.createElementService.endLoading();
       }
     );
   }
