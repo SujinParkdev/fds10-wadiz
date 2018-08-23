@@ -49,12 +49,16 @@
                             <div class="view-slide-wrap">
                                 <ul class="view-slide-big">
                                     <li>
-                                        <div class="video-wrap" style="display: none">
+                                        <div class="video-wrap"
+
+                                        >
                                             <div class="video-container">
+
                                                 <div class="video-cover icon-movie" data-cover-url="" style="background-image: url(https://cdn.wadiz.kr/wwwwadiz/green002/2018/0726/20180726132120021_22042.jpg/wadiz/format/jpg/quality/95/optimize)"></div>
                                             </div>
                                         </div>
                                         <div class="img-responsive"
+
                                             [ngStyle]="{
                                                 'background-image': 'url(' + rewardDetail.product_img + ')'
                                             }">
@@ -62,19 +66,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <ul class="view-slide-nav" style="display: none">
-                                <li>
-                                    <div class="video-wrap" style="position: relative">
-                                        <img class="img-responsive" id="campaignVideoThumbnail" src="" alt="">
-                                        <i class="icon_play_sm">Play</i>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="detail-img"
-                                [ngStyle]="{
-                                    'background-image': 'url(' + rewardDetail.product_img + ')'
-                                 }">
-                            </div>
+
 
                             <div style="padding:20px;background:#eafbf7;background:rgba(0, 204, 163, 0.1)">
                                 <p style="color:#00cca3;font-size:13px;line-height:20px;margin-bottom:10px;"><strong>목표 금액</strong> {{ rewardDetail.product_total_amount | comma }}원 &nbsp; &nbsp;
