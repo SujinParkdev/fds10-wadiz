@@ -689,3 +689,10 @@ button i {
 
 
 /* detail likebtn toggle end */
+.blank {
+  background: #ebeced;
+  min-height: 1024px;
+}
+.heart-active {
+  color: #fe5087;
+}

@@ -19,7 +19,7 @@ export class MainService {
       {
         name: '전체보기',
         img: 'https://cdn.wadiz.kr/resources/assets/img/912f519d6d62214aea09ffd35630daab.jpg',
-        url: ''
+        url: 'all'
       },
       {
         name: '테크·가전',

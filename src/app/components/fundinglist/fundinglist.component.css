@@ -31,3 +31,81 @@
   content: "\f105";
   display: inline-block;
 }
+
+.fundinglist {
+  width: 100%;
+  max-width: 1032px;
+  padding: 60px 16px 0px;
+  margin: 0 auto;
+}
+.funding-card {
+  display: block;
+  background: #fff;
+  box-shadow: 0 0 1px 0 rgba(0,0,0,.2);
+}
+.funding-card dt {
+  position: relative;
+  padding: 20px 20px 0;
+  font-size: 12px;
+  letter-spacing: -.02em;
+  line-height: 16px;
+}
+.funding-card dt .category {
+  padding-right: 6px;
+  color: #c88af9;
+}
+.funding-card dt .date {
+  position: absolute;
+  right: 20px;
+  color: #90949c;
+}
+.funding-card dd {
+  padding: 16px 20px;
+}
+.funding-card dd .status {
+  padding-bottom: 4px;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -.02em;
+  color: #90949c;
+}
+.funding-card dd .title {
+  padding-bottom: 4px;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -.02em;
+  color: #44484b;
+  margin-bottom: 0px;
+}
+.funding-card dd .maker {
+  padding-bottom: 20px;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -.02em;
+  color: #90949c;
+}
+.funding-card dd .funding-info {
+  position: relative;
+  padding: 12px 0 0;
+}
+.funding-card dd .funding-info .fund-status {
+  font-size: 15px;
+  line-height: 20px;
+  color: #557CF2;
+  font-weight: 500;
+}
+
+.fundinglist li {
+  position: relative;
+  cursor: pointer;
+}
+.fundinglist li:hover::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:rgba(0,0,0,.45);
+  content: "";
+}

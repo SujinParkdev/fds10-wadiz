@@ -1,86 +1,60 @@
-article, blockquote, body, dd, div, dl, dt, h1, h2, h3, h4, html, li, main, ol, p, section, table, tbody, td, th, thead, tr, ul {
-  margin: 0;
-  padding: 0;
-  margin-bottom: 0;
-}
-modal {
-  display: none;
-  margin: 5% auto;
-
-}
-.modal {
-  display: block;
+.agree-pop {
   position: fixed;
-  top: 0;
-  left: 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,.4);
   width: 100%;
   height: 100%;
-  z-index: 1000;
-  overflow: auto;
-}
-.modal .modal-content {
-  padding: 20px;
-  background: #fff;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-}
-.modal-background {
-  position: fixed;
+  background: rgba(0,0,0,.8);
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
-  background-color: #000;
-  opacity: 0.75;
-  z-index: 900;
+  z-index: 999999;
+  transition: all .2s;
+  overflow-y: auto;
+}
+.agree-container {
+  position: relative;
+  background: #fff;
+  margin: 5% auto;
+  width: 400px;
+  padding: 72px 32px 32px;
 }
 
-.modal-close {
+.agree-container .btn-close {
   position: absolute;
-  top: 28px;
+  top: 10px;
   left: 32px;
-  border: 0;
+  background: #fff;
+  color: #1f1f1f;
+  font-size: 26px;
   padding: 0;
-  width: 24px;
-  height: 24px;
-  line-height: 1;
-  font-size: 24px;
-  background-color: #fff;
-  overflow: hidden;
 }
 
-.modal-agree {
+.agree-container .text-large {
+  line-height: 36px;
+  font-size: 28px;
+}
+.agree-container .text-normal {
+  line-height: 24px;
+  font-size: 17px;
+  font-weight: 300;
+}
+.agree-form {
+  margin-top: 32px;
+  line-height: 20px;
+}
+.agree-form .title {
+  line-height: 28px;
+  font-size: 21px;
+  color: rgba(0,0,0,.84);
+}
+.agree-form label {
   display: block;
-  margin: 24px 0 16px;
-  background-color: #00cca3;
-  color: #fff;
-  padding-top: .07em;
-  text-decoration: none;
-  width: 100%;
-  text-align: center;
-  border: 0;
-  border-radius: 0;
-}
-
-body.modal-open {
-  overflow: hidden;
-}
-
-body li, body ol, body ul {
-  list-style: none;
-}
-
-input.toggle {
-  display: none
-}
-
-label{
+  cursor: pointer;
   min-height: 24px;
+  margin-top: 24px;
+  color: rgba(0,0,0,.54);
+  position: relative;
+  padding-left: 32px;
 }
-
-label.toggle {
+.agree-form label.toggle {
   position: absolute;
   top: 0;
   right: 0;
@@ -90,43 +64,81 @@ label.toggle {
   padding: 0;
   text-decoration: underline;
   color: rgba(0,0,0,.54);
-  font-size: 13px
+  font-size: 13px;
 }
 
-.term-more .term-box {
-  margin-left: -64px
+.agree-form input[type=checkbox] {
+  position: absolute;
+  top: 3px;
+  left: 0;
+}
+.agree-form input[type=checkbox].toggle {
+  display: none;
+}
+.agree-form input[type=checkbox].toggle + .toggle span:nth-child(even) {
+  display: none;
+}
+.agree-form input[type=checkbox].toggle:checked + .toggle span:nth-child(odd) {
+  display: none;
+}
+.agree-form input[type=checkbox].toggle:checked + .toggle span:nth-child(even) {
+  display: block;
+}
+.agree-form input[type=checkbox].toggle:checked~.term-box {
+  height: 192px;
+}
+.agree-form li.more {
+  position: relative;
+  margin: 24px 0;
+  padding-left: 32px;
+  line-height: 24px;
+}
+.agree-form .term-box {
+  position: relative;
+  transition: .2s;
+  margin-right: -32px;
+  margin-left: -64px;
+  height: 0;
+  overflow: hidden;
+}
+.agree-form .article {
+  margin-top: 12px;
+  background: #f5f7fa;
+  padding: 12px;
+  padding-left: 64px;
+  height: 180px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.agree-form .article article {
+  color: rgba(0,0,0,.54)!important;
+  font-size: 12px!important;
+  font-weight: 400!important;
+}
+.agree-form .article a {
+  pointer-events: none!important;
+}
+.agree-form li {
+  list-style: none;
 }
 
-input.toggle:checked+label.toggle span:first-child, label.toggle span:last-child {
-  display: none
-}
-
-input.toggle:checked+label.toggle span:last-child {
-  display: inline
-}
-
-input.toggle:checked~.term-box {
-  height: 192px
-}
-
-/* 본문 */
-
-.text-large{
-  line-height: 20px;
-  font-size: 15px;
-  font-weight: 700;
-  margin-bottom: 4px !important;
-}
-
-.text-normal{
-  line-height: 16px;
-  font-size: 12px;
+.agree-form .caption {
+  display: block;
+  word-break: keep-all;
+  margin-top: 8px;
+  line-height: 18px;
+  font-size: 13px;
+  color: #7c8288;
   font-weight: 400;
 }
+.agree-form .btn-agree {
+  width: 100%;
+  margin-top: 24px;
+}
 
-.join-container{
+.join-container {
   position: relative;
-  padding: 40px 16px;
+  padding: 80px 16px;
   line-height: 20px;
   font-size: 15px;
   font-weight: 400;
@@ -137,27 +149,49 @@ input.toggle:checked~.term-box {
   max-width: 400px;
   overflow: hidden;
 }
+.btn-agree-open {
+  color: #1f1f1f;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  border: 0;
+  background: #fff;
+  padding: 0;
+  width: 24px;
+  height: 100%;
+  text-align: center;
+}
+.btn-agree-open i {
+  position: absolute;
+  top: 5px;
+}
 
-.join-large-text{
+.text-large {
+  line-height: 20px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px !important;
+}
+
+.text-normal {
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: 400;
+  word-break: keep-all;
+}
+.join-large-text {
   color: rgba(0,0,0,.84);
   line-height: 36px;
   letter-spacing: -.6px;
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 700;
   margin-bottom: 12px;
 }
 
-.submit-button {
-  display: block;
-  margin: 24px 0 16px;
-  background-color: #00cca3;
-  color: #fff;
-  padding-top: .07em;
-  text-decoration: none;
+.btn-join {
   width: 100%;
-  text-align: center;
-  border: 0;
-  border-radius: 0;
+  margin: 24px 0 16px;
 }
 
 .check-list {
@@ -167,12 +201,10 @@ input.toggle:checked~.term-box {
 }
 
 .check-list label {
-  display: block;
-  margin: 0;
   padding-left: 34px;
 }
 
-.check-list label > input{
+.check-list label > input {
   position: absolute;
   top: 0;
   left: 0;
@@ -180,26 +212,68 @@ input.toggle:checked~.term-box {
   margin-left: 2px;
 }
 
-.check-list button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
-  border: 0;
-  background: 0 0;
-  padding: 0;
-  width: 24px;
-  height: 100%;
-  border: 1px solid #00cca3;
+.join-form {
+  margin-top: 34px;
 }
 
-.check-list .control {
-  position: static;
-}
-
-.check-list button > i.icon {
-  position: absolute;
-  top: 0;
-  left: 0;
+.join-form input[type=text],
+.join-form input[type=password],
+.join-form input[type=email] {
   width: 100%;
+  height: 48px;
+  padding: 0 20px;
+  line-height: 1.2em;
+  border-color: rgba(0,0,0,.15);
+  background-color: #fff;
+  transition: .2s;
+  outline: none;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 0;
+  color: rgba(0,0,0,.84);
+  font-size: 17px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.join-form input[type=text]:disabled,
+.join-form input[type=password]:disabled,
+.join-form input[type=email]:disabled {
+  background-color: rgba(0,0,0,.06);
+}
+.join-form input[type=text]:hover,
+.join-form input[type=password]:hover,
+.join-form input[type=email]:hover
+{
+  border-color: rgba(0,0,0,.55);
+}
+.join-form input[type=text]:disabled:hover,
+.join-form input[type=password]:disabled:hover,
+.join-form input[type=email]:disabled:hover
+{
+  border-color: rgba(0,0,0,.15);
+}
+.join-form input[type=text]:focus,
+.join-form input[type=password]:focus,
+.join-form input[type=email]:focus
+{
+  border-color: #0ecca3;
+}
+.join-form input.error {
+  border: 1px solid #f25555;
+  background-color: hsla(0,100%,80%,.06);
+}
+.join-form input.error:hover {
+  border: 1px solid #f25555;
+}
+.join-form input.error:focus {
+  border: 1px solid #f25555;
+}
+
+.error-text {
+  display: block;
+  color: #f25555;
+  line-height: 18px;
+  font-size: 13px;
+  font-weight: 400;
+  margin: 5px 0;
 }

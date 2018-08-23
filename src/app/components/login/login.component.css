@@ -1,53 +1,99 @@
-article, blockquote, body, dd, div, dl, dt, h1, h2, h3, h4, html, li, main, ol, p, section, table, tbody, td, th, thead, tr, ul {
-  margin: 0;
-  padding: 0;
-}
-* {
-  box-sizing: border-box;
-}
-
-.login-container{
+.login-container {
   margin: 0 auto;
-  padding-bottom: 96px;
-  box-sizing: border-box;
+  padding: 80px 16px;
   width: 100%;
   max-width: 400px;
   overflow: hidden;
-}
-
-.login-heading-text{
-  color: rgba(0,0,0,.84);
-  line-height: 36px;
-  letter-spacing: -.6px;
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-.form-container{
   position: relative;
-  padding: 40px 16px;
-  box-sizing: border-box;
   line-height: 20px;
   font-size: 15px;
   font-weight: 400;
 }
 
-.checkbox{
+.login-heading-text {
+  color: rgba(0,0,0,.84);
+  line-height: 36px;
+  letter-spacing: -.6px;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.checkbox {
+  margin-top: 10px;
   line-height: 18px;
   font-size: 13px;
   font-weight: 400;
   color: rgba(0,0,0,.54);
 }
 
-.submit-button {
-  display: block;
-  margin: 24px 0 16px;
-  background-color: #00cca3;
-  color: #fff;
-  padding-top: .07em;
-  text-decoration: none;
+.checkbox input {
+  margin-right: 5px;
+}
+
+.login-form input[type=password],
+.login-form input[type=email] {
   width: 100%;
-  text-align: center;
-  border: 0;
+  height: 48px;
+  padding: 0 20px;
+  line-height: 1.2em;
+  border-color: rgba(0,0,0,.15);
+  background-color: #fff;
+  transition: .2s;
+  outline: none;
+  border: 1px solid rgba(0,0,0,.15);
   border-radius: 0;
+  color: rgba(0,0,0,.84);
+  font-size: 17px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.login-form input[type=password]:hover,
+.login-form input[type=email]:hover
+{
+  border-color: rgba(0,0,0,.55);
+}
+.login-form input[type=password]:focus,
+.login-form input[type=email]:focus
+{
+  border-color: #0ecca3;
+}
+.login-form input.error {
+  border: 1px solid #f25555;
+  background-color: hsla(0,100%,80%,.06);
+}
+.login-form input.error:hover {
+  border: 1px solid #f25555;
+}
+.login-form input.error:focus {
+  border: 1px solid #f25555;
+}
+
+
+.btn-login {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.bottom-message {
+  height: 56px;
+  text-align: center;
+  line-height: 56px;
+  font-size: 13px;
+}
+
+.bottom-message a {
+  margin-left: 16px;
+  text-decoration: underline;
+  color: #00cca3;
+}
+
+.error-text {
+  display: block;
+  color: #f25555;
+  line-height: 18px;
+  font-size: 13px;
+  font-weight: 400;
+  margin: 5px 0;
 }

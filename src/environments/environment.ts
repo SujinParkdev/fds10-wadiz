@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   rewardsUrl: 'https://ryanden.kr/api/rewards',
-  apiUrl: 'http://localhost:4500',
+  usersUrl: 'https://ryanden.kr/api/users',
   tokenName: 'access_token'
 };
 

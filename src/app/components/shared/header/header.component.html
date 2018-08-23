@@ -1,6 +1,6 @@
 <div class="header">
   <div class="gnb">
-    <a [routerLink]="'/main'" class="logo" title="wadiz"></a>
+    <a [routerLink]="'/main/all'" class="logo" title="wadiz"></a>
     <ul class="gnb-menu">
       <li *ngIf="loginService.isLogin">
         <div class="user" (click)="isUserPop = !isUserPop"></div>
@@ -19,7 +19,7 @@
     <div class="user-pop-body">
       <div class="user-profile">
         <div class="user-picture"></div>
-        <div class="user-name">noname</div>
+        <div class="user-name" *ngIf="userInfo">{{ userInfo.nickname }}</div>
       </div>
       <ul class="user-menu">
         <li>

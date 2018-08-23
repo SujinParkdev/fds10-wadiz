@@ -36,6 +36,7 @@ import { CreateElementService } from './create-element.service';
       transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       transform: translate(400px);
       opacity: 0;
+      font-size: 13px;
     }
     .toast.active {
       transform: translate(0);
@@ -104,6 +105,28 @@ import { CreateElementService } from './create-element.service';
     }
     .confirm-false-btn:hover {
       background: #676363;
+    }
+    .loading-svg {
+      position: fixed;
+      z-index: 9999999;
+      background-color: #fff;
+      width: 100%;
+      height: 100%;
+      opacity: .5;
+      top: 0;
+      left: 0;
+    }
+    .loading-svg:after {
+      content: "";
+      background: url('/assets/loading.svg') no-repeat;
+      display: block;
+      width: 200px;
+      height: 200px;
+      top: 50%;
+      left: 50%;
+      margin-top: -100px;
+      margin-left: -100px;
+      position: absolute;
     }
   `]
 })

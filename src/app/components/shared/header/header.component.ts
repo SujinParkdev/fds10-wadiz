@@ -35,6 +35,10 @@ export class HeaderComponent implements OnInit {
   isUserPop = false;
   isScrollTop = false;
 
+  get userInfo() {
+    return this.loginService.userInfo;
+  }
+
   constructor(
     private router: Router,
     private createElementService: CreateElementService,
@@ -42,7 +46,7 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.loginService.isLogin = true;
+    console.log('token', this.loginService.getToken());
   }
 
   @HostListener('window:scroll', [])
@@ -66,15 +70,9 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.createElementService.confirm('로그아웃 하시겠습니까?', '확인', () => {
-      this.createElementService.alert('로그아웃 되었습니다.', () => {
-        this.isUserPop = false;
-        this.loginService.isLogin = false;
-        this.router.navigate(['main']);
-      });
+      this.loginService.signout();
+      this.router.navigate(['/main/all']);
+      this.isUserPop = false;
     });
-  }
-
-  login() {
-    this.loginService.isLogin = true;
   }
 }

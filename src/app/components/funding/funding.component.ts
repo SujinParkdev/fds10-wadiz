@@ -27,7 +27,7 @@ export class FundingComponent implements OnInit {
         this.fundingService.id = +params['id'];
         this.fundingService.getRewardDetail();
       } else {
-        this.router.navigate(['/main']);
+        this.router.navigate(['/main/all']);
       }
     });
   }

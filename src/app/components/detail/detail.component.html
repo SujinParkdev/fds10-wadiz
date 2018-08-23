@@ -1,301 +1,349 @@
-<div class="detail-container" *ngIf="rewardDetail">
-        <!-- detail header start -->
-        <div class="detail-header">
-            <div class="detail-header-bg"
-                [ngStyle]="{
+<div class="detail-container" *ngIf="rewardDetail; else loading">
+    <!-- detail header start -->
+    <div class="detail-header">
+        <div class="detail-header-bg" [ngStyle]="{
                     'background-image': 'url(' + rewardDetail.product_img + ')'
                 }"></div>
-            <div class="title-info">
-                <em>{{ rewardDetail.product_type }}</em>
-                <strong>와디즈 크라우드 펀딩</strong>프로젝트
-            </div>
-            <div class="title">
-                <h2 class="title">{{ rewardDetail.product_name }}</h2>
-            </div>
+        <div class="title-info">
+            <em>{{ rewardDetail.product_type }}</em>
+            <strong>와디즈 크라우드 펀딩</strong>프로젝트
         </div>
-        <!-- detail header end -->
-        <!-- detail navigation start -->
-        <div class="detail-nav">
-            <ul class="tab-list">
-                <li class="active"><a class="tab-link" href="#">스토리</a></li>
-                <li><a class="tab-link" href="#" onclick="campaignDetail('fundingInfo');">펀딩 안내</a></li>
-                <li><a class="tab-link" href="#">새소식</a></li>
-                <li><a class="tab-link" href="#">댓글</a></li>
-                <li><a class="tab-link" href="#">서포터</a></li>
-            </ul>
+        <div class="title">
+            <h2 class="title">{{ rewardDetail.product_name }}</h2>
         </div>
-        <!-- detail navigation end -->
+    </div>
+    <!-- detail header end -->
+    <!-- detail navigation start -->
+    <div class="detail-nav">
+        <ul class="tab-list">
+            <li class="active">
+                <a class="tab-link" ng-href="#">스토리</a>
+            </li>
+            <li>
+                <a class="tab-link" ng-href="#">펀딩 안내</a>
+            </li>
+            <li>
+                <a class="tab-link" ng-href="#">새소식</a>
+            </li>
+            <li>
+                <a class="tab-link" ng-href="#">댓글</a>
+            </li>
+            <li>
+                <a class="tab-link" ng-href="#">서포터</a>
+            </li>
+        </ul>
+    </div>
+    <!-- detail navigation end -->
 
-        <div class="detail-body">
-            <!-- detail info start -->
-            <div class="detail-info">
-                <!-- S : 캠페인 정보 -->
-                <div class="wd-ui-sub-campaign-info-container">
-                    <div class="wd-ui-sub-campaign-info">
-                        <!-- S : 탭 주요 콘텐츠 -->
+    <div class="detail-body">
+        <!-- detail info start -->
+        <div class="detail-info">
+            <!-- S : 캠페인 정보 -->
+            <div class="wd-ui-sub-campaign-info-container">
+                <div class="wd-ui-sub-campaign-info">
+                    <!-- S : 탭 주요 콘텐츠 -->
+                    <div class="wd-ui-tab-contents">
                         <div class="wd-ui-tab-contents">
-                            <div class="wd-ui-tab-contents">
-                                <h3 class="text-hidden">프로젝트 스토리</h3>
-                                <!-- 이미지가 아닌 동영상 URL이 넘어오는 경우 iframe에 동영상을 보여줘야 함 -->
-                                <div class="view-slide-wrap">
-                                    <ul class="view-slide-big">
-                                        <li>
-                                            <div class="video-wrap" style="display: none">
-                                                <div class="video-container"
-                                                    data-video-url="https://youtu.be/6kFs6aI5sTk">
-                                                    <div class="video-cover icon-movie" data-cover-url="" style="background-image: url(https://cdn.wadiz.kr/wwwwadiz/green002/2018/0726/20180726132120021_22042.jpg/wadiz/format/jpg/quality/95/optimize)"></div>
-                                                </div>
+                            <h3 class="text-hidden">프로젝트 스토리</h3>
+                            <!-- 이미지가 아닌 동영상 URL이 넘어오는 경우 iframe에 동영상을 보여줘야 함 -->
+                            <div class="view-slide-wrap">
+                                <ul class="view-slide-big">
+                                    <li>
+                                        <div class="video-wrap" style="display: none">
+                                            <div class="video-container">
+                                                <div class="video-cover icon-movie" data-cover-url="" style="background-image: url(https://cdn.wadiz.kr/wwwwadiz/green002/2018/0726/20180726132120021_22042.jpg/wadiz/format/jpg/quality/95/optimize)"></div>
                                             </div>
-                                            <div class="img-responsive"
+                                        </div>
+                                        <div class="img-responsive"
                                             [ngStyle]="{
                                                 'background-image': 'url(' + rewardDetail.product_img + ')'
                                             }">
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <ul class="view-slide-nav" style="display: none">
-                                    <li>
-                                        <div class="video-wrap" style="position: relative">
-                                            <img class="img-responsive" id="campaignVideoThumbnail" src="" alt=""> <i class="icon_play_sm">Play</i>
                                         </div>
                                     </li>
                                 </ul>
-                                <div class="campaign-summary" style="background-color: #ffffff;"
-                                    [innerHTML]="rewardDetail.product_description">
-                                </div>
+                            </div>
+                            <ul class="view-slide-nav" style="display: none">
+                                <li>
+                                    <div class="video-wrap" style="position: relative">
+                                        <img class="img-responsive" id="campaignVideoThumbnail" src="" alt="">
+                                        <i class="icon_play_sm">Play</i>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div style="padding:20px;background:#eafbf7;background:rgba(0, 204, 163, 0.1)">
+                                <p style="color:#00cca3;font-size:13px;line-height:20px;margin-bottom:10px;"><strong>목표 금액</strong> {{ rewardDetail.product_total_amount | comma }}원 &nbsp; &nbsp;
+                                    <strong>펀딩기간</strong> {{ rewardDetail.product_start_time }}-{{ rewardDetail.product_end_time }}</p>
+                                <p style="color:#4a4a4a;font-size:12px;line-height:19px;"><strong>100% 이상 모이면 펀딩이 성공되는 프로젝트</strong><br>
+                                이 프로젝트는 펀딩 마감일까지 목표 금액이 100% 모이지 않으면 결제가 진행되지 않습니다.</p>
+                            </div>
+                            <div class="campaign-summary" style="background-color: #ffffff;" [innerHTML]="rewardDetail.product_description">
+                            </div>
 
-                    <div class="banner-section-RB1"></div>
+                            <div class="banner-section-RB1"></div>
 
 
-                        <!-- S : 댓글 영역 -->
-                        <div style="margin-top: 50px; display: none;">
-                            <!-- S : 댓글 템플릿 -->
-                            <div id="reward_comments" data-reward-comment-app="true" data-campaign-id="22042" data-user-photo-url="" data-session-user="" data-is-accessible-cmt="true" data-total="166" data-is-detail-page="true">
-                                <div class="reward-comment">
-                                    <p class="comment-num">댓글 <em class="comment-total">166</em></p>
-                                    <div v-if="fetching.init" class="wz-loader"></div>
-                                    <div class="main-comment">
-                                        <p class="comment-num" style="text-align:center;margin-top:20px">전체 <em class="comment-total">166</em>개의 댓글이 있습니다.</p>
-                                           <div class="btn-wrap" style="text-align:center">
-                                                   <button class="wz-btn primary" onclick="location.href='/web/campaign/detail/qa/22042'">댓글 보러가기</button>
-                                                    </div>
-                                                </div>
+                            <!-- S : 댓글 영역 -->
+                            <div style="margin-top: 50px; display: none;">
+                                <!-- S : 댓글 템플릿 -->
+                                <div id="reward_comments" data-reward-comment-app="true" data-campaign-id="22042" data-user-photo-url="" data-session-user=""
+                                    data-is-accessible-cmt="true" data-total="166" data-is-detail-page="true">
+                                    <div class="reward-comment">
+                                        <p class="comment-num">댓글
+                                            <em class="comment-total">166</em>
+                                        </p>
+                                        <div v-if="fetching.init" class="wz-loader"></div>
+                                        <div class="main-comment">
+                                            <p class="comment-num" style="text-align:center;margin-top:20px">전체
+                                                <em class="comment-total">166</em>개의 댓글이 있습니다.</p>
+                                            <div class="btn-wrap" style="text-align:center">
+                                                <button class="wz-btn primary" onclick="location.href='/web/campaign/detail/qa/22042'">댓글 보러가기</button>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- E : 댓글 템플릿 -->
                                 </div>
-                                <!-- E : 댓글 영역 -->
-                                <input type="hidden" id="movieembed" value="">
                             </div>
+                            <!-- E : 댓글 템플릿 -->
                         </div>
-                        <!-- E : 탭 주요 콘텐츠 -->
+                        <!-- E : 댓글 영역 -->
+                        <input type="hidden" id="movieembed" value="">
                     </div>
-            <!-- detail comment component -->
-            <app-detail-comment style="display: none;"></app-detail-comment>
-            </div>
-                <!-- E : 캠페인 정보 -->
-            <!-- detail info end -->
-
-            <!-- detail-side start -->
-            <div class="detail-side">
-                    <h3 class="text-hidden">프로젝트 정보</h3>
-                    <!-- project state info start -->
-                    <div class="project-state-info">
-                        <div class="state-box">
-                            <p class="remaining-day">{{ rewardDetail.product_term }}</p>
-                        <p class="rate-bar">
-                            <em [style.width]="rewardDetail.product_percentbar + '%'"></em></p>
-                        <p class="achievement-rate"><strong>{{ rewardDetail.product_percent }}</strong>% 달성</p>
-                        <p class="total-amount"><strong>{{ rewardDetail.product_cur_amount | comma }}원</strong> 펀딩</p>
-                    </div>
-                    <div class="btn-wrap funding">
-                        <button class="wz-btn" (click)="goFunding()">펀딩하기</button>
-                    </div>
-                    <div class="btn-share">
-                        <div class="btn-wrap-float">
-                            <button id="btnLike" class="campaign-like"
-                                (click)="liketoggle()">
-                                <i class="far fa-heart"
-                                *ngIf="isFillHeart"
-                                [style.background-color]="isFillHeart ? 'black' : '#fc5389'"
-                                <!-- [ngStyle]="{'background-color': isFillHeart ? 'black' : '#fc5389'}" -->
-                                  ></i>{{ rewardDetail.product_interested_count }}</button>
-                            <button class="campaign-message"><i class="far fa-comment-alt"></i>문의</button>
-                            <button id="btnShare" class="campaign-share">공유하기</button>
-                        </div>
-                    </div>
-                    <div class="banner-section-RB2"></div>
-                    <p style="color:#4a4a4a;font-size:12px;padding:0 0 12px;">
-                        <i class="fas fa-exclamation-circle" style="color:#c88af9;margin-right:5px;" aria-hidden="true"></i> 펀딩하기는 쇼핑하기가 아닙니다!
-                        <a style="text-decoration:underline" target="_blank" href="https://www.wadiz.kr/web/fthelpCenterBridge/%EC%84%9C%ED%8F%AC%ED%84%B0%EC%9A%A9-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81/%ED%8E%80%EB%94%A9%ED%95%98%EA%B8%B0%EB%8A%94-%EC%87%BC%ED%95%91%ED%95%98%EA%B8%B0%EA%B0%80-%EC%95%84%EB%8B%99%EB%8B%88%EB%8B%A4">
-                          자세히 알아보기</a>
-
                 </div>
-                <!-- project state info end  -->
+                <!-- E : 탭 주요 콘텐츠 -->
+            </div>
+            <!-- detail comment component -->
+            <!-- app-detail-comment style="display: none;"></app-detail-comment -->
+        </div>
+        <!-- E : 캠페인 정보 -->
+        <!-- detail info end -->
 
-                <!-- campain-rewards start  -->
-                <div id="campaign-rewards" style="position: relative; top:-50px"></div>
-                <div class="moveRewards">
-                    <div class="wd-ui-gift">
-                        <h3 class="project-right-title">리워드 선택</h3>
-                        <ul>
-                            <li *ngFor="let rewardGifts of rewardGift" class="onsale">
-                                <button class="rightinfo-reward-list ing">
+        <!-- detail-side start -->
+        <div class="detail-side">
+            <h3 class="text-hidden">프로젝트 정보</h3>
+            <!-- project state info start -->
+            <div class="project-state-info">
+                <div class="state-box">
+                    <p class="remaining-day">{{ rewardDetail.product_term }}</p>
+                    <p class="rate-bar">
+                        <em [style.width]="rewardDetail.product_percentbar + '%'"></em>
+                    </p>
+                    <p class="achievement-rate">
+                        <strong>{{ rewardDetail.product_percent }}</strong>% 달성</p>
+                    <p class="total-amount">
+                        <strong>{{ rewardDetail.product_cur_amount | comma }}</strong>원 펀딩</p>
+                </div>
+                <div class="btn-wrap funding">
+                    <button class="wz-btn" (click)="goFunding()">펀딩하기</button>
+                </div>
+                <div class="btn-share">
+                    <div class="btn-wrap-float">
+                        <button id="btnLike" class="campaign-like" (click)="liketoggle()">
+                            <i class="fas fa-heart heart-active" *ngIf="isLiked"></i><i class="far fa-heart" *ngIf="!isLiked"></i>{{ rewardDetail.product_interested_count }}</button>
+                        <button class="campaign-message">
+                            <i class="far fa-comment-alt"></i>문의</button>
+                        <button id="btnShare" class="campaign-share">공유하기</button>
+                    </div>
+                </div>
+                <div class="banner-section-RB2"></div>
+                <p style="color:#4a4a4a;font-size:12px;padding:0 0 12px;">
+                    <i class="fas fa-exclamation-circle" style="color:#c88af9;margin-right:5px;" aria-hidden="true"></i> 펀딩하기는 쇼핑하기가 아닙니다!
+                    <a style="text-decoration:underline" target="_blank" href="https://www.wadiz.kr/web/fthelpCenterBridge/%EC%84%9C%ED%8F%AC%ED%84%B0%EC%9A%A9-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81/%ED%8E%80%EB%94%A9%ED%95%98%EA%B8%B0%EB%8A%94-%EC%87%BC%ED%95%91%ED%95%98%EA%B8%B0%EA%B0%80-%EC%95%84%EB%8B%99%EB%8B%88%EB%8B%A4">
+                        자세히 알아보기</a>
+
+            </div>
+            <!-- project state info end  -->
+
+            <!-- campain-rewards start  -->
+            <div id="campaign-rewards" style="position: relative; top:-50px"></div>
+            <div class="moveRewards">
+                <div class="wd-ui-gift">
+                    <h3 class="project-right-title">리워드 선택</h3>
+                    <ul>
+                        <li *ngFor="let reward of rewardDetail.rewards" class="onsale">
+                            <button class="rightinfo-reward-list ing" [class.soldout]="!reward.reward_on_sale">
                                 <div class="top-info">
-                                  <dl class="reward-info">
-                                    <dt>
-                                        {{ rewardGift.reward_price }}
-                                    </dt>
-                                    <dd>
-                                      <p class="reward-name">{{ rewardGift.reward_name }}</p>
-                                      <p>{{ rewardGift.reward_option }}</p>
-                                    </dd>
-                                  </dl>
-                                  <ul class="data-info">
-                                    <li class="shipping" style="width: 100%; margin-bottom: 5px;">배송비<em>{{ rewardGift.reward_shipping_charge | comma }}원</em></li>
-                                    <li class="date" style="width: 100%;">리워드 발송 시작일
-                                      <em>{{ rewardGift.reward_expecting_departure_date }}</em>
-                                    </li>
-                                  </ul>
-                                    <p class="reward-qty">제한수량 <strong>{{ rewardGift.reward_total_count}}</strong>개 &nbsp; <em>현재 {{ rewardGift.reward_sold_count}}개 남음!</em></p>
-                                  <p class="reward-soldcount">총 <strong>{{ rewardGift.reward_sold_count}}</strong>개 펀딩완료</p>
-                                </div>
-                                  <p class="hover-text">이 리워드 펀딩하기</p>
-                                </button>
-
-                                <button class="rightinfo-reward-list soldout ing" onclick="backMoney('44881', 'true')">
-                                    <div class="top-info">
                                     <dl class="reward-info">
                                         <dt>
-                                            {{ rewardGift.reward_price}}
+                                            {{ reward.reward_price | comma }}원 펀딩
                                         </dt>
                                         <dd>
-                                        <p class="reward-name">{{ rewardGift.reward_name }}</p>
-                                        <p>{{ rewardGift.reward_option }}</p>
+                                            <p class="reward-name">{{ reward.reward_name }}</p>
+                                            <p>{{ reward.reward_option }}</p>
                                         </dd>
                                     </dl>
                                     <ul class="data-info">
-                                        <li class="shipping" style="width: 100%; margin-bottom: 5px;">배송비<em>{{ rewardGift.reward_shipping_charge | comma }}원</em></li>
+                                        <li class="shipping" style="width: 100%; margin-bottom: 5px;">배송비
+                                            <em>{{ reward.reward_shipping_charge | comma }}원</em>
+                                        </li>
                                         <li class="date" style="width: 100%;">리워드 발송 시작일
-                                        <em>{{ rewardGift.reward_expecting_departure_date }}</em>
+                                            <em>{{ reward.reward_expecting_departure_date }}</em>
                                         </li>
                                     </ul>
-                                        <p class="reward-qty soldout"><em>제한수량이 모두 펀딩되었습니다.</em></p>
-                                    <p class="reward-soldcount">총 <strong>50</strong>개 펀딩완료</p>
-                                    </div>
-                                    <p class="hover-text soldout">제한수량이<br/>모두 펀딩되었습니다.</p>
-                                    </button>
+                                    <p class="reward-qty" *ngIf="reward.reward_on_sale">제한수량
+                                        <strong>{{ reward.reward_total_count }}</strong>개 &nbsp;
+                                        <em>현재 {{ reward.reward_total_count - reward.reward_sold_count}}개 남음!</em>
+                                    </p>
+                                    <p class="reward-qty soldout" *ngIf="!reward.reward_on_sale">
+                                        <em>제한수량이 모두 펀딩되었습니다.</em>
+                                    </p>
+                                    <p class="reward-soldcount">총
+                                        <strong>{{ reward.reward_sold_count }}</strong>개 펀딩완료</p>
+                                </div>
+                                <p class="hover-text" *ngIf="reward.reward_on_sale">이 리워드 펀딩하기</p>
+                                <p class="hover-text soldout" *ngIf="!reward.reward_on_sale">제한수량이
+                                        <br/>모두 펀딩되었습니다.</p>
+                            </button>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+            <!-- campain-rewards end -->
+
+            <!-- 일정 스크롤 지난 후 stiky할 부분 start -->
+            <div id="normalpane" class="recommend-box-container">
+                <div id="fixed-funding-btn" class="fixed-funding-btn">
+                    <button onclick="backMoney('backing', 'false');" class="wz-btn primary block">이 프로젝트 펀딩하기</button>
+                </div>
+
+                <!-- S : 프로젝트 신고하기 -->
+                <div class="wz-message-box project-report">
+                    <p class="title">신고하기란?</p>
+                    <p>해당 프로젝트에 지적 재산권을 침해하거나
+                        <br>거짓된 내용이 있다면 알려주세요.</p>
+                    <button class="wz-btn block gray dense" title="Report">프로젝트 신고하기</button>
+                </div>
+                <!-- E : 프로젝트 신고하기 -->
+
+                <div class="recommend-box">
+                    <h3 class="title">인기 프로젝트</h3>
+                    <div class="item">
+                        <div class="recommend-number">1</div>
+                        <div class="text">
+                            <a ng-href="#">가장 간편한 음식물쓰레기 처리 솔루션</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="recommend-number">2</div>
+                        <div class="text">
+                            <a ng-href="#">세계 최초 헤드형 물 청소기 "스위틀" : 청소를 넘어 세척까지!!</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="recommend-number">3</div>
+                        <div class="text">
+                            <a ng-href="#">PILLOW - 세상에서 가장 작은 독서대</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="recommend-number">4</div>
+                        <div class="text">
+                            <a ng-href="#">365일 빗물과 오염으로부터 지켜줄 "쉴더 발수코팅제"</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="recommend-number">5</div>
+                        <div class="text">
+                            <a ng-href="#">팝펫 드라이룸_일상의 가치를 + 더한 펫드라이룸을 소개합니다.</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="recommend-number">6</div>
+                        <div class="text">
+                            <a ng-href="#">세계최초 우퍼 ON!! OFF!!가 가능한 블루투스 우퍼이어셋 - 디버즈</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="recommend-number">7</div>
+                        <div class="text">
+                            <a ng-href="#">크고 가벼운 안경 : 휴즈(Huge) - 2차</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="recommend-number">8</div>
+                        <div class="text">
+                            <a ng-href="#">카시트만으로 외출준비가 끝난것은 아닙니다. 성장기 무릎보호 카시트발판</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="recommend-number">9</div>
+                        <div class="text">
+                            <a ng-href="#">여행용 캐리어 및 의류 진공압축포장의 혁명! -핸디형 진공 압축기</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="recommend-number">10</div>
+                        <div class="text">
+                            <a ng-href="#">유선의 한계를 뛰어넘는 차량용 무선 청소기
+                                <더쎈>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 일정 스크롤 지난 후 stiky할 부분 end -->
+
+            <!-- 프로젝트 신고 팝업 start -->
+
+            <div id="rewardProjectReportLypop" class="lypop-fixed" style="display:none">
+                <div class="wz-modal wzui">
+                    <div class="modal-main" id="reward-report-main">
+                        <p class="title">이 프로젝트를 신고하기 원하세요?</p>
+                        <input type="hidden" name="campaignId" value="22042">
+                        <div class="field">
+                            <p class="label">아래 이유 중 하나를 선택해주세요.</p>
+                            <ul>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="reportType" value="207">거짓된 내용으로 사기 우려가 있습니다.</label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="reportType" value="208">지적 재산권을 침해하고 있습니다.</label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="reportType" value="209">사회적 공익을 저해할 우려가 있습니다.</label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="reportType" value="210">기타</label>
                                 </li>
                             </ul>
-
-
+                        </div>
+                        <div class="field">
+                            <p class="label">신고하는 근거를 남겨주세요.</p>
+                            <div class="wz textarea" style="padding:0">
+                                <textarea name="reportText" placeholder="인터넷 URL이나 근거가 되는 내용 입력" rows="5" maxlength="1024"></textarea>
+                            </div>
+                        </div>
+                        <em>와디즈는 건전한 크라우드펀딩 생태계 조성을 위해 참여자들의 의견을 받고 있습니다.
+                            <br>신고된 내용을 근거로 프로젝트의 문제 여부를 확인한 후 조치합니다. 단, 근거 없는 비방 내용을 게재할 경우 법적 처벌을 받을 수도 있습니다.</em>
+                        <div class="submit">
+                            <button type="submit" class="btn primary dense">제출하기</button>
+                            <button type="button" class="btn dense" onclick="closeLyPop('rewardProjectReport')">취소</button>
+                        </div>
+                        <button type="button" class="close" title="창닫기" onclick="closeLyPop('rewardProjectReport')"></button>
+                    </div>
+                    <div class="modal-main" id="reward-report-complete" style="display:none">
+                        <p class="title">신고가 완료되었습니다</p>
+                        <p>신고를 통해 더 나은 와디즈를 만들 수 있도록 도와주셔서 감사합니다. 신고 내용과 관련하여 문의사항이나 조치사항이 있으면 개별 연락드리겠습니다.</p>
+                        <button type="button" class="close" title="창닫기" onclick="closeLyPop('rewardProjectReport')"></button>
                     </div>
                 </div>
-                <!-- campain-rewards end -->
-
-                <!-- 일정 스크롤 지난 후 stiky할 부분 start -->
-                <div id="normalpane" class="recommend-box-container">
-                    <div id="fixed-funding-btn" class="fixed-funding-btn">
-                        <button onclick="backMoney('backing', 'false');" class="wz-btn primary block">이 프로젝트 펀딩하기</button>
-                    </div>
-
-                    <!-- S : 프로젝트 신고하기 -->
-                    <div class="wz-message-box project-report">
-                        <p class="title">신고하기란?</p>
-                        <p>해당 프로젝트에 지적 재산권을 침해하거나<br>거짓된 내용이 있다면 알려주세요.</p>
-                        <button class="wz-btn block gray dense" title="Report">프로젝트 신고하기</button>
-                    </div>
-                    <!-- E : 프로젝트 신고하기 -->
-
-                    <div class="recommend-box">
-                        <h3 class="title">인기 프로젝트</h3>
-                        <div class="item">
-                            <div class="recommend-number">1</div>
-                            <div class="text"><a href="#">가장 간편한 음식물쓰레기 처리 솔루션</a></div>
-                        </div>
-                        <div class="item">
-                            <div class="recommend-number">2</div>
-                            <div class="text"><a href="#">세계 최초 헤드형 물 청소기 "스위틀" : 청소를 넘어 세척까지!!</a></div>
-                        </div>
-                        <div class="item">
-                            <div class="recommend-number">3</div>
-                            <div class="text"><a href="#">PILLOW - 세상에서 가장 작은 독서대</a></div>
-                        </div>
-                        <div class="item">
-                            <div class="recommend-number">4</div>
-                            <div class="text"><a href="#">365일 빗물과 오염으로부터 지켜줄 "쉴더 발수코팅제"</a></div>
-                        </div>
-                        <div class="item">
-                            <div class="recommend-number">5</div>
-                            <div class="text"><a href="#">팝펫 드라이룸_일상의 가치를 + 더한 펫드라이룸을 소개합니다.</a></div>
-                        </div>
-                        <div class="item">
-                            <div class="recommend-number">6</div>
-                            <div class="text"><a href="#">세계최초 우퍼 ON!! OFF!!가 가능한 블루투스 우퍼이어셋 - 디버즈</a></div>
-                        </div>
-                        <div class="item">
-                            <div class="recommend-number">7</div>
-                            <div class="text"><a href="#">크고 가벼운 안경 : 휴즈(Huge) - 2차</a></div>
-                        </div>
-                        <div class="item">
-                            <div class="recommend-number">8</div>
-                            <div class="text"><a href="#">카시트만으로 외출준비가 끝난것은 아닙니다. 성장기 무릎보호 카시트발판</a></div>
-                        </div>
-                        <div class="item">
-                            <div class="recommend-number">9</div>
-                            <div class="text"><a href="#">여행용 캐리어 및 의류 진공압축포장의 혁명! -핸디형 진공 압축기</a></div>
-                        </div>
-                        <div class="item">
-                            <div class="recommend-number">10</div>
-                            <div class="text"><a href="#">유선의 한계를 뛰어넘는 차량용 무선 청소기 　 <더쎈> </a></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 일정 스크롤 지난 후 stiky할 부분 end -->
-
-                <!-- 프로젝트 신고 팝업 start -->
-
-                <div id="rewardProjectReportLypop" class="lypop-fixed" style="display:none">
-                    <div class="wz-modal wzui">
-                        <div class="modal-main" id="reward-report-main">
-                            <p class="title">이 프로젝트를 신고하기 원하세요?</p>
-                                <input type="hidden" name="campaignId" value="22042">
-                                <div class="field">
-                                    <p class="label">아래 이유 중 하나를 선택해주세요.</p>
-                                    <ul>
-                                        <li><label><input type="radio" name="reportType" value="207">거짓된 내용으로 사기 우려가 있습니다.</label></li>
-                                        <li><label><input type="radio" name="reportType" value="208">지적 재산권을 침해하고 있습니다.</label></li>
-                                        <li><label><input type="radio" name="reportType" value="209">사회적 공익을 저해할 우려가 있습니다.</label></li>
-                                        <li><label><input type="radio" name="reportType" value="210">기타</label></li>
-                                    </ul>
-                                </div>
-                                <div class="field">
-                                    <p class="label">신고하는 근거를 남겨주세요.</p>
-                                    <div class="wz textarea" style="padding:0"><textarea name="reportText" placeholder="인터넷 URL이나 근거가 되는 내용 입력" rows="5" maxlength="1024"></textarea></div>
-                                </div>
-                                <em>와디즈는 건전한 크라우드펀딩 생태계 조성을 위해 참여자들의 의견을 받고 있습니다.<br>신고된 내용을 근거로 프로젝트의 문제 여부를 확인한 후 조치합니다. 단, 근거 없는 비방 내용을 게재할 경우 법적 처벌을 받을 수도 있습니다.</em>
-                                <div class="submit">
-                                    <button type="submit" class="btn primary dense">제출하기</button>
-                                    <button type="button" class="btn dense" onclick="closeLyPop('rewardProjectReport')">취소</button>
-                                </div>
-                            <button type="button" class="close" title="창닫기" onclick="closeLyPop('rewardProjectReport')"></button>
-                        </div>
-                        <div class="modal-main" id="reward-report-complete" style="display:none">
-                            <p class="title">신고가 완료되었습니다</p>
-                            <p>신고를 통해 더 나은 와디즈를 만들 수 있도록 도와주셔서 감사합니다. 신고 내용과 관련하여 문의사항이나 조치사항이 있으면 개별 연락드리겠습니다.</p>
-                            <button type="button" class="close" title="창닫기" onclick="closeLyPop('rewardProjectReport')"></button>
-                        </div>
-                    </div>
-                </div>
-                <!-- 프로젝트 신고 팝업 end -->
             </div>
-            <!-- detail-side end -->
+            <!-- 프로젝트 신고 팝업 end -->
         </div>
+        <!-- detail-side end -->
+    </div>
 </div>
-    <!-- <div class="alertify-cover">
+<!-- <div class="alertify-cover">
         <section class="alertify-logs alertify-like">
             좋아하는 프로젝트에 저장되었습니다.<br>관련된 다양한 소식을 전해드리겠습니다!</section>
         <section class="alertify-logs alertiry-remove-like">좋아하는 프로젝트에서 제외되었습니다.</section>
     </div> -->
+
+
+<ng-template #loading>
+    <div class="blank"></div>
+</ng-template>

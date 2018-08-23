@@ -10,7 +10,7 @@
         <input type="text" placeholder="프로젝트 검색" id="keyword" #keyword
             (keyup.enter)="rewardSearchEnter(keyword.value)">
         <div class="forbtn">
-          <button class="search-btn" (click)="rewardSearch()">
+          <button class="search-btn" (click)="rewardSearch(keyword.value)">
             <i class="fas fa-search"></i>
           </button>
         </div>

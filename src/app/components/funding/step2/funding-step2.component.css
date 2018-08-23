@@ -225,16 +225,7 @@
     border-radius: 3px;
     box-sizing: border-box;
 }
-.purchase-delivery .input-area button {
-    height: 36px;
-    padding: 0 15px;
-    line-height: 36px;
-    font-size: 14px;
-    color: #fff;
-    background: #9F9583;
-    border: none;
-    border-radius: 3px;
-}
+
 .purchase-delivery .input-area .text {
     padding: 10px;
     font-size: 14px;

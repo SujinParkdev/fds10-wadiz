@@ -8,6 +8,7 @@ export class CreateElementService {
   public el: ElementRef;
   public renderer: Renderer2;
   fade: HTMLElement;
+  loading: HTMLElement;
   isFade = false;
 
   constructor() { }
@@ -176,5 +177,17 @@ export class CreateElementService {
         this.renderer.removeChild(this.el.nativeElement, this.fade);
       }
     }, 1000);
+  }
+
+  startLoading() {
+    if (!this.loading) {
+      this.loading = this.renderer.createElement('div');
+      this.renderer.addClass(this.loading, 'loading-svg');
+    }
+    this.renderer.appendChild(this.el.nativeElement, this.loading);
+  }
+
+  endLoading() {
+    this.renderer.removeChild(this.el.nativeElement, this.loading);
   }
 }

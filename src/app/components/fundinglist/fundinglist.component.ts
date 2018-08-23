@@ -11,6 +11,11 @@ export class FundinglistComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.fundingList = [
+      {
+        id: 1
+      }
+    ];
   }
 
 }

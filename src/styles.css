@@ -69,3 +69,11 @@ button:hover {
     background-color: #00be8f;
     border-color: #00be8f;
 }
+button:disabled {
+    cursor: no-drop;
+    opacity: .5;
+}
+button:disabled:hover {
+    background-color: #00cca3;
+    border-color: #00cca3;
+}

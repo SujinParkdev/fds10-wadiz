@@ -3,6 +3,8 @@ import { HttpClient } from '../../../../../node_modules/@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { Router, ActivatedRoute } from '../../../../../node_modules/@angular/router';
 import { MainService } from '../../../core/services/main.service';
+import { CreateElementService } from '../../../core/services/create-element/create-element.service';
+import { delay } from 'rxjs/operators';
 
 interface Reward {
   pk: number;
@@ -58,33 +60,32 @@ export class ListComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private activateRoute: ActivatedRoute,
-    private mainServcie: MainService
+    private mainServcie: MainService,
+    private createElementService: CreateElementService
   ) {
     activateRoute.params.subscribe(params => {
       this.categoryPath = params['category'] ? params['category'] : '';
-      try {
-        this.rewardsTitle = this.mainServcie.categorys.find(({ url }) => url === this.categoryPath).name;
-      } catch {
-        this.router.navigate(['main']);
+      if (!this.categoryPath) {
+        this.router.navigate(['/main/all']);
+      } else {
+        this.statusArr = [
+          { key: '전체', value: 'A' },
+          { key: '펀딩중', value: 'Y' },
+          { key: '종료된', value: 'N' }
+        ];
+
+        this.orderArr = [
+          { key: '최신순', value: '-product_start_time' },
+          { key: '펀딩액순', value: 'product_cur_count' },
+          { key: '인기순', value: 'product_interested_count' },
+          { key: '마감임박순', value: 'product_end_time' }
+        ];
+
+        this.status = this.statusArr[0];
+        this.order = this.orderArr[0];
+
+        this.getRewards();
       }
-
-      this.statusArr = [
-        { key: '전체', value: 'A' },
-        { key: '펀딩중', value: 'Y' },
-        { key: '종료된', value: 'N' }
-      ];
-
-      this.orderArr = [
-        { key: '최신순', value: '-product_start_time' },
-        { key: '펀딩액순', value: 'product_cur_count' },
-        { key: '인기순', value: 'product_interested_count' },
-        { key: '마감임박순', value: 'product_end_time' }
-      ];
-
-      this.status = this.statusArr[0];
-      this.order = this.orderArr[0];
-
-      this.getRewards();
     });
   }
 
@@ -93,12 +94,18 @@ export class ListComponent implements OnInit {
   }
 
   getRewards() {
-    this.rewards = [];
+    this.rewardsTitle = this.mainServcie.categorys.find(category => category.url === this.categoryPath).name;
+
     const path = this.rewardsTitle === '전체보기' ? '' : this.rewardsTitle;
     const url = this.rewardsUrl + `/search/?product_name=${this.searchKeyword}&category=${path}&is_funding=${this.status.value}&ordering=${this.order.value}`;
 
-    this.http.get<RewardApi>(url).subscribe(
+    this.createElementService.startLoading();
+    this.http.get<RewardApi>(url)
+    .pipe(
+      delay(500)
+    ).subscribe(
       res => {
+        this.rewards = [];
         res.results.forEach(reward => {
           const _reward = {
             ...reward,
@@ -110,6 +117,10 @@ export class ListComponent implements OnInit {
           this.rewards.push(_reward);
         });
         this.nextMoreUrl = res.next ? res.next : '';
+      },
+      error => {},
+      () => {
+        this.createElementService.endLoading();
       }
     );
   }
@@ -129,7 +140,7 @@ export class ListComponent implements OnInit {
     this.getRewards();
   }
 
-  rewardSearch() {
+  rewardSearch(value: string) {
     if (!this.isSearch) {
       this.isSearch = true;
         setTimeout(() => {
@@ -137,11 +148,18 @@ export class ListComponent implements OnInit {
           keyword.focus();
         }, 250);
       return;
+    } else {
+      this.searchKeyword = value;
+      this.getRewards();
     }
   }
 
   rewardMore() {
-    this.http.get<RewardApi>(this.nextMoreUrl).subscribe(
+    this.createElementService.startLoading();
+    this.http.get<RewardApi>(this.nextMoreUrl)
+    .pipe(
+      delay(500)
+    ).subscribe(
       res => {
         res.results.forEach(reward => {
           const _reward = {
@@ -154,6 +172,10 @@ export class ListComponent implements OnInit {
           this.rewards.push(_reward);
         });
         this.nextMoreUrl = res.next ? res.next : '';
+      },
+      error => {},
+      () => {
+        this.createElementService.endLoading();
       }
     );
   }

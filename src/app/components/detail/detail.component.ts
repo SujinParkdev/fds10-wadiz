@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '../../../../node_modules/@angular/common/http';
-import { DetailCommentComponent } from './detail-comment/detail-comment.component';
+
+import { HttpClient, HttpHeaders } from '../../../../node_modules/@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { CreateElementService } from '../../core/services/create-element/create-element.service';
+import { delay } from 'rxjs/operators';
+import { LoginService } from '../../core/services/login.service';
 
 interface Reward {
   pk: number;
@@ -40,6 +42,13 @@ interface RewardDetail {
   product_percentbar: number;
 }
 
+interface ProductLike {
+  pk: number;
+  user: number;
+  product: number;
+  liked_at: string;
+}
+
 @Component({
   selector: 'app-detail',
   templateUrl: 'detail.component.html',
@@ -47,18 +56,23 @@ interface RewardDetail {
 })
 export class DetailComponent implements OnInit {
   rewardDetail: RewardDetail;
-  rewardGift: Reward;
-  rewardsUrl = environment.rewardsUrl;
   id: number;
-  isClicked: boolean;
+  isLiked = false;
+  rewardsUrl = environment.rewardsUrl;
   nowTime: number;
   isImg: boolean;
   isFillHeart: boolean;
+  productLike: ProductLike;
+
+  get userInfo() {
+    return this.loginService.userInfo;
+  }
 
   constructor(
     private http: HttpClient,
     private router: Router,
     private activateRoute: ActivatedRoute,
+    private loginService: LoginService,
     private createElementService: CreateElementService
   ) {
   }
@@ -71,7 +85,11 @@ export class DetailComponent implements OnInit {
   }
 
   getDetail() {
+    this.createElementService.startLoading();
     this.http.get<RewardDetail>(`${this.rewardsUrl}/${this.id}`)
+      .pipe(
+        delay(500)
+      )
       .subscribe(
         rewards => {
           this.rewardDetail = {
@@ -81,9 +99,13 @@ export class DetailComponent implements OnInit {
             product_percent: this.getPercent(rewards.product_cur_amount, rewards.product_total_amount),
             product_percentbar: this.getPercent(rewards.product_cur_amount, rewards.product_total_amount, true)
           };
+          console.log(this.rewardDetail);
         },
         error => {
-          console.log(error);
+          // console.log(error);
+        },
+        () => {
+          this.createElementService.endLoading();
         }
       );
   }
@@ -116,28 +138,58 @@ export class DetailComponent implements OnInit {
   }
 
   goFunding() {
-    this.router.navigate(['/funding/step10', this.id]);
+    this.loginService.isAuthenticated();
+    if (this.loginService.isLogin) {
+      this.router.navigate(['/funding/step10', this.id]);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
-  liketoggle() {
-    // likeState true면 좋아요 누른 것, false는 누르지 않은 것
-    const c = this.rewardDetail.product_interested_count;
-    let likeState = false;
+  liketoggle(n: number) {
+    console.log(this.userInfo);
 
-    if (!likeState) {
-      this.http.patch<RewardDetail>(`${this.rewardsUrl}`, { product_interested_count : c + 1})
+    const token = this.loginService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `token ${token}`
+      })
+    };
+
+    const payload = {
+      user: this.userInfo.pk,
+      product: this.id
+    };
+
+
+    if (this.isLiked) {
+      this.http.delete<RewardDetail>(`${this.rewardsUrl}/product_like/${this.id}`, httpOptions)
         .subscribe(() =>
-          this.rewardDetail.product_interested_count =  c + 1 );
-      this.createElementService.toast('좋아하는 프로젝트에 저장되었습니다.\n관련된 다양한 소식을 전해드리겠습니다!');
-      likeState = false;
-      this.isFillHeart = false;
+        this.createElementService.toast('좋아하는 프로젝트에서 제외되었습니다.'));
+      this.isLiked = false;
     } else {
-      this.http.delete<RewardDetail>(`${this.rewardsUrl}`)
-      .subscribe(() =>
-      this.createElementService.toast('좋아하는 프로젝트에서 제외되었습니다.');
-      likeState = true;
-      this.isFillHeart = true;
+      console.log(payload);
+      this.http.post<ProductLike>(`${this.rewardsUrl}/product_like/`, payload, httpOptions)
+        .subscribe(res => { console.log('post res', res); });
+      this.renderLike();
+        this.createElementService.toast('좋아하는 프로젝트에 저장되었습니다.\n관련된 다양한 소식을 전해드리겠습니다!');
+      this.isLiked = true;
     }
+  }
+
+  renderLike() {
+    const token = this.loginService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `token ${token}`
+      })
+    };
+
+    this.http.get<RewardDetail>(`${this.rewardsUrl}/${this.id}`, httpOptions)
+    .subscribe((res) => {
+      console.log('[get res]', res);
+      // this.rewardDetail.product_interested_count = res;
+     } );
   }
 
 }
