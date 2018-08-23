@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HttpClient } from '../../../../node_modules/@angular/common/http';
+import { HttpClient, HttpHeaders } from '../../../../node_modules/@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { CreateElementService } from '../../core/services/create-element/create-element.service';
@@ -42,6 +42,13 @@ interface RewardDetail {
   product_percentbar: number;
 }
 
+interface ProductLike {
+  pk: number;
+  user: number;
+  product: number;
+  liked_at: string;
+}
+
 @Component({
   selector: 'app-detail',
   templateUrl: 'detail.component.html',
@@ -50,9 +57,16 @@ interface RewardDetail {
 export class DetailComponent implements OnInit {
   rewardDetail: RewardDetail;
   id: number;
-  isLiked: boolean;
+  isLiked = false;
   rewardsUrl = environment.rewardsUrl;
   nowTime: number;
+  isImg: boolean;
+  isFillHeart: boolean;
+  productLike: ProductLike;
+
+  get userInfo() {
+    return this.loginService.userInfo;
+  }
 
   constructor(
     private http: HttpClient,
@@ -127,14 +141,59 @@ export class DetailComponent implements OnInit {
     this.router.navigate(['/funding/step10', this.id]);
   }
 
-  liketoggle(n: number) {
+  liketoggle() {
+    console.log(this.userInfo);
+    if (!this.loginService.isLogin) {
+      this.router.navigate(['/login']);
+      return;
+    }
+    const token = this.loginService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `token ${token}`
+      })
+    };
+
+    const payload = {
+      user: this.userInfo.pk,
+      product: this.id
+    };
+
+
     if (this.isLiked) {
-      this.createElementService.toast('좋아하는 프로젝트에서 제외되었습니다.');
-      this.isLiked = false;
+      this.http.delete<RewardDetail>(`${this.rewardsUrl}/product_like/56`, httpOptions)
+        .subscribe(() => {
+        console.log('[delete like]');
+        this.createElementService.toast('좋아하는 프로젝트에서 제외되었습니다.');
+        this.isLiked = false;
+        this.renderLike();
+      });
     } else {
-      this.createElementService.toast('좋아하는 프로젝트에 저장되었습니다.\n관련된 다양한 소식을 전해드리겠습니다!');
+      // console.log(payload);
+      this.http.post<ProductLike>(`${this.rewardsUrl}/product_like/`, payload, httpOptions)
+        .subscribe(res => {
+          // this.rewardDetail.product_interested_count++;
+          console.log('post res', res);
+          this.renderLike();
+        });
+        this.createElementService.toast('좋아하는 프로젝트에 저장되었습니다.\n관련된 다양한 소식을 전해드리겠습니다!');
       this.isLiked = true;
     }
+  }
+
+  renderLike() {
+    const token = this.loginService.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `token ${token}`
+      })
+    };
+
+    this.http.get<RewardDetail>(`${this.rewardsUrl}/${this.id}`, httpOptions)
+    .subscribe((res) => {
+      console.log('[get res]', res);
+      this.rewardDetail.product_interested_count = res.product_interested_count;
+     } );
   }
 
 }

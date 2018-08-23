@@ -45,7 +45,7 @@
 .user {
     width: 32px;
     height: 32px;
-    border: 1px solid rgba(0,0,0,.1);
+    border: 1px solid white;
     border-radius: 16px;
     overflow: hidden;
     background: url("http://www.wadiz.kr/resources/static/img/common/img_blank.png") no-repeat -1px;
@@ -65,8 +65,8 @@
 }
 .user-pop a {
     display: inline-block;
-    color: rgba(0,0,0,.87);
-    font-size: 13px;
+    color: rgba(0,0,0,.7);
+    font-size: 15px;
     width: 100%;
 }
 .user-pop:after,
@@ -105,6 +105,7 @@
 .user-profile {
     position: relative;
     min-height: 56px;
+    padding-left: 20px;
 }
 .user-picture {
     position: absolute;
@@ -116,7 +117,7 @@
 }
 .user-picture:after {
     content: "";
-    border: 1px solid rgba(0,0,0,.1);
+    border: 1px solid white;
     display: block;
     width: 48px;
     height: 48px;
@@ -126,11 +127,12 @@
     padding-left: 66px;
     padding-top: 4px;
     font-size: 21px;
-    font-weight: 700;
+    font-weight: 500;
 }
 .user-menu {
     margin: 0 -15px;
     border-bottom: 1px solid rgba(0,0,0,.1);
+    padding-right: 20px;
 }
 .user-menu:after {
     display: block;
@@ -152,15 +154,17 @@
     display: block;
     margin: 0 auto;
     content: "\f15c";
-    font-size: 30px;
+    font-size: 27px;
     line-height: 1.5;
+    padding-bottom: 5px;
 }
 .likelist:before {
     display: block;
     content: "\f004";
     margin: 0 auto;
-    font-size: 30px;
+    font-size: 27px;
     line-height: 1.5;
+    padding-bottom: 5px;
 }
 .setting:before {
     content: "\f013";
@@ -178,7 +182,7 @@
 }
 .user-pop .logout,
 .user-pop .setting {
-    padding: 12px 0;
+    padding: 12px 0 10px 20px;
     font-size: 16px;
     font-weight: 400;
 }
