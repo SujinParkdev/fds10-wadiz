@@ -2,8 +2,8 @@
     <div class="title-container">
       <div class="title">펀딩 내역</div>
     </div>
-    <div class="list">
-      <ul class="fundinglist" *ngIf="userInfo; else empty">
+    <div class="list" *ngIf="userInfo">
+      <ul class="fundinglist" *ngIf="userInfo.funding_set.length > 0">
         <li *ngFor="let funding of userInfo.funding_set">
           <a ng-href="#">
             <dl class="funding-card">
@@ -24,18 +24,16 @@
         </li>
       </ul>
 
-      <ng-template #empty>
-        <div class="empty-text">
-          <p>
-            리워드 프로젝트에 펀딩한 내역이 없습니다.<br>
-            지금 바로 리워드 프로젝트를 둘러보세요!<br><br>
-            <a [routerLink]="'/main'">
-              <span class="link-text fas">
-                리워드 프로젝트 바로가기
-              </span>
-            </a>
-          </p>
-        </div>
-      </ng-template>
+      <div class="empty-text" *ngIf="userInfo.funding_set.length === 0">
+        <p>
+          리워드 프로젝트에 펀딩한 내역이 없습니다.<br>
+          지금 바로 리워드 프로젝트를 둘러보세요!<br><br>
+          <a [routerLink]="'/main/all'">
+            <span class="link-text fas">
+              리워드 프로젝트 바로가기
+            </span>
+          </a>
+        </p>
+      </div>
     </div>
   </div>

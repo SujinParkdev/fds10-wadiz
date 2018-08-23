@@ -44,6 +44,7 @@ export class LoginService {
       .pipe(
         tap(res => {
           this.setToken(res.token);
+          this.isAuthenticated();
         }),
         shareReplay()
       );
