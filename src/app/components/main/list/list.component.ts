@@ -105,6 +105,7 @@ export class ListComponent implements OnInit {
       delay(500)
     ).subscribe(
       res => {
+        this.createElementService.endLoading();
         this.rewards = [];
         res.results.forEach(reward => {
           const _reward = {
@@ -118,8 +119,7 @@ export class ListComponent implements OnInit {
         });
         this.nextMoreUrl = res.next ? res.next : '';
       },
-      error => {},
-      () => {
+      error => {
         this.createElementService.endLoading();
       }
     );
@@ -161,6 +161,7 @@ export class ListComponent implements OnInit {
       delay(500)
     ).subscribe(
       res => {
+        this.createElementService.endLoading();
         res.results.forEach(reward => {
           const _reward = {
             ...reward,
@@ -173,8 +174,7 @@ export class ListComponent implements OnInit {
         });
         this.nextMoreUrl = res.next ? res.next : '';
       },
-      error => {},
-      () => {
+      error => {
         this.createElementService.endLoading();
       }
     );

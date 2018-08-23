@@ -111,8 +111,9 @@ export class JoinComponent implements OnInit {
       username: this.username.value,
       nickname: this.nickname.value,
       password: this.password.value,
-      password1: this.passwordGroup.get('password1').value,
-      funding_set: []
+      check_password: this.passwordGroup.get('password1').value,
+      funding_set: [],
+      like_products: []
     };
 
     this.createElementService.startLoading();
@@ -121,20 +122,18 @@ export class JoinComponent implements OnInit {
         delay(500)
       ).subscribe(
         () => {
+          this.createElementService.endLoading();
+          this.isJoinError = false;
           this.createElementService.alert(
             '회원가입이 완료되었습니다.\n해당 이메일 계정으로 인증 절차를 거친 후\n로그인이 가능합니다.',
             () => {
               this.router.navigate(['/main/all']);
-              this.isJoinError = false;
             }
           );
         },
         error => {
-          console.log(error);
-          this.isJoinError = true;
-        },
-        () => {
           this.createElementService.endLoading();
+          this.isJoinError = true;
         }
       );
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../core/services/login.service';
 
 @Component({
   selector: 'app-fundinglist',
@@ -6,16 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fundinglist.component.css']
 })
 export class FundinglistComponent implements OnInit {
-  fundingList = [];
-
-  constructor() { }
-
-  ngOnInit() {
-    this.fundingList = [
-      {
-        id: 1
-      }
-    ];
+  get userInfo() {
+    return this.loginService.userInfo;
   }
 
+  constructor(
+    private loginService: LoginService
+  ) { }
+
+  ngOnInit() {
+  }
+
+  getStatus(str: string): string {
+    return str.includes('N') ? '종료' : '진행중';
+  }
 }

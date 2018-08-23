@@ -9,11 +9,14 @@ import { User } from '../interface/user';
 import { environment } from '../../../environments/environment';
 
 interface UserInfo {
-  pk: number;
-  username: string;
-  nickname: string;
-  img_profile: string;
+  pk?: number;
+  username?: string;
+  nickname?: string;
+  img_profile?: string;
+  like_products?: any[];
   funding_set?: any[];
+  new_password?: string;
+  check_password?: string;
 }
 
 @Injectable({
@@ -46,6 +49,26 @@ export class LoginService {
       );
   }
 
+  changeInfo(payload: User): Observable<UserInfo> {
+    const token = this.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `token ${token}`
+      })
+    };
+    return this.http.patch<User>(`${this.apiUrl}/change-info/`, payload, httpOptions);
+  }
+
+  deleteUser(payload: User): Observable<User> {
+    const token = this.getToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `token ${token}`
+      })
+    };
+    return this.http.post<User>(`${this.apiUrl}/change-info/`, payload, httpOptions);
+  }
+
   signout(): void {
     this.removeToken();
   }
@@ -72,10 +95,12 @@ export class LoginService {
       .subscribe(
         res => {
           this.userInfo = res;
-          // console.log(this.userInfo);
+          console.log(this.userInfo);
         },
         error => {
           // console.log(error);
+          this.signout();
+          this.isLogin = false;
         }
       );
   }

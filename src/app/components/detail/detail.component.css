@@ -686,3 +686,8 @@ button i {
 .heart-active {
   color: #fe5087;
 }
+.detail-img {
+  height: 400px;
+  background-size: cover;
+  margin: 32px 0px;
+}
