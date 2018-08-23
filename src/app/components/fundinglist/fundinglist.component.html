@@ -3,36 +3,39 @@
       <div class="title">펀딩 내역</div>
     </div>
     <div class="list">
-      <div class="empty-text" *ngIf="fundingList.length === 0">
-        <p>
-          리워드 프로젝트에 펀딩한 내역이 없습니다.<br>
-          지금 바로 리워드 프로젝트를 둘러보세요!<br><br>
-          <a [routerLink]="'/main'">
-            <span class="link-text fas">
-              리워드 프로젝트 바로가기
-            </span>
-          </a>
-        </p>
-      </div>
-      <ul class="fundinglist" *ngIf="fundingList.length > 0">
-        <li>
+      <ul class="fundinglist" *ngIf="userInfo; else empty">
+        <li *ngFor="let funding of userInfo.funding_set">
           <a ng-href="#">
             <dl class="funding-card">
               <dt>
-                <em class="category">리워드 / 패션·잡화</em>
-                <em class="date">2018.08.10 펀딩</em>
+                <em class="category">리워드 / {{ funding.reward.product.product_type }}</em>
+                <em class="date">{{ funding.order.requested_at.substring(0, 10) }} 펀딩</em>
               </dt>
               <dd>
-                <p class="status">진행중</p>
-                <p class="title">가죽, 다 똑같지 않아요. 평생 쓰는 베지터블 레더 지갑, 머니랩</p>
-                <p class="maker">by (주)헤비츠</p>
+                <p class="status">{{ getStatus(funding.reward.product.product_is_funding) }}</p>
+                <p class="title">{{ funding.reward.product.product_name }}</p>
+                <p class="maker">by {{ funding.reward.product.product_company_name }}</p>
                 <p class="funding-info">
-                  <em class="fund-status">결제 예약취소</em>
+                  <em class="fund-status">결제 예약</em>
                 </p>
               </dd>
             </dl>
           </a>
         </li>
       </ul>
+
+      <ng-template #empty>
+        <div class="empty-text">
+          <p>
+            리워드 프로젝트에 펀딩한 내역이 없습니다.<br>
+            지금 바로 리워드 프로젝트를 둘러보세요!<br><br>
+            <a [routerLink]="'/main'">
+              <span class="link-text fas">
+                리워드 프로젝트 바로가기
+              </span>
+            </a>
+          </p>
+        </div>
+      </ng-template>
     </div>
   </div>

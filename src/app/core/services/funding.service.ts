@@ -34,6 +34,7 @@ export class FundingService {
       delay(500)
     ).subscribe(
       res => {
+        this.createElementService.endLoading();
         this.rewardDetail = {
           pk: res.pk,
           product_name: res.product_name,
@@ -42,8 +43,7 @@ export class FundingService {
           rewards: this.getRewards(res.rewards)
         };
       },
-      error => {},
-      () => {
+      error => {
         this.createElementService.endLoading();
       }
     );

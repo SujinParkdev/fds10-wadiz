@@ -7,7 +7,7 @@
     </div>
     <div class="for-reward-searchbox-float">
       <label class="reward-search" for="keyword" [class.active]="isSearch">
-        <input type="text" placeholder="프로젝트 검색" id="keyword" #keyword
+        <input type="text" placeholder="프로젝트 검색" id="keyword" #keyword autocomplete="off"
             (keyup.enter)="rewardSearchEnter(keyword.value)">
         <div class="forbtn">
           <button class="search-btn" (click)="rewardSearch(keyword.value)">

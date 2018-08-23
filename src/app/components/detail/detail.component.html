@@ -2,7 +2,7 @@
     <!-- detail header start -->
     <div class="detail-header">
         <div class="detail-header-bg" [ngStyle]="{
-                    'background-image': 'url(' + rewardDetail.product_img + ')'
+                    'background-image': 'url(' + rewardDetail.product_detail_img + ')'
                 }"></div>
         <div class="title-info">
             <em>{{ rewardDetail.product_type }}</em>
@@ -70,18 +70,21 @@
                                     </div>
                                 </li>
                             </ul>
+                            <div class="detail-img"
+                                [ngStyle]="{
+                                    'background-image': 'url(' + rewardDetail.product_img + ')'
+                                 }">
+                            </div>
+
                             <div style="padding:20px;background:#eafbf7;background:rgba(0, 204, 163, 0.1)">
                                 <p style="color:#00cca3;font-size:13px;line-height:20px;margin-bottom:10px;"><strong>목표 금액</strong> {{ rewardDetail.product_total_amount | comma }}원 &nbsp; &nbsp;
                                     <strong>펀딩기간</strong> {{ rewardDetail.product_start_time }}-{{ rewardDetail.product_end_time }}</p>
                                 <p style="color:#4a4a4a;font-size:12px;line-height:19px;"><strong>100% 이상 모이면 펀딩이 성공되는 프로젝트</strong><br>
                                 이 프로젝트는 펀딩 마감일까지 목표 금액이 100% 모이지 않으면 결제가 진행되지 않습니다.</p>
                             </div>
-                            <div class="campaign-summary" style="background-color: #ffffff;" [innerHTML]="rewardDetail.product_description">
-                            </div>
+                            <div class="campaign-summary" style="background-color: #ffffff;"></div>
 
-                            <div class="banner-section-RB1"></div>
-
-
+                            <div class="inner-contents" [innerHTML]="rewardDetail.product_description"></div>
                             <!-- S : 댓글 영역 -->
                             <div style="margin-top: 50px; display: none;">
                                 <!-- S : 댓글 템플릿 -->

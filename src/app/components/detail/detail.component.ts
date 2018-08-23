@@ -82,6 +82,7 @@ export class DetailComponent implements OnInit {
       this.id = +params['id'];
       this.getDetail();
     });
+    this.nowTime = Date.now();
   }
 
   getDetail() {
@@ -92,6 +93,7 @@ export class DetailComponent implements OnInit {
       )
       .subscribe(
         rewards => {
+          this.createElementService.endLoading();
           this.rewardDetail = {
             ...rewards,
             product_term: this.getTerm(rewards.product_end_time),
@@ -102,10 +104,8 @@ export class DetailComponent implements OnInit {
           console.log(this.rewardDetail);
         },
         error => {
-          // console.log(error);
-        },
-        () => {
           this.createElementService.endLoading();
+          // console.log(error);
         }
       );
   }
@@ -138,12 +138,7 @@ export class DetailComponent implements OnInit {
   }
 
   goFunding() {
-    this.loginService.isAuthenticated();
-    if (this.loginService.isLogin) {
-      this.router.navigate(['/funding/step10', this.id]);
-    } else {
-      this.router.navigate(['/login']);
-    }
+    this.router.navigate(['/funding/step10', this.id]);
   }
 
   liketoggle(n: number) {

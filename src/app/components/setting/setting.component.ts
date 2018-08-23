@@ -45,11 +45,57 @@ export class SettingComponent implements OnInit {
   }
 
   clickSubmit() {
-    this.isSettingError = true;
+    const payload = {
+      password: this.password.value
+    };
+
+    if (this.nickname.value) {
+      payload['nickname'] = this.nickname.value;
+    }
+    if (this.newPassword.value) {
+      payload['new_password'] = this.newPassword.value;
+    }
+    if (this.newPassword1.value) {
+      payload['check_password'] = this.newPassword1.value;
+    }
+
+    this.createElementService.startLoading();
+    this.loginService.changeInfo(payload).subscribe(
+      res => {
+        // console.log(res);
+        this.createElementService.endLoading();
+        this.isSettingError = false;
+        this.createElementService.alert('정보변경이 완료되었습니다.', () => {
+          this.router.navigate(['/main/all']);
+        });
+      },
+      error => {
+        // console.log(error);
+        this.createElementService.endLoading();
+        this.isSettingError = true;
+      }
+    );
   }
 
   clickQuit() {
-    this.isSettingError = false;
+    const payload = {
+      password: this.password.value
+    };
+    this.createElementService.startLoading();
+    this.loginService.deleteUser(payload).subscribe(
+      res => {
+        this.createElementService.endLoading();
+        this.isSettingError = false;
+        this.createElementService.alert('회원 탈퇴가 완료되었습니다.', () => {
+          this.loginService.signout();
+          this.router.navigate(['/main/all']);
+        });
+      },
+      error => {
+        this.createElementService.endLoading();
+        this.isSettingError = true;
+      }
+    );
   }
 
   private checkPassword(control: AbstractControl): {[key: string]: {} } {

@@ -99,6 +99,7 @@
 .fundinglist li {
   position: relative;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 .fundinglist li:hover::after {
   position: absolute;

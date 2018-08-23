@@ -13,15 +13,15 @@
     </div>
     <div class="setting-area" formGroupName="passwordGroup">
       <label class="title">비밀번호설정</label>
-      <input formControlName="newPassword" class="input" type="text" placeholder="새 비밀번호" [class.error]="newPassword.errors && newPassword.touched">
+      <input formControlName="newPassword" class="input" type="password" placeholder="새 비밀번호" [class.error]="newPassword.errors && newPassword.touched">
         <em class="error-text" *ngIf="newPassword.errors?.minlength && password.touched">최소 8자 이상입니다.</em>
         <em class="error-text" *ngIf="newPassword.errors?.pattern && password.touched">영문,숫자,특수문자를 조합해주세요.</em>
-      <input formControlName="newPassword1" class="input" type="text" placeholder="새 비밀번호 확인" [class.error]="passwordGroup.errors">
+      <input formControlName="newPassword1" class="input" type="password" placeholder="새 비밀번호 확인" [class.error]="passwordGroup.errors">
         <em class="help">영문, 숫자, 특수문자 (!@#$%^&*+=-)를 조합한 8자 이상</em>
         <em class="error-text" *ngIf="passwordGroup.errors?.match">동일한 비밀번호를 입력해주세요.</em>
     </div>
     <div class="setting-area">
-      <input formControlName="password" class="input" type="text" placeholder="현재 비밀번호" [class.error]="isSettingError">
+      <input formControlName="password" class="input" type="password" placeholder="현재 비밀번호" [class.error]="isSettingError">
       <em class="error-text" *ngIf="isSettingError">비밀번호가 회원정보와 일치하지 않습니다.</em>
     </div>
 

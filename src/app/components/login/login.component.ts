@@ -48,14 +48,13 @@ export class LoginComponent implements OnInit {
         delay(500)
       ).subscribe(
         () => {
-          this.router.navigate(['/main/all']);
+          this.createElementService.endLoading();
           this.isLoginError = false;
+          this.router.navigate(['/main/all']);
         },
         error => {
-          this.isLoginError = true;
-        },
-        () => {
           this.createElementService.endLoading();
+          this.isLoginError = true;
         }
       );
   }
