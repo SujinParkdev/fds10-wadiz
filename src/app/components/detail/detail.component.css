@@ -4,6 +4,26 @@ a {
   color: rgba(0,0,0,.84);
 }
 /* --------------------------------------------- */
+.reward .video-wrap {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+}
+.reward .video-container {
+  position: relative;
+  margin: 0 auto;
+  padding-bottom: 56.25%;
+  width: 100%;
+  height: 0;
+}
+.vidoe-cover .video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* --------------------------------------------- */
 
 .detail-container .detail-header {
   position: relative;

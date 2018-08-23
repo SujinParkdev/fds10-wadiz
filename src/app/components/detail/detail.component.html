@@ -1,7 +1,8 @@
 <div class="detail-container" *ngIf="rewardDetail; else loading">
     <!-- detail header start -->
     <div class="detail-header">
-        <div class="detail-header-bg" [ngStyle]="{
+        <div class="detail-header-bg"
+            [ngStyle]="{
                     'background-image': 'url(' + rewardDetail.product_detail_img + ')'
                 }"></div>
         <div class="title-info">
@@ -50,19 +51,24 @@
                                 <ul class="view-slide-big">
                                     <li>
                                         <div class="video-wrap"
-
-                                        >
+                                            *ngIf="isVideo; else elseBlock">
                                             <div class="video-container">
-
-                                                <div class="video-cover icon-movie" data-cover-url="" style="background-image: url(https://cdn.wadiz.kr/wwwwadiz/green002/2018/0726/20180726132120021_22042.jpg/wadiz/format/jpg/quality/95/optimize)"></div>
+                                                <iframe
+                                                style="width: 632px; height: 400px; padding-bottom: 30px;"
+                                                    class="video-cover icon-movie"
+                                                    src="https://www.youtube.com/embed/Pf1iV-Y2Msw"
+                                                    frameborder="0"
+                                                    allow="autoplay; encrypted-media"
+                                                    allowfullscreen></iframe>
                                             </div>
                                         </div>
-                                        <div class="img-responsive"
-
-                                            [ngStyle]="{
-                                                'background-image': 'url(' + rewardDetail.product_img + ')'
-                                            }">
-                                        </div>
+                                        <ng-template #elseBlock>
+                                            <div class="img-responsive"
+                                                [ngStyle]="{
+                                                    'background-image': 'url(' + rewardDetail.product_img + ')'
+                                                }">
+                                            </div>
+                                        </ng-template>
                                     </li>
                                 </ul>
                             </div>

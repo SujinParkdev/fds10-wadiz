@@ -63,6 +63,7 @@ export class DetailComponent implements OnInit {
   isImg: boolean;
   isFillHeart: boolean;
   productLike: ProductLike;
+  isVideo = true;
 
   get userInfo() {
     return this.loginService.userInfo;
@@ -102,6 +103,7 @@ export class DetailComponent implements OnInit {
             product_percentbar: this.getPercent(rewards.product_cur_amount, rewards.product_total_amount, true)
           };
           console.log(this.rewardDetail);
+          // this.videoOrImg();
         },
         error => {
           this.createElementService.endLoading();
@@ -196,4 +198,14 @@ export class DetailComponent implements OnInit {
      } );
   }
 
+  // videoOrImg() {
+  //   console.log('video url', this.rewardDetail.product_video_url);
+  //   if (this.rewardDetail.product_video_url) {
+  //     // console.log(this.isVideo);
+  //     this.isVideo = true;
+  //     console.log(this.isVideo);
+  //   } else {
+  //     this.isVideo = false;
+  //   }
+  // }
 }
