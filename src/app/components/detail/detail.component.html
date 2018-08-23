@@ -37,13 +37,19 @@
                             <div class="wd-ui-tab-contents">
                                 <h3 class="text-hidden">프로젝트 스토리</h3>
                                 <!-- 이미지가 아닌 동영상 URL이 넘어오는 경우 iframe에 동영상을 보여줘야 함 -->
-                                <div class="view-slide-wrap" style="padding: 0">
+                                <div class="view-slide-wrap">
                                     <ul class="view-slide-big">
                                         <li>
-                                            <div class="video-wrap">
-                                                <div class="video-container" data-video-url="https://youtu.be/6kFs6aI5sTk">
+                                            <div class="video-wrap" style="display: none">
+                                                <div class="video-container"
+                                                    data-video-url="https://youtu.be/6kFs6aI5sTk">
                                                     <div class="video-cover icon-movie" data-cover-url="" style="background-image: url(https://cdn.wadiz.kr/wwwwadiz/green002/2018/0726/20180726132120021_22042.jpg/wadiz/format/jpg/quality/95/optimize)"></div>
                                                 </div>
+                                            </div>
+                                            <div class="img-responsive"
+                                            [ngStyle]="{
+                                                'background-image': 'url(' + rewardDetail.product_img + ')'
+                                            }">
                                             </div>
                                         </li>
                                     </ul>
@@ -102,7 +108,7 @@
                         <p class="rate-bar">
                             <em [style.width]="rewardDetail.product_percentbar + '%'"></em></p>
                         <p class="achievement-rate"><strong>{{ rewardDetail.product_percent }}</strong>% 달성</p>
-                        <p class="total-amount"><strong>{{ rewardDetail.product_cur_amount | comma }}원</strong>원 펀딩</p>
+                        <p class="total-amount"><strong>{{ rewardDetail.product_cur_amount | comma }}원</strong> 펀딩</p>
                     </div>
                     <div class="btn-wrap funding">
                         <button class="wz-btn" (click)="goFunding()">펀딩하기</button>
@@ -110,7 +116,12 @@
                     <div class="btn-share">
                         <div class="btn-wrap-float">
                             <button id="btnLike" class="campaign-like"
-                                (click)="liketoggle()"><i class="far fa-heart"></i>{{ rewardDetail.product_interested_count }}</button>
+                                (click)="liketoggle()">
+                                <i class="far fa-heart"
+                                *ngIf="isFillHeart"
+                                [style.background-color]="isFillHeart ? 'black' : '#fc5389'"
+                                <!-- [ngStyle]="{'background-color': isFillHeart ? 'black' : '#fc5389'}" -->
+                                  ></i>{{ rewardDetail.product_interested_count }}</button>
                             <button class="campaign-message"><i class="far fa-comment-alt"></i>문의</button>
                             <button id="btnShare" class="campaign-share">공유하기</button>
                         </div>
@@ -202,43 +213,43 @@
                         <h3 class="title">인기 프로젝트</h3>
                         <div class="item">
                             <div class="recommend-number">1</div>
-                            <div class="text"><a href="/web/campaign/detail/21673">가장 간편한 음식물쓰레기 처리 솔루션</a></div>
+                            <div class="text"><a href="#">가장 간편한 음식물쓰레기 처리 솔루션</a></div>
                         </div>
                         <div class="item">
                             <div class="recommend-number">2</div>
-                            <div class="text"><a href="/web/campaign/detail/20864">세계 최초 헤드형 물 청소기 "스위틀" : 청소를 넘어 세척까지!!</a></div>
+                            <div class="text"><a href="#">세계 최초 헤드형 물 청소기 "스위틀" : 청소를 넘어 세척까지!!</a></div>
                         </div>
                         <div class="item">
                             <div class="recommend-number">3</div>
-                            <div class="text"><a href="/web/campaign/detail/19924">PILLOW - 세상에서 가장 작은 독서대</a></div>
+                            <div class="text"><a href="#">PILLOW - 세상에서 가장 작은 독서대</a></div>
                         </div>
                         <div class="item">
                             <div class="recommend-number">4</div>
-                            <div class="text"><a href="/web/campaign/detail/21911">365일 빗물과 오염으로부터 지켜줄 "쉴더 발수코팅제"</a></div>
+                            <div class="text"><a href="#">365일 빗물과 오염으로부터 지켜줄 "쉴더 발수코팅제"</a></div>
                         </div>
                         <div class="item">
                             <div class="recommend-number">5</div>
-                            <div class="text"><a href="/web/campaign/detail/20874">팝펫 드라이룸_일상의 가치를 + 더한 펫드라이룸을 소개합니다.</a></div>
+                            <div class="text"><a href="#">팝펫 드라이룸_일상의 가치를 + 더한 펫드라이룸을 소개합니다.</a></div>
                         </div>
                         <div class="item">
                             <div class="recommend-number">6</div>
-                            <div class="text"><a href="/web/campaign/detail/20923">세계최초 우퍼 ON!! OFF!!가 가능한 블루투스 우퍼이어셋 - 디버즈</a></div>
+                            <div class="text"><a href="#">세계최초 우퍼 ON!! OFF!!가 가능한 블루투스 우퍼이어셋 - 디버즈</a></div>
                         </div>
                         <div class="item">
                             <div class="recommend-number">7</div>
-                            <div class="text"><a href="/web/campaign/detail/21767">크고 가벼운 안경 : 휴즈(Huge) - 2차</a></div>
+                            <div class="text"><a href="#">크고 가벼운 안경 : 휴즈(Huge) - 2차</a></div>
                         </div>
                         <div class="item">
                             <div class="recommend-number">8</div>
-                            <div class="text"><a href="/web/campaign/detail/21511">카시트만으로 외출준비가 끝난것은 아닙니다. 성장기 무릎보호 카시트발판</a></div>
+                            <div class="text"><a href="#">카시트만으로 외출준비가 끝난것은 아닙니다. 성장기 무릎보호 카시트발판</a></div>
                         </div>
                         <div class="item">
                             <div class="recommend-number">9</div>
-                            <div class="text"><a href="/web/campaign/detail/21856">여행용 캐리어 및 의류 진공압축포장의 혁명! -핸디형 진공 압축기</a></div>
+                            <div class="text"><a href="#">여행용 캐리어 및 의류 진공압축포장의 혁명! -핸디형 진공 압축기</a></div>
                         </div>
                         <div class="item">
                             <div class="recommend-number">10</div>
-                            <div class="text"><a href="/web/campaign/detail/22042">유선의 한계를 뛰어넘는 차량용 무선 청소기 　 <더쎈> </a></div>
+                            <div class="text"><a href="#">유선의 한계를 뛰어넘는 차량용 무선 청소기 　 <더쎈> </a></div>
                         </div>
                     </div>
                 </div>

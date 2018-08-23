@@ -48,10 +48,12 @@ interface RewardDetail {
 export class DetailComponent implements OnInit {
   rewardDetail: RewardDetail;
   rewardGift: Reward;
+  rewardsUrl = environment.rewardsUrl;
   id: number;
   isClicked: boolean;
-  rewardsUrl = environment.rewardsUrl;
   nowTime: number;
+  isImg: boolean;
+  isFillHeart: boolean;
 
   constructor(
     private http: HttpClient,
@@ -117,10 +119,25 @@ export class DetailComponent implements OnInit {
     this.router.navigate(['/funding/step10', this.id]);
   }
 
-  liketoggle(n: number) {
-    this.createElementService.toast('좋아하는 프로젝트에 저장되었습니다.\n관련된 다양한 소식을 전해드리겠습니다!');
-    // const btnLikeHeart = document.querySelector('.fa-heart');
-    // this.rewards = this.rewards.map(reward => rewarddetail.product_interested_count === n ? { ...reward, product_interested_count: reward.product_interested_count + 1 } : reward );
+  liketoggle() {
+    // likeState true면 좋아요 누른 것, false는 누르지 않은 것
+    const c = this.rewardDetail.product_interested_count;
+    let likeState = false;
+
+    if (!likeState) {
+      this.http.patch<RewardDetail>(`${this.rewardsUrl}`, { product_interested_count : c + 1})
+        .subscribe(() =>
+          this.rewardDetail.product_interested_count =  c + 1 );
+      this.createElementService.toast('좋아하는 프로젝트에 저장되었습니다.\n관련된 다양한 소식을 전해드리겠습니다!');
+      likeState = false;
+      this.isFillHeart = false;
+    } else {
+      this.http.delete<RewardDetail>(`${this.rewardsUrl}`)
+      .subscribe(() =>
+      this.createElementService.toast('좋아하는 프로젝트에서 제외되었습니다.');
+      likeState = true;
+      this.isFillHeart = true;
+    }
   }
 
 }
